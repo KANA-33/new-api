@@ -67,3 +67,36 @@ func (t *themeAwareFileSystem) Open(name string) (http.File, error) {
 func NewThemeAwareFS(defaultFS, classicFS static.ServeFileSystem) static.ServeFileSystem {
 	return &themeAwareFileSystem{defaultFS: defaultFS, classicFS: classicFS}
 }
+
+// mergeFileSystem 依次尝试多个 FS，找到文件即返回。
+// 用于合并 admin 和 user 的静态资源（JS/CSS/图片等），
+// 各 SPA 的打包文件名含 hash，不存在冲突。
+type mergeFileSystem struct {
+	systems []static.ServeFileSystem
+}
+
+func (m *mergeFileSystem) Exists(prefix string, path string) bool {
+	for _, fs := range m.systems {
+		if fs.Exists(prefix, path) {
+			return true
+		}
+	}
+	return false
+}
+
+func (m *mergeFileSystem) Open(name string) (http.File, error) {
+	if name == "/" {
+		return nil, os.ErrNotExist
+	}
+	for _, fs := range m.systems {
+		f, err := fs.Open(name)
+		if err == nil {
+			return f, nil
+		}
+	}
+	return nil, os.ErrNotExist
+}
+
+func NewMergeFS(systems ...static.ServeFileSystem) static.ServeFileSystem {
+	return &mergeFileSystem{systems: systems}
+}

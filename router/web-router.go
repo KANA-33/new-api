@@ -9,22 +9,28 @@ import (
 	"github.com/QuantumNous/new-api/controller"
 	"github.com/QuantumNous/new-api/middleware"
 	"github.com/gin-contrib/gzip"
+	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
 )
 
-// ThemeAssets holds the embedded frontend assets for both themes.
+// ThemeAssets holds the embedded frontend assets for all themes.
 type ThemeAssets struct {
 	DefaultBuildFS   embed.FS
 	DefaultIndexPage []byte
 	ClassicBuildFS   embed.FS
 	ClassicIndexPage []byte
+	UserBuildFS      embed.FS
+	UserIndexPage    []byte
 }
 
 func SetWebRouter(router *gin.Engine, assets ThemeAssets) {
 	defaultFS := common.EmbedFolder(assets.DefaultBuildFS, "web/default/dist")
+	userFS := common.EmbedFolder(assets.UserBuildFS, "web/user/dist")
 	classicFS := common.EmbedFolder(assets.ClassicBuildFS, "web/classic/dist")
-	themeFS := common.NewThemeAwareFS(defaultFS, classicFS)
+
+	mergedDefaultFS := common.NewMergeFS(defaultFS, userFS)
+	themeFS := common.NewThemeAwareFS(mergedDefaultFS, classicFS)
 
 	router.Use(gzip.Gzip(gzip.DefaultCompression))
 	router.Use(middleware.GlobalWebRateLimit())
@@ -39,8 +45,14 @@ func SetWebRouter(router *gin.Engine, assets ThemeAssets) {
 		c.Header("Cache-Control", "no-cache")
 		if common.GetTheme() == "classic" {
 			c.Data(http.StatusOK, "text/html; charset=utf-8", assets.ClassicIndexPage)
-		} else {
+			return
+		}
+		session := sessions.Default(c)
+		role, _ := session.Get("role").(int)
+		if role >= common.RoleAdminUser {
 			c.Data(http.StatusOK, "text/html; charset=utf-8", assets.DefaultIndexPage)
+		} else {
+			c.Data(http.StatusOK, "text/html; charset=utf-8", assets.UserIndexPage)
 		}
 	})
 }
