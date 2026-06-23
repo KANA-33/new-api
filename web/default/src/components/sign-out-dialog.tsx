@@ -35,7 +35,8 @@ export function SignOutDialog({ open, onOpenChange }: SignOutDialogProps) {
     try {
       await logout()
     } catch {
-      /* empty */
+      toast.error(t('Sign out failed. Please try again.'))
+      return
     }
     auth.reset()
     try {
@@ -46,10 +47,7 @@ export function SignOutDialog({ open, onOpenChange }: SignOutDialogProps) {
       /* empty */
     }
     toast.success(t('Signed out'))
-    // Refresh the page to clear all state and update UI
-    if (typeof window !== 'undefined') {
-      window.location.reload()
-    }
+    window.location.href = '/sign-in'
   }
 
   return (
