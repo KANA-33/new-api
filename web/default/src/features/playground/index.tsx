@@ -20,6 +20,8 @@ import { useCallback, useEffect, useState } from 'react'
 import { UserSurfacePage } from '@widgets/user-workspace'
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
+import { useAuthStore } from '@domains/identity/store/auth-store'
+import { ROLE } from '@shared/lib/roles'
 import { toast } from 'sonner'
 import { getUserModels, getUserGroups } from './api'
 import { PlaygroundChat } from './components/playground-chat'
@@ -30,6 +32,9 @@ import type { Message as MessageType } from './types'
 
 export function Playground() {
   const { t } = useTranslation()
+  const isAdmin = useAuthStore(
+    (state) => (state.auth.user?.role ?? 0) >= ROLE.ADMIN
+  )
   const {
     config,
     parameterEnabled,
@@ -189,16 +194,14 @@ export function Playground() {
     updateMessages(newMessages)
   }
 
-  return (
-    <UserSurfacePage
-      eyebrow={t('Playground')}
-      title={t('Experiment with models in a quieter studio.')}
-      description={t('Compose, test, edit, and regenerate prompts without leaving the refined user workspace.')}
-      compact
-      showHeader={false}
-      contentClassName='pb-6 md:pb-8'
+  const content = (
+    <div
+      className={
+        isAdmin
+          ? 'relative flex size-full flex-col overflow-hidden'
+          : 'relative flex h-[calc(100svh-17rem)] min-h-[620px] flex-col overflow-hidden rounded-[1.5rem] bg-[#fbf7ef]/92 shadow-[0_20px_60px_rgba(62,50,36,0.10)] ring-1 ring-[#d8ccbb]'
+      }
     >
-      <div className='relative flex h-[calc(100svh-17rem)] min-h-[620px] flex-col overflow-hidden rounded-[1.5rem] bg-[#fbf7ef]/92 shadow-[0_20px_60px_rgba(62,50,36,0.10)] ring-1 ring-[#d8ccbb]'>
       {/* Full-width scroll container: scrolling works even over side whitespace */}
       <div className='flex flex-1 flex-col overflow-hidden'>
         <PlaygroundChat
@@ -216,7 +219,7 @@ export function Playground() {
       </div>
 
       {/* Input area: center content and constrain to the same container width */}
-      <div className='mx-auto w-full max-w-4xl px-3 pb-3'>
+      <div className={isAdmin ? 'mx-auto w-full max-w-4xl' : 'mx-auto w-full max-w-4xl px-3 pb-3'}>
         <PlaygroundInput
           disabled={isGenerating}
           groups={groups}
@@ -231,7 +234,23 @@ export function Playground() {
           onSubmit={handleSendMessage}
         />
       </div>
-      </div>
+    </div>
+  )
+
+  if (isAdmin) return content
+
+  return (
+    <UserSurfacePage
+      eyebrow={t('Playground')}
+      title={t('Experiment with models in a quieter studio.')}
+      description={t(
+        'Compose, test, edit, and regenerate prompts without leaving the refined user workspace.'
+      )}
+      compact
+      showHeader={false}
+      contentClassName='pb-6 md:pb-8'
+    >
+      {content}
     </UserSurfacePage>
   )
 }

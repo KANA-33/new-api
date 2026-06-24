@@ -42,7 +42,7 @@ export function ProfileHeader({ profile, loading }: ProfileHeaderProps) {
 
   if (loading) {
     return (
-      <Card data-card-hover='false' className='gap-0 overflow-hidden rounded-[1.5rem] bg-[#fbf7ef] py-0 ring-[#d8ccbb]'>
+      <Card data-card-hover='false' className='gap-0 overflow-hidden py-0'>
         <CardContent className='p-4 sm:p-5'>
           <div className='flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left'>
             <Skeleton className='h-16 w-16 rounded-2xl' />
@@ -59,7 +59,7 @@ export function ProfileHeader({ profile, loading }: ProfileHeaderProps) {
             </div>
           </div>
         </CardContent>
-        <div className='border-t border-[#d8ccbb]'>
+        <div className='border-t'>
           <div className='divide-border/60 grid grid-cols-1 divide-y sm:grid-cols-3 sm:divide-x sm:divide-y-0'>
             {Array.from({ length: 3 }).map((_, i) => (
               <div key={i} className='px-4 py-3.5 sm:px-5 sm:py-4'>
@@ -103,7 +103,7 @@ export function ProfileHeader({ profile, loading }: ProfileHeaderProps) {
   ]
 
   return (
-    <Card data-card-hover='false' className='gap-0 overflow-hidden rounded-[1.5rem] bg-[#fbf7ef] py-0 ring-[#d8ccbb]'>
+    <Card data-card-hover='false' className='gap-0 overflow-hidden py-0'>
       <CardContent className='p-3 sm:p-5'>
         <div className='flex items-center gap-3 text-left sm:gap-4'>
           <Avatar className='ring-background h-12 w-12 rounded-xl text-sm ring-2 sm:h-16 sm:w-16 sm:rounded-2xl sm:text-lg sm:ring-4'>
@@ -150,8 +150,8 @@ export function ProfileHeader({ profile, loading }: ProfileHeaderProps) {
           </div>
         </div>
       </CardContent>
-      <div className='border-t border-[#d8ccbb]'>
-        <div className='grid grid-cols-3 divide-x divide-[#d8ccbb]/70'>
+      <div className='border-t'>
+        <div className='divide-border/60 grid grid-cols-3 divide-x'>
           {stats.map((item) => (
             <div key={item.label} className='min-w-0 px-3 py-3 sm:px-5 sm:py-4'>
               <div className='flex items-center gap-2'>

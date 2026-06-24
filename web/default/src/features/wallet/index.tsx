@@ -19,6 +19,8 @@ For commercial licensing, please contact support@quantumnous.com
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { UserSurfacePage } from '@widgets/user-workspace'
 import { useTranslation } from 'react-i18next'
+import { useAuthStore } from '@domains/identity/store/auth-store'
+import { ROLE } from '@shared/lib/roles'
 import { getSelf } from '@shared/api/client'
 import { useStatus } from '@shared/hooks/use-status'
 import { useSystemConfig } from '@shared/hooks/use-system-config'
@@ -59,6 +61,9 @@ interface WalletProps {
 
 export function Wallet(props: WalletProps) {
   const { t } = useTranslation()
+  const isAdmin = useAuthStore(
+    (state) => (state.auth.user?.role ?? 0) >= ROLE.ADMIN
+  )
   const [user, setUser] = useState<UserWalletData | null>(null)
   const [userLoading, setUserLoading] = useState(true)
   const [topupAmount, setTopupAmount] = useState(0)
@@ -258,15 +263,8 @@ export function Wallet(props: WalletProps) {
     []
   )
 
-  return (
-    <>
-      <UserSurfacePage
-        eyebrow={t('Wallet')}
-        title={t('Balance, billing, and rewards without friction.')}
-        description={t('Recharge, subscribe, redeem codes, and review account value in one warm financial workspace.')}
-      showHeader={false}
-      >
-      <SectionPageLayout>
+  const content = (
+    <SectionPageLayout>
         <SectionPageLayout.Title>{t('Wallet')}</SectionPageLayout.Title>
         <SectionPageLayout.Content>
           <div className='mx-auto flex w-full max-w-7xl flex-col gap-4 sm:gap-5'>
@@ -333,7 +331,24 @@ export function Wallet(props: WalletProps) {
           </div>
         </SectionPageLayout.Content>
       </SectionPageLayout>
-      </UserSurfacePage>
+  )
+
+  return (
+    <>
+      {isAdmin ? (
+        content
+      ) : (
+        <UserSurfacePage
+          eyebrow={t('Wallet')}
+          title={t('Balance, billing, and rewards without friction.')}
+          description={t(
+            'Recharge, subscribe, redeem codes, and review account value in one warm financial workspace.'
+          )}
+          showHeader={false}
+        >
+          {content}
+        </UserSurfacePage>
+      )}
 
       <PaymentConfirmDialog
         open={confirmDialogOpen}
