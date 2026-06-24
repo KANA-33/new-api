@@ -8,8 +8,8 @@ License, or (at your option) any later version.
 */
 import { Link, useLocation } from '@tanstack/react-router'
 import {
-  BarChart3,
-  CreditCard,
+  FileText,
+  LineChart,
   FlaskConical,
   Key,
   LayoutDashboard,
@@ -20,12 +20,12 @@ import { useTranslation } from 'react-i18next'
 import { cn } from '@shared/lib/utils'
 
 const USER_NAV_ITEMS = [
-  { title: 'Console', href: '/dashboard', icon: LayoutDashboard },
+  { title: 'Console', href: '/dashboard/overview', icon: LayoutDashboard },
+  { title: 'Data Panel', href: '/dashboard/models', icon: LineChart },
+  { title: 'Logs', href: '/usage-logs', icon: FileText },
   { title: 'Playground', href: '/playground', icon: FlaskConical },
   { title: 'API Keys', href: '/keys', icon: Key },
   { title: 'Wallet', href: '/wallet', icon: Wallet },
-  { title: 'Model Square', href: '/pricing', icon: CreditCard },
-  { title: 'Rankings', href: '/rankings', icon: BarChart3 },
   { title: 'Profile', href: '/profile', icon: User },
 ] as const
 
@@ -39,8 +39,8 @@ export function UserWorkspaceNav() {
         const Icon = item.icon
         const isActive =
           pathname === item.href ||
-          (item.href !== '/dashboard' && pathname.startsWith(item.href + '/')) ||
-          (item.href === '/dashboard' && pathname.startsWith('/dashboard'))
+          (!item.href.startsWith('/dashboard/') &&
+            pathname.startsWith(`${item.href}/`))
 
         return (
           <Link

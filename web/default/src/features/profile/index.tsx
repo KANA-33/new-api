@@ -99,6 +99,7 @@ export function Profile() {
       eyebrow='Profile'
       title='Account identity, security, and preferences.'
       description='Keep your profile current, tune language preferences, and manage authentication settings from a restrained personal surface.'
+      showHeader={false}
     >
       {content}
     </UserSurfacePage>
