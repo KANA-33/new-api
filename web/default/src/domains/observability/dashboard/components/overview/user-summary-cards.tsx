@@ -248,40 +248,8 @@ export function UserSummaryCards() {
 
   return (
     <div className='overflow-hidden rounded-[1.75rem] bg-[#fbf5ea] shadow-[0_26px_70px_rgba(77,61,43,0.11)] ring-1 ring-[#dccbb5]'>
-      <div className='grid xl:grid-cols-[minmax(0,1fr)_19rem]'>
-        <div className='flex flex-col gap-4 p-4 sm:p-5'>
-          <div className='flex flex-wrap items-start justify-between gap-3'>
-            <div className='flex flex-col gap-1'>
-              <h3 className='text-xl font-semibold tracking-normal text-[#302c26]'>
-                {t('Usage at a glance')}
-              </h3>
-              <p className='text-sm leading-6 text-[#756958]'>
-                {t('Monitor balance, usage, and request volume')}
-              </p>
-            </div>
-          </div>
-          <StaggerContainer className='grid gap-3 md:grid-cols-3'>
-            {items.map((it) => (
-              <StaggerItem
-                key={it.key}
-                className='rounded-[1.35rem] bg-[#fff8ed]/85 p-4 ring-1 ring-[#ded0bd]'
-              >
-                <StatCard
-                  title={it.title}
-                  value={it.value}
-                  description={it.desc}
-                  icon={it.icon}
-                  tone={it.tone}
-                  sparkline={it.sparkline}
-                  sparklineVariant={it.sparklineVariant}
-                  loading={loading}
-                />
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-
-        <div className='flex flex-col justify-between gap-4 border-t border-[#dccbb5] bg-[#e9dcc9] p-4 sm:p-5 xl:border-t-0 xl:border-l'>
+      <div className='grid xl:grid-cols-[19rem_minmax(0,1fr)]'>
+        <div className='flex flex-col justify-between gap-4 border-b border-[#dccbb5] bg-[#e9dcc9] p-4 sm:p-5 xl:border-r xl:border-b-0'>
           <div className='flex flex-col gap-3'>
             <div className='flex items-center justify-between'>
               <span className='text-xs font-medium text-[#756958]'>
@@ -302,7 +270,7 @@ export function UserSummaryCards() {
               {formatQuota(remainQuota)}
             </div>
 
-            <div className='grid grid-cols-2 gap-2'>
+            <div className='grid grid-cols-2 gap-2 xl:grid-cols-1'>
               <div className='rounded-xl bg-[#fff8ed]/75 px-2.5 py-2 ring-1 ring-[#d8c8b4]'>
                 <div className='text-muted-foreground flex items-center gap-1 text-[11px] leading-none font-medium'>
                   <Flame className='size-3 shrink-0' aria-hidden='true' />
@@ -344,6 +312,38 @@ export function UserSummaryCards() {
             <span>{t('Wallet')}</span>
             <ArrowRight data-icon='inline-end' />
           </Button>
+        </div>
+
+        <div className='flex flex-col gap-4 p-4 sm:p-5'>
+          <div className='flex flex-wrap items-start justify-between gap-3'>
+            <div className='flex flex-col gap-1'>
+              <h3 className='text-xl font-semibold tracking-normal text-[#302c26]'>
+                {t('Usage at a glance')}
+              </h3>
+              <p className='text-sm leading-6 text-[#756958]'>
+                {t('Monitor balance, usage, and request volume')}
+              </p>
+            </div>
+          </div>
+          <StaggerContainer className='grid gap-3 md:grid-cols-3'>
+            {items.map((it) => (
+              <StaggerItem
+                key={it.key}
+                className='rounded-[1.35rem] bg-[#fff8ed]/85 p-4 ring-1 ring-[#ded0bd]'
+              >
+                <StatCard
+                  title={it.title}
+                  value={it.value}
+                  description={it.desc}
+                  icon={it.icon}
+                  tone={it.tone}
+                  sparkline={it.sparkline}
+                  sparklineVariant={it.sparklineVariant}
+                  loading={loading}
+                />
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </div>
     </div>

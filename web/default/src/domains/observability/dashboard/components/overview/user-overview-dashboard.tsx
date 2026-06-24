@@ -616,6 +616,8 @@ export function UserOverviewDashboard() {
       <div className='pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_0%,rgba(255,247,232,0.95)_0%,transparent_34%),radial-gradient(circle_at_90%_18%,rgba(82,73,61,0.12)_0%,transparent_32%)]' />
       <div className='pointer-events-none absolute inset-0 opacity-[0.18] [background-image:linear-gradient(90deg,rgba(74,59,41,0.10)_1px,transparent_1px),linear-gradient(rgba(74,59,41,0.08)_1px,transparent_1px)] [background-size:42px_42px]' />
       <div className='relative flex flex-col gap-5'>
+      <SummaryCards />
+
       {setupGuideExpanded ? (
         <CardStaggerContainer className='grid items-stretch gap-5 xl:grid-cols-[minmax(0,1fr)_23rem]'>
           <CardStaggerItem className='h-full overflow-hidden rounded-[1.75rem] bg-[#fbf5ea] shadow-[0_26px_70px_rgba(77,61,43,0.12)] ring-1 ring-[#dccbb5]'>
@@ -745,8 +747,6 @@ export function UserOverviewDashboard() {
           </CardStaggerItem>
         </CardStaggerContainer>
       )}
-
-      <SummaryCards />
 
       {showContentPanels && (
         <CardStaggerContainer
