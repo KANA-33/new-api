@@ -17,6 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { useState, useEffect, useCallback, useMemo } from 'react'
+import { UserSurfacePage } from '@widgets/user-workspace'
 import { useTranslation } from 'react-i18next'
 import { getSelf } from '@shared/api/client'
 import { useStatus } from '@shared/hooks/use-status'
@@ -259,6 +260,11 @@ export function Wallet(props: WalletProps) {
 
   return (
     <>
+      <UserSurfacePage
+        eyebrow={t('Wallet')}
+        title={t('Balance, billing, and rewards without friction.')}
+        description={t('Recharge, subscribe, redeem codes, and review account value in one warm financial workspace.')}
+      >
       <SectionPageLayout>
         <SectionPageLayout.Title>{t('Wallet')}</SectionPageLayout.Title>
         <SectionPageLayout.Content>
@@ -326,6 +332,7 @@ export function Wallet(props: WalletProps) {
           </div>
         </SectionPageLayout.Content>
       </SectionPageLayout>
+      </UserSurfacePage>
 
       <PaymentConfirmDialog
         open={confirmDialogOpen}

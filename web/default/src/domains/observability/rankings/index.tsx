@@ -55,15 +55,15 @@ export function Rankings() {
 
   return (
     <PublicLayout showMainContainer={false}>
-      <div className='relative'>
+      <div className='relative min-h-svh overflow-hidden bg-[#f4efe7] text-[#2e2b26]'>
         <div
           aria-hidden
-          className='pointer-events-none absolute inset-x-0 top-0 h-[600px] opacity-20 dark:opacity-[0.10]'
+          className='pointer-events-none absolute inset-x-0 top-0 h-[680px] opacity-70'
           style={{
             background: [
-              'radial-gradient(ellipse 60% 50% at 20% 20%, oklch(0.72 0.18 250 / 80%) 0%, transparent 70%)',
-              'radial-gradient(ellipse 50% 40% at 80% 15%, oklch(0.65 0.15 200 / 60%) 0%, transparent 70%)',
-              'radial-gradient(ellipse 40% 35% at 50% 70%, oklch(0.70 0.12 280 / 40%) 0%, transparent 70%)',
+              'radial-gradient(ellipse 60% 50% at 18% 18%, rgba(228,210,180,0.92) 0%, transparent 70%)',
+              'radial-gradient(ellipse 50% 40% at 82% 12%, rgba(47,53,66,0.18) 0%, transparent 70%)',
+              'radial-gradient(ellipse 45% 38% at 52% 70%, rgba(216,201,182,0.56) 0%, transparent 70%)',
             ].join(', '),
             maskImage:
               'linear-gradient(to bottom, black 40%, transparent 100%)',
@@ -71,8 +71,8 @@ export function Rankings() {
               'linear-gradient(to bottom, black 40%, transparent 100%)',
           }}
         />
-        <PageTransition className='relative mx-auto w-full max-w-[1280px] space-y-8 px-3 pt-16 pb-10 sm:px-6 sm:pt-20 sm:pb-12 xl:px-8'>
-          <RankingsHero period={period} onPeriodChange={handlePeriodChange} />
+        <PageTransition className='relative mx-auto w-full max-w-[1280px] space-y-8 px-3 pt-24 pb-12 sm:px-6 sm:pt-28 sm:pb-14 xl:px-8'>
+          <div className='rounded-[2rem] bg-[#fbf7ef]/82 p-4 shadow-[0_20px_70px_rgba(62,50,36,0.10)] ring-1 ring-[#d8ccbb]'><RankingsHero period={period} onPeriodChange={handlePeriodChange} /></div>
 
           {rankingsQuery.isLoading ? (
             <RankingsLoading />

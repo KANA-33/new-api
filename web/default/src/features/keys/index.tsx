@@ -17,6 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { useTranslation } from 'react-i18next'
+import { UserSurfacePage } from '@widgets/user-workspace'
 import { SectionPageLayout } from '@widgets/layout'
 import { ApiKeysDialogs } from './components/api-keys-dialogs'
 import { ApiKeysPrimaryButtons } from './components/api-keys-primary-buttons'
@@ -27,6 +28,12 @@ export function ApiKeys() {
   const { t } = useTranslation()
   return (
     <ApiKeysProvider>
+      <UserSurfacePage
+        eyebrow={t('API keys')}
+        title={t('Production credentials, kept precise.')}
+        description={t('Create, rotate, limit, and audit keys from a calmer credential workspace.')}
+        compact
+      >
       <SectionPageLayout fixedContent>
         <SectionPageLayout.Title>{t('API Keys')}</SectionPageLayout.Title>
         <SectionPageLayout.Actions>
@@ -36,6 +43,7 @@ export function ApiKeys() {
           <ApiKeysTable />
         </SectionPageLayout.Content>
       </SectionPageLayout>
+      </UserSurfacePage>
 
       <ApiKeysDialogs />
     </ApiKeysProvider>

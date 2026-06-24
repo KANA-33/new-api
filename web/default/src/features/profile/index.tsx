@@ -17,6 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { useAuthStore } from '@domains/identity/store/auth-store'
+import { UserSurfacePage } from '@widgets/user-workspace'
 import { useStatus } from '@shared/hooks/use-status'
 import { Main } from '@widgets/layout'
 import {
@@ -46,6 +47,11 @@ export function Profile() {
   const canConfigureSidebar = permissions?.sidebar_settings !== false
 
   return (
+    <UserSurfacePage
+      eyebrow='Profile'
+      title='Account identity, security, and preferences.'
+      description='Keep your profile current, tune language preferences, and manage authentication settings from a restrained personal surface.'
+    >
     <Main>
       <div className='min-h-0 flex-1 overflow-auto px-3 py-3 sm:px-4 sm:py-6'>
         <CardStaggerContainer className='mx-auto flex w-full max-w-7xl flex-col gap-4 sm:gap-6'>
@@ -85,6 +91,7 @@ export function Profile() {
         </CardStaggerContainer>
       </div>
     </Main>
+    </UserSurfacePage>
   )
 }
 
