@@ -195,6 +195,7 @@ export function Playground() {
       title={t('Experiment with models in a quieter studio.')}
       description={t('Compose, test, edit, and regenerate prompts without leaving the refined user workspace.')}
       compact
+      showHeader={false}
       contentClassName='pb-6 md:pb-8'
     >
       <div className='relative flex h-[calc(100svh-17rem)] min-h-[620px] flex-col overflow-hidden rounded-[1.5rem] bg-[#fbf7ef]/92 shadow-[0_20px_60px_rgba(62,50,36,0.10)] ring-1 ring-[#d8ccbb]'>

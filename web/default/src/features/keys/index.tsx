@@ -33,6 +33,7 @@ export function ApiKeys() {
         title={t('Production credentials, kept precise.')}
         description={t('Create, rotate, limit, and audit keys from a calmer credential workspace.')}
         compact
+      showHeader={false}
       >
       <SectionPageLayout fixedContent>
         <SectionPageLayout.Title>{t('API Keys')}</SectionPageLayout.Title>

@@ -264,6 +264,7 @@ export function Wallet(props: WalletProps) {
         eyebrow={t('Wallet')}
         title={t('Balance, billing, and rewards without friction.')}
         description={t('Recharge, subscribe, redeem codes, and review account value in one warm financial workspace.')}
+      showHeader={false}
       >
       <SectionPageLayout>
         <SectionPageLayout.Title>{t('Wallet')}</SectionPageLayout.Title>
