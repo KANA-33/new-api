@@ -57,12 +57,9 @@ import {
   useApiInfo,
   useDashboardContentVisibility,
 } from '../../hooks/use-status-data'
-import { AnnouncementsPanel } from './announcements-panel'
-import { ApiInfoPanel } from './api-info-panel'
-import { FAQPanel } from './faq-panel'
 import { PerformanceHealthPanel } from './performance-health-panel'
+import { PlatformBriefPanel } from './platform-brief-panel'
 import { SummaryCards } from './summary-cards'
-import { UptimePanel } from './uptime-panel'
 
 const SETUP_GUIDE_VISIBILITY_STORAGE_KEY =
   'dashboard_overview_setup_guide_expanded'
@@ -232,8 +229,8 @@ function StartStepItem(props: {
       )}
       <span
         className={cn(
-          'bg-background relative z-10 flex size-8 shrink-0 items-center justify-center rounded-lg border shadow-xs',
-          props.step.completed && 'border-success/30 bg-success/10'
+          'relative z-10 flex size-8 shrink-0 items-center justify-center rounded-xl bg-[#fff8ed] text-[#302c26] ring-1 ring-[#ded0bd]',
+          props.step.completed && 'bg-[#344036] text-[#f8efe1] ring-[#344036]/20'
         )}
       >
         <StatusIcon
@@ -244,7 +241,7 @@ function StartStepItem(props: {
 
       <Link
         to={props.step.to}
-        className='bg-background/70 hover:bg-muted/50 focus-visible:ring-ring flex min-w-0 flex-1 items-center justify-between gap-3 rounded-xl border px-3 py-2.5 text-left shadow-xs transition-colors outline-none focus-visible:ring-2'
+        className='flex min-w-0 flex-1 items-center justify-between gap-3 rounded-2xl bg-[#fff8ed]/80 px-3 py-2.5 text-left text-[#302c26] ring-1 ring-[#ded0bd] transition duration-300 outline-none hover:-translate-y-0.5 hover:bg-[#fff1dd] focus-visible:ring-2 focus-visible:ring-[#9f8768]'
       >
         <span className='flex min-w-0 items-start gap-2.5'>
           <span className='bg-muted mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-lg'>
@@ -284,7 +281,10 @@ function RequestPreview(props: {
     apiKey: props.example.displayKey,
     model: props.example.model,
   })
-  const previewLines = previewCurl.split('\n')
+  const previewLines = previewCurl.split('\n').map((line, index) => ({
+    id: `request-line-${index}-${line.length}-${line.charCodeAt(0) || 0}`,
+    line,
+  }))
   const handleCopyRequest = async () => {
     if (!props.example.keyId || isCopying) return
 
@@ -318,7 +318,7 @@ function RequestPreview(props: {
       initial={shouldReduceMotion ? false : { opacity: 0, y: 10, scale: 0.98 }}
       animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
       transition={MOTION_TRANSITION.slow}
-      className='bg-background/75 relative overflow-hidden rounded-2xl border p-3 shadow-sm backdrop-blur'
+      className='relative overflow-hidden rounded-[1.5rem] bg-[#302c26] p-3 text-[#f8efe1] shadow-[0_28px_70px_rgba(45,37,29,0.24)] ring-1 ring-[#54483a]'
     >
       {!shouldReduceMotion && (
         <motion.div
@@ -329,9 +329,9 @@ function RequestPreview(props: {
         />
       )}
 
-      <div className='flex items-center justify-between gap-3 border-b pb-3'>
+      <div className='flex items-center justify-between gap-3 border-b border-[#5b5043] pb-3'>
         <div className='flex min-w-0 items-center gap-2'>
-          <span className='bg-muted flex size-8 shrink-0 items-center justify-center rounded-lg'>
+          <span className='flex size-8 shrink-0 items-center justify-center rounded-xl bg-[#f1dfbf] text-[#302c26]'>
             <TerminalSquare className='size-4' aria-hidden='true' />
           </span>
           <div className='min-w-0'>
@@ -364,20 +364,20 @@ function RequestPreview(props: {
         )}
       </div>
 
-      <div className='bg-foreground/[0.035] my-3 rounded-xl p-3 font-mono text-xs'>
+      <div className='my-3 rounded-2xl bg-[#181612] p-3 font-mono text-xs ring-1 ring-[#5b5043]'>
         <div className='mb-2 flex items-center gap-1.5'>
           <span className='bg-destructive size-2 rounded-full' />
           <span className='bg-warning size-2 rounded-full' />
           <span className='bg-success size-2 rounded-full' />
         </div>
         <div className='flex flex-col gap-1 overflow-hidden'>
-          {previewLines.map((line, index) => (
+          {previewLines.map((item) => (
             <code
-              key={`${line}-${index}`}
-              className='text-muted-foreground truncate'
-              title={line}
+              key={item.id}
+              className='truncate text-[#d8cdbc]'
+              title={item.line}
             >
-              {line}
+              {item.line}
             </code>
           ))}
         </div>
@@ -390,11 +390,11 @@ function RequestPreview(props: {
           return (
             <div
               key={signal.label}
-              className='bg-muted/40 flex items-center justify-between gap-3 rounded-xl px-3 py-2'
+              className='flex items-center justify-between gap-3 rounded-xl bg-[#f8efe1]/10 px-3 py-2'
             >
               <span className='flex min-w-0 items-center gap-2'>
                 <Icon
-                  className='text-muted-foreground size-3.5 shrink-0'
+                  className='size-3.5 shrink-0 text-[#f1dfbf]'
                   aria-hidden='true'
                 />
                 <span className='truncate text-xs font-medium'>
@@ -418,7 +418,7 @@ function QuickActionItem(props: { action: QuickAction }) {
   return (
     <Button
       variant='outline'
-      className='h-auto justify-start rounded-xl px-3 py-3 text-left'
+      className='h-auto justify-start rounded-2xl border-[#d9c8b3] bg-[#fff8ed]/80 px-3 py-3 text-left text-[#302c26] shadow-none transition duration-300 hover:-translate-y-0.5 hover:bg-[#fff1dd]'
       render={<Link to={props.action.to} />}
     >
       <span className='bg-muted flex size-9 shrink-0 items-center justify-center rounded-lg'>
@@ -443,7 +443,7 @@ function CompactQuickAction(props: { action: QuickAction }) {
     <Button
       variant='outline'
       size='sm'
-      className='bg-background/70 h-8 min-w-24 gap-1.5 px-2.5'
+      className='h-8 min-w-24 gap-1.5 rounded-full border-[#d9c8b3] bg-[#fff8ed]/80 px-2.5 text-[#302c26]'
       render={<Link to={props.action.to} />}
     >
       <Icon data-icon='inline-start' />
@@ -601,9 +601,9 @@ export function OverviewDashboard() {
   const setupStatusReady = apiKeysQuery.isFetched && Boolean(user)
   const setupGuideExpanded =
     manualSetupGuideExpanded ?? (setupStatusReady && !setupComplete)
-  const showLeftContentPanels =
-    isAdmin || showApiInfoPanel || showAnnouncementsPanel || showFAQPanel
-  const showContentPanels = showLeftContentPanels || showUptimePanel
+  const showBriefPanel =
+    showApiInfoPanel || showAnnouncementsPanel || showFAQPanel || showUptimePanel
+  const showContentPanels = isAdmin || showBriefPanel
 
   const handleSetupGuideToggle = () => {
     const nextExpanded = !setupGuideExpanded
@@ -612,24 +612,27 @@ export function OverviewDashboard() {
   }
 
   return (
-    <div className='flex flex-col gap-4'>
+    <div className='relative flex flex-col gap-5 overflow-hidden rounded-[2rem] bg-[#f4ecdf] p-4 text-[#302c26] ring-1 ring-[#dccbb5] sm:p-5'>
+      <div className='pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_0%,rgba(255,247,232,0.95)_0%,transparent_34%),radial-gradient(circle_at_90%_18%,rgba(82,73,61,0.12)_0%,transparent_32%)]' />
+      <div className='pointer-events-none absolute inset-0 opacity-[0.18] [background-image:linear-gradient(90deg,rgba(74,59,41,0.10)_1px,transparent_1px),linear-gradient(rgba(74,59,41,0.08)_1px,transparent_1px)] [background-size:42px_42px]' />
+      <div className='relative flex flex-col gap-5'>
       {setupGuideExpanded ? (
-        <CardStaggerContainer className='grid items-stretch gap-4 xl:grid-cols-[minmax(0,1fr)_22rem]'>
-          <CardStaggerItem className='bg-card h-full overflow-hidden rounded-2xl border shadow-xs'>
+        <CardStaggerContainer className='grid items-stretch gap-5 xl:grid-cols-[minmax(0,1fr)_23rem]'>
+          <CardStaggerItem className='h-full overflow-hidden rounded-[1.75rem] bg-[#fbf5ea] shadow-[0_26px_70px_rgba(77,61,43,0.12)] ring-1 ring-[#dccbb5]'>
             <div className='relative h-full overflow-hidden p-4 sm:p-5'>
               <SetupGuideBackdrop />
               <div className='relative grid gap-5 lg:grid-cols-[minmax(0,1fr)_21rem]'>
                 <div className='flex min-w-0 flex-col gap-5'>
                   <div className='flex flex-wrap items-start justify-between gap-3'>
-                    <div className='flex max-w-2xl flex-col gap-1'>
-                      <div className='text-muted-foreground flex items-center gap-2 text-xs font-medium tracking-wider uppercase'>
+                    <div className='flex max-w-2xl flex-col gap-2'>
+                      <div className='flex items-center gap-2 text-xs font-medium tracking-[0.18em] text-[#8b7d69] uppercase'>
                         <ListChecks className='size-3.5' aria-hidden='true' />
                         {t('Get started')}
                       </div>
-                      <h3 className='text-xl font-semibold tracking-tight sm:text-2xl'>
+                      <h3 className='text-3xl leading-tight font-semibold tracking-normal text-[#302c26] sm:text-4xl'>
                         {t('Build on your API gateway in minutes')}
                       </h3>
-                      <p className='text-muted-foreground max-w-xl text-sm leading-relaxed'>
+                      <p className='max-w-xl text-sm leading-6 text-[#756958]'>
                         {t(
                           'A focused home for keys, balance, routing, and service health.'
                         )}
@@ -651,7 +654,7 @@ export function OverviewDashboard() {
                     </div>
                   </div>
 
-                  <ol className='bg-background/45 rounded-2xl border p-2 backdrop-blur'>
+                  <ol className='rounded-[1.5rem] bg-[#efe4d4]/70 p-2 ring-1 ring-[#dccbb5] backdrop-blur'>
                     {startSteps.map((step, index) => (
                       <StartStepItem
                         key={step.title}
@@ -671,13 +674,13 @@ export function OverviewDashboard() {
             </div>
           </CardStaggerItem>
 
-          <CardStaggerItem className='bg-card h-full rounded-2xl border p-4 shadow-xs sm:p-5'>
+          <CardStaggerItem className='h-full rounded-[1.75rem] bg-[#efe4d4] p-4 shadow-[0_26px_70px_rgba(77,61,43,0.10)] ring-1 ring-[#d5c4ad] sm:p-5'>
             <div className='flex h-full flex-col gap-4'>
               <div className='flex flex-col gap-1'>
-                <div className='text-muted-foreground text-xs font-medium tracking-wider uppercase'>
+                <div className='text-xs font-medium tracking-[0.18em] text-[#8b7d69] uppercase'>
                   {t('Recommended actions')}
                 </div>
-                <h3 className='text-lg font-semibold tracking-tight'>
+                <h3 className='text-xl font-semibold tracking-normal text-[#302c26]'>
                   {t('Keep the platform ready')}
                 </h3>
               </div>
@@ -691,7 +694,7 @@ export function OverviewDashboard() {
         </CardStaggerContainer>
       ) : (
         <CardStaggerContainer>
-          <CardStaggerItem className='bg-card overflow-hidden rounded-2xl border shadow-xs'>
+          <CardStaggerItem className='overflow-hidden rounded-[1.5rem] bg-[#fbf5ea] shadow-[0_20px_56px_rgba(77,61,43,0.10)] ring-1 ring-[#dccbb5]'>
             <div className='relative overflow-hidden px-4 py-3 sm:px-5'>
               <SetupGuideBackdrop compact />
               <div className='relative flex flex-wrap items-center justify-between gap-3'>
@@ -748,49 +751,28 @@ export function OverviewDashboard() {
       {showContentPanels && (
         <CardStaggerContainer
           className={cn(
-            'grid grid-cols-1 gap-4',
-            showLeftContentPanels &&
-              showUptimePanel &&
-              'xl:grid-cols-[minmax(0,1fr)_22rem]'
+            'grid grid-cols-1 gap-5',
+            isAdmin && showBriefPanel && 'xl:grid-cols-[minmax(0,1fr)_24rem]'
           )}
         >
-          {showLeftContentPanels && (
-            <div
-              className={cn(
-                'grid min-w-0 grid-cols-1 gap-4',
-                (showApiInfoPanel || showAnnouncementsPanel || showFAQPanel) &&
-                  'lg:grid-cols-2'
-              )}
-            >
-              {isAdmin && (
-                <CardStaggerItem className='lg:col-span-2'>
-                  <PerformanceHealthPanel />
-                </CardStaggerItem>
-              )}
-              {showApiInfoPanel && (
-                <CardStaggerItem>
-                  <ApiInfoPanel />
-                </CardStaggerItem>
-              )}
-              {showAnnouncementsPanel && (
-                <CardStaggerItem>
-                  <AnnouncementsPanel />
-                </CardStaggerItem>
-              )}
-              {showFAQPanel && (
-                <CardStaggerItem>
-                  <FAQPanel />
-                </CardStaggerItem>
-              )}
-            </div>
-          )}
-          {showUptimePanel && (
+          {isAdmin && (
             <CardStaggerItem>
-              <UptimePanel />
+              <PerformanceHealthPanel />
+            </CardStaggerItem>
+          )}
+          {showBriefPanel && (
+            <CardStaggerItem>
+              <PlatformBriefPanel
+                showApiInfo={showApiInfoPanel}
+                showAnnouncements={showAnnouncementsPanel}
+                showFAQ={showFAQPanel}
+                showUptime={showUptimePanel}
+              />
             </CardStaggerItem>
           )}
         </CardStaggerContainer>
       )}
+      </div>
     </div>
   )
 }

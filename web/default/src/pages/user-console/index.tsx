@@ -8,11 +8,13 @@ License, or (at your option) any later version.
 */
 import { Link } from '@tanstack/react-router'
 import {
+  Activity,
   ArrowUpRight,
   BookOpenText,
   CreditCard,
   FlaskConical,
   Key,
+  LayoutDashboard,
   LineChart,
   ShieldCheck,
   User,
@@ -48,6 +50,19 @@ const quickActions = [
   },
 ] as const
 
+const dashboardEntry = {
+  title: 'Data dashboard',
+  description:
+    'Enter the full analytics view for usage, model activity, balance movement, and platform signals.',
+  href: '/dashboard/overview',
+} as const
+
+const dashboardMetrics = [
+  'Usage analytics',
+  'Model activity',
+  'Balance movement',
+] as const
+
 const insightLinks = [
   { title: 'Usage logs', href: '/usage-logs/common', icon: LineChart },
   { title: 'Profile', href: '/profile', icon: User },
@@ -58,6 +73,46 @@ export function UserConsole() {
   const { t } = useTranslation()
   return (
     <main className='min-h-[calc(100svh-8rem)] overflow-x-hidden rounded-[2rem] bg-[#f4efe7] text-[#2e2b26] shadow-[0_24px_80px_rgba(62,50,36,0.10)] ring-1 ring-[#d8ccbb]'>
+      <section className='px-5 pt-5 pb-4 sm:px-8 md:px-10'>
+        <Link
+          to={dashboardEntry.href}
+          className='group grid overflow-hidden rounded-[1.75rem] bg-[#2f3542] text-[#f7f1e8] ring-1 ring-[#c7b69f] transition-transform duration-500 hover:-translate-y-1 md:grid-cols-[1fr_auto]'
+        >
+          <div className='p-6 md:p-8'>
+            <div className='flex items-center gap-3 text-sm text-[#d8cdbc]'>
+              <span className='flex size-10 items-center justify-center rounded-full bg-[#f1dfbf] text-[#2e2b26]'>
+                <LayoutDashboard className='size-5' />
+              </span>
+              <span>{t('Control panel')}</span>
+            </div>
+            <h2 className='mt-8 max-w-2xl text-3xl leading-tight font-semibold tracking-normal text-[#fff7ea] md:text-4xl'>
+              {t(dashboardEntry.title)}
+            </h2>
+            <p className='mt-4 max-w-2xl text-sm leading-6 text-[#d8cdbc] md:text-base'>
+              {t(dashboardEntry.description)}
+            </p>
+          </div>
+
+          <div className='flex flex-col justify-between border-t border-[#57606d] bg-[#394150] p-6 md:min-w-80 md:border-t-0 md:border-l md:p-8'>
+            <div className='grid gap-3'>
+              {dashboardMetrics.map((item) => (
+                <div
+                  key={item}
+                  className='flex items-center justify-between rounded-full bg-[#f7f1e8]/10 px-4 py-3 text-sm text-[#f7f1e8]'
+                >
+                  <span>{t(item)}</span>
+                  <Activity className='size-4 text-[#f1dfbf]' />
+                </div>
+              ))}
+            </div>
+            <div className='mt-8 flex items-center justify-between text-sm font-medium text-[#f1dfbf]'>
+              <span>{t('Enter dashboard')}</span>
+              <ArrowUpRight className='size-4 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1' />
+            </div>
+          </div>
+        </Link>
+      </section>
+
       <section className='grid-flow-dense grid gap-4 px-5 pb-6 sm:px-8 md:grid-cols-6 md:px-10'>
         {quickActions.map((item, index) => {
           const Icon = item.icon

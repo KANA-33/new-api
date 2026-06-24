@@ -209,6 +209,19 @@ export function SummaryCards() {
   const runwayDays = getRunwayDays(remainQuota, recentUsage)
 
   const todayUsageDisplay = formatQuota(recentUsage)
+  let runwayText = t('No recent usage')
+
+  if (runwayDays !== null) {
+    if (runwayDays < 1) {
+      runwayText = t('Less than 1 day left')
+    } else if (runwayDays > 999) {
+      runwayText = `999+ ${t('days')}`
+    } else {
+      runwayText = `~${formatNumber(Math.floor(runwayDays))} ${t('days')}`
+    }
+  } else if (remainQuota <= 0) {
+    runwayText = t('Balance depleted')
+  }
 
   const items = useSummaryCardsConfig({
     ...summaryValues,
@@ -234,15 +247,15 @@ export function SummaryCards() {
   })
 
   return (
-    <div className='bg-card overflow-hidden rounded-2xl border shadow-xs'>
+    <div className='overflow-hidden rounded-[1.75rem] bg-[#fbf5ea] shadow-[0_26px_70px_rgba(77,61,43,0.11)] ring-1 ring-[#dccbb5]'>
       <div className='grid xl:grid-cols-[minmax(0,1fr)_19rem]'>
-        <div className='flex flex-col gap-3 p-4 sm:p-5'>
+        <div className='flex flex-col gap-4 p-4 sm:p-5'>
           <div className='flex flex-wrap items-start justify-between gap-3'>
             <div className='flex flex-col gap-1'>
-              <h3 className='text-base font-semibold'>
+              <h3 className='text-xl font-semibold tracking-normal text-[#302c26]'>
                 {t('Usage at a glance')}
               </h3>
-              <p className='text-muted-foreground text-sm'>
+              <p className='text-sm leading-6 text-[#756958]'>
                 {t('Monitor balance, usage, and request volume')}
               </p>
             </div>
@@ -251,7 +264,7 @@ export function SummaryCards() {
             {items.map((it) => (
               <StaggerItem
                 key={it.key}
-                className='bg-background/60 rounded-xl border p-3'
+                className='rounded-[1.35rem] bg-[#fff8ed]/85 p-4 ring-1 ring-[#ded0bd]'
               >
                 <StatCard
                   title={it.title}
@@ -268,10 +281,10 @@ export function SummaryCards() {
           </StaggerContainer>
         </div>
 
-        <div className='bg-warning/10 flex flex-col justify-between gap-4 border-t p-4 sm:p-5 xl:border-t-0 xl:border-l'>
+        <div className='flex flex-col justify-between gap-4 border-t border-[#dccbb5] bg-[#e9dcc9] p-4 sm:p-5 xl:border-t-0 xl:border-l'>
           <div className='flex flex-col gap-3'>
             <div className='flex items-center justify-between'>
-              <span className='text-muted-foreground text-xs font-medium'>
+              <span className='text-xs font-medium text-[#756958]'>
                 {t('Credit remaining')}
               </span>
               <span className='flex items-center gap-1.5'>
@@ -285,12 +298,12 @@ export function SummaryCards() {
               </span>
             </div>
 
-            <div className='font-mono text-2xl font-semibold tracking-tight'>
+            <div className='font-mono text-3xl font-semibold tracking-normal text-[#302c26] tabular-nums'>
               {formatQuota(remainQuota)}
             </div>
 
             <div className='grid grid-cols-2 gap-2'>
-              <div className='bg-background/60 rounded-lg px-2.5 py-2'>
+              <div className='rounded-xl bg-[#fff8ed]/75 px-2.5 py-2 ring-1 ring-[#d8c8b4]'>
                 <div className='text-muted-foreground flex items-center gap-1 text-[11px] leading-none font-medium'>
                   <Flame className='size-3 shrink-0' aria-hidden='true' />
                   <span className='truncate'>{t('Last 24h usage')}</span>
@@ -299,7 +312,7 @@ export function SummaryCards() {
                   {formatQuota(recentUsage)}
                 </div>
               </div>
-              <div className='bg-background/60 rounded-lg px-2.5 py-2'>
+              <div className='rounded-xl bg-[#fff8ed]/75 px-2.5 py-2 ring-1 ring-[#d8c8b4]'>
                 <div className='text-muted-foreground flex items-center gap-1 text-[11px] leading-none font-medium'>
                   {runwayDays !== null && runwayDays < 3 ? (
                     <TrendingDown
@@ -321,21 +334,13 @@ export function SummaryCards() {
                     healthLevel === 'caution' && 'text-warning'
                   )}
                 >
-                  {runwayDays !== null
-                    ? runwayDays < 1
-                      ? t('Less than 1 day left')
-                      : runwayDays > 999
-                        ? `999+ ${t('days')}`
-                        : `~${formatNumber(Math.floor(runwayDays))} ${t('days')}`
-                    : remainQuota <= 0
-                      ? t('Balance depleted')
-                      : t('No recent usage')}
+                  {runwayText}
                 </div>
               </div>
             </div>
           </div>
 
-          <Button className='justify-between' render={<Link to='/wallet' />}>
+          <Button className='justify-between rounded-full bg-[#302c26] text-[#f8efe1] hover:bg-[#4b4034]' render={<Link to='/wallet' />}>
             <span>{t('Wallet')}</span>
             <ArrowRight data-icon='inline-end' />
           </Button>
