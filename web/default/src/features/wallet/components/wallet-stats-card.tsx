@@ -31,8 +31,8 @@ export function WalletStatsCard(props: WalletStatsCardProps) {
   const { t } = useTranslation()
   if (props.loading) {
     return (
-      <div className='overflow-hidden rounded-lg border'>
-        <div className='divide-border/60 grid grid-cols-3 divide-x'>
+      <div className='overflow-hidden rounded-[1.35rem] border border-[#d8ccbb] bg-[#fbf7ef] shadow-[0_18px_55px_rgba(62,50,36,0.08)]'>
+        <div className='grid grid-cols-3 divide-x divide-[#d8ccbb]/70'>
           {Array.from({ length: 3 }).map((_, i) => (
             <div key={i} className='px-3 py-3 sm:px-5 sm:py-4'>
               <Skeleton className='h-3.5 w-20' />
@@ -67,8 +67,8 @@ export function WalletStatsCard(props: WalletStatsCardProps) {
   ]
 
   return (
-    <div className='overflow-hidden rounded-lg border'>
-      <div className='divide-border/60 grid grid-cols-3 divide-x'>
+    <div className='overflow-hidden rounded-[1.35rem] border border-[#d8ccbb] bg-[#fbf7ef] shadow-[0_18px_55px_rgba(62,50,36,0.08)]'>
+      <div className='grid grid-cols-3 divide-x divide-[#d8ccbb]/70'>
         {stats.map((item) => (
           <div key={item.label} className='px-3 py-3 sm:px-5 sm:py-4'>
             <div className='flex items-center gap-2'>

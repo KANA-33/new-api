@@ -18,7 +18,7 @@ export function UserWorkspaceHeader() {
   const notifications = useNotifications()
 
   return (
-    <header className='bg-background/85 supports-[backdrop-filter]:bg-background/70 sticky top-0 z-40 border-b backdrop-blur-xl'>
+    <header className='sticky top-0 z-40 border-b border-[#d8ccbb] bg-[#f4efe7]/86 text-[#2e2b26] backdrop-blur-xl supports-[backdrop-filter]:bg-[#f4efe7]/72'>
       <div className='mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 md:px-6'>
         <SystemBrand variant='inline' />
 
@@ -43,7 +43,7 @@ export function UserWorkspaceHeader() {
         </div>
       </div>
 
-      <div className='border-t md:hidden'>
+      <div className='border-t border-[#d8ccbb] md:hidden'>
         <div className='mx-auto max-w-7xl px-4 py-2'>
           <UserWorkspaceNav />
         </div>

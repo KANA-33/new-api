@@ -16,7 +16,7 @@ type UserWorkspaceLayoutProps = {
 
 export function UserWorkspaceLayout(props: UserWorkspaceLayoutProps) {
   return (
-    <div className='bg-background text-foreground min-h-svh'>
+    <div className='min-h-svh bg-[#ede3d2] text-[#2e2b26]'>
       <SkipToMain />
       <UserWorkspaceHeader />
       <main

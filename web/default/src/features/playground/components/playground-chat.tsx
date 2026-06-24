@@ -102,8 +102,8 @@ export function PlaygroundChat({
   return (
     <Conversation>
       {/* Remove outer padding; apply padding to inner centered container to align with input */}
-      <ConversationContent className='p-0'>
-        <div className='mx-auto w-full max-w-4xl px-4 py-4'>
+      <ConversationContent className='bg-[#fbf7ef]/35 p-0'>
+        <div className='mx-auto w-full max-w-4xl px-4 py-5'>
           {messages.map((message, messageIndex) => {
             const { versions = [] } = message
             const isLastAssistantMessage =
@@ -124,7 +124,7 @@ export function PlaygroundChat({
                             <Textarea
                               value={editText}
                               onChange={(e) => setEditText(e.target.value)}
-                              className='font-mono text-sm'
+                              className='rounded-[1rem] border-[#cdbda8] bg-[#fffaf2] font-mono text-sm text-[#2e2b26]'
                               rows={8}
                             />
                             <div className='flex gap-2'>

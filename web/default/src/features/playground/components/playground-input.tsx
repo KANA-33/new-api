@@ -113,13 +113,13 @@ export function PlaygroundInput({
 
   return (
     <div className='grid shrink-0 gap-4 px-1 md:pb-4'>
-      <PromptInput groupClassName='rounded-xl' onSubmit={handleSubmit}>
+      <PromptInput groupClassName='rounded-[1.35rem] border-[#d8ccbb] bg-[#fffaf2] shadow-[0_18px_45px_rgba(62,50,36,0.08)]' onSubmit={handleSubmit}>
         <PromptInputTextarea
           autoComplete='off'
           autoCorrect='off'
           autoCapitalize='off'
           spellCheck={false}
-          className='px-5 md:text-base'
+          className='px-5 text-[#2e2b26] placeholder:text-[#8a7b68] md:text-base'
           disabled={disabled}
           onChange={(event) => setText(event.target.value)}
           placeholder={t('Ask anything')}
@@ -132,7 +132,7 @@ export function PlaygroundInput({
               <DropdownMenuTrigger
                 render={
                   <PromptInputButton
-                    className='border font-medium'
+                    className='border border-[#cdbda8] bg-[#fbf7ef] font-medium text-[#2e2b26]'
                     disabled={disabled}
                     variant='outline'
                   />
@@ -171,7 +171,7 @@ export function PlaygroundInput({
             </DropdownMenu>
 
             <PromptInputButton
-              className='border font-medium'
+              className='border border-[#cdbda8] bg-[#fbf7ef] font-medium text-[#2e2b26]'
               disabled={disabled}
               onClick={() => toast.info(t('Search feature in development'))}
               variant='outline'
@@ -195,7 +195,7 @@ export function PlaygroundInput({
 
             {isGenerating && onStop ? (
               <PromptInputButton
-                className='text-foreground font-medium'
+                className='bg-[#2e2b26] font-medium text-[#f7f1e8] hover:bg-[#4a4238]'
                 onClick={onStop}
                 variant='secondary'
               >
@@ -205,7 +205,7 @@ export function PlaygroundInput({
               </PromptInputButton>
             ) : (
               <PromptInputButton
-                className='text-foreground font-medium'
+                className='bg-[#2e2b26] font-medium text-[#f7f1e8] hover:bg-[#4a4238]'
                 disabled={disabled || !text.trim()}
                 type='submit'
                 variant='secondary'

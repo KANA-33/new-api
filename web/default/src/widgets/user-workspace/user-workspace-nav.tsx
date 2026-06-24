@@ -49,8 +49,8 @@ export function UserWorkspaceNav() {
             className={cn(
               'inline-flex h-9 shrink-0 items-center gap-2 rounded-md px-3 text-sm font-medium transition-colors',
               isActive
-                ? 'bg-primary text-primary-foreground shadow-sm'
-                : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
+                ? 'bg-[#2e2b26] text-[#f7f1e8] shadow-sm'
+                : 'text-[#756958] hover:bg-[#fbf7ef] hover:text-[#2e2b26]'
             )}
           >
             <Icon className='size-4' />

@@ -51,6 +51,11 @@ export function UserSurfacePage(props: UserSurfacePageProps) {
       <section
         className={cn(
           'relative px-5 pb-5 sm:px-8 md:px-10 md:pb-10',
+          '[&_[data-slot=card]]:rounded-[1.25rem] [&_[data-slot=card]]:bg-[#fbf7ef]/92 [&_[data-slot=card]]:shadow-[0_18px_55px_rgba(62,50,36,0.08)] [&_[data-slot=card]]:ring-[#d8ccbb]',
+          '[&_[data-slot=card-header]]:border-[#d8ccbb] [&_[data-slot=card-footer]]:border-[#d8ccbb] [&_[data-slot=card-footer]]:bg-[#efe6d8]/70',
+          '[&_[data-slot=button]]:rounded-full [&_[data-slot=input]]:rounded-full [&_[data-slot=input]]:border-[#cdbda8] [&_[data-slot=input]]:bg-[#fffaf2]',
+          '[&_.bg-card]:bg-[#fbf7ef]/92 [&_.bg-background]:bg-[#f4efe7] [&_.border]:border-[#d8ccbb]',
+          '[&_.text-foreground]:text-[#2e2b26] [&_.text-muted-foreground]:text-[#6d6255]',
           props.contentClassName
         )}
       >
