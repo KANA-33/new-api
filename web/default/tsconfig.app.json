@@ -3,12 +3,16 @@
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "module": "ESNext",
     "skipLibCheck": true,
-    "types": ["node"],
-
-    /* Bundler mode */
+    "types": [
+      "node"
+    ],
     "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
@@ -16,18 +20,51 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
-
-    /* Alias */
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@app/*": [
+        "./src/app/*"
+      ],
+      "@routes/*": [
+        "./src/routes/*"
+      ],
+      "@pages/*": [
+        "./src/pages/*"
+      ],
+      "@domains/*": [
+        "./src/domains/*"
+      ],
+      "@features/*": [
+        "./src/features/*"
+      ],
+      "@widgets/*": [
+        "./src/widgets/*"
+      ],
+      "@shared/*": [
+        "./src/shared/*"
+      ],
+      "@ui/*": [
+        "./src/shared/ui/*"
+      ],
+      "@ui-primitives/*": [
+        "./src/shared/ui/primitives/*"
+      ],
+      "@assets/*": [
+        "./src/shared/assets/*"
+      ],
+      "@styles/*": [
+        "./src/shared/styles/*"
+      ]
     },
-
-    /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }

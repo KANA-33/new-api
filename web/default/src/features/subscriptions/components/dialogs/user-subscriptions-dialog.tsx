@@ -20,7 +20,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Plus } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Select,
   SelectContent,
@@ -28,23 +28,23 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
+} from '@shared/ui/primitives/select'
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetDescription,
-} from '@/components/ui/sheet'
-import { ConfirmDialog } from '@/components/confirm-dialog'
-import { StaticDataTable } from '@/components/data-table'
+} from '@shared/ui/primitives/sheet'
+import { ConfirmDialog } from '@shared/ui/composite/confirm-dialog'
+import { StaticDataTable } from '@shared/ui/data-table'
 import {
   sideDrawerContentClassName,
   sideDrawerFormClassName,
   sideDrawerHeaderClassName,
-} from '@/components/drawer-layout'
-import { StatusBadge } from '@/components/status-badge'
-import { TableId } from '@/components/table-id'
+} from '@shared/ui/composite/drawer-layout'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
+import { TableId } from '@shared/ui/composite/table-id'
 import {
   getAdminPlans,
   getUserSubscriptions,
@@ -52,7 +52,7 @@ import {
   invalidateUserSubscription,
   deleteUserSubscription,
 } from '../../api'
-import { formatQuota } from '@/lib/format'
+import { formatQuota } from '@shared/lib/format'
 import { formatTimestamp } from '../../lib'
 import type { PlanRecord, UserSubscriptionRecord } from '../../types'
 
@@ -72,21 +72,21 @@ function SubscriptionStatusBadge(props: {
   const isExpired = (props.sub.end_time || 0) > 0 && props.sub.end_time < now
   const isActive = props.sub.status === 'active' && !isExpired
   if (isActive)
-    return (
+    {return (
       <StatusBadge
         label={props.t('Active')}
         variant='success'
         copyable={false}
       />
-    )
+    )}
   if (props.sub.status === 'cancelled')
-    return (
+    {return (
       <StatusBadge
         label={props.t('Invalidated')}
         variant='neutral'
         copyable={false}
       />
-    )
+    )}
   return (
     <StatusBadge
       label={props.t('Expired')}
@@ -202,8 +202,7 @@ export function UserSubscriptionsDialog(props: Props) {
           <div className={sideDrawerFormClassName()}>
             <div className='flex gap-2'>
               <Select
-                items={[
-                  ...plans.map((p) => ({
+                items={plans.map((p) => ({
                     value: String(p.plan.id),
                     label: (
                       <>
@@ -211,8 +210,7 @@ export function UserSubscriptionsDialog(props: Props) {
                         {Number(p.plan.price_amount || 0).toFixed(2)})
                       </>
                     ),
-                  })),
-                ]}
+                  }))}
                 value={selectedPlanId}
                 onValueChange={(v) => v !== null && setSelectedPlanId(v)}
               >
@@ -381,3 +379,4 @@ export function UserSubscriptionsDialog(props: Props) {
     </>
   )
 }
+

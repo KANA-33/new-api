@@ -30,10 +30,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Switch } from '@/components/ui/switch'
-import { Textarea } from '@/components/ui/textarea'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Switch } from '@shared/ui/primitives/switch'
+import { Textarea } from '@shared/ui/primitives/textarea'
 import {
   SettingsForm,
   SettingsSwitchContent,
@@ -276,3 +276,4 @@ export function ClaudeSettingsCard({ defaultValues }: ClaudeSettingsCardProps) {
     </SettingsSection>
   )
 }
+

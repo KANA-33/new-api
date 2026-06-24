@@ -18,7 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { z } from 'zod'
 import type { TFunction } from 'i18next'
-import { parseQuotaFromDollars, quotaUnitsToDollars } from '@/lib/format'
+import { parseQuotaFromDollars, quotaUnitsToDollars } from '@shared/lib/format'
 import type { SubscriptionPlan, PlanPayload } from '../types'
 
 export function getPlanFormSchema(t: TFunction) {
@@ -120,3 +120,4 @@ export function formValuesToPlanPayload(values: PlanFormValues): PlanPayload {
     },
   }
 }
+

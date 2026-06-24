@@ -20,11 +20,11 @@ import { useState, useEffect } from 'react'
 import { Crown, CalendarClock, Package } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { DEFAULT_CURRENCY_CONFIG } from '@/stores/system-config-store'
-import { formatQuota } from '@/lib/format'
-import { useSystemConfig } from '@/hooks/use-system-config'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
+import { DEFAULT_CURRENCY_CONFIG } from '@app/providers/system-config-store'
+import { formatQuota } from '@shared/lib/format'
+import { useSystemConfig } from '@shared/hooks/use-system-config'
+import { Alert, AlertDescription } from '@shared/ui/primitives/alert'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Select,
   SelectContent,
@@ -32,10 +32,10 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Separator } from '@/components/ui/separator'
-import { Dialog } from '@/components/dialog'
-import { GroupBadge } from '@/components/group-badge'
+} from '@shared/ui/primitives/select'
+import { Separator } from '@shared/ui/primitives/separator'
+import { Dialog } from '@shared/ui/composite/dialog'
+import { GroupBadge } from '@shared/ui/composite/group-badge'
 import {
   paySubscriptionStripe,
   paySubscriptionCreem,
@@ -403,12 +403,10 @@ export function SubscriptionPurchaseDialog(props: Props) {
             {hasEpay && (
               <div className='grid grid-cols-[minmax(0,1fr)_auto] gap-2'>
                 <Select
-                  items={[
-                    ...(props.epayMethods || []).map((m) => ({
+                  items={(props.epayMethods || []).map((m) => ({
                       value: m.type,
                       label: m.name || m.type,
-                    })),
-                  ]}
+                    }))}
                   value={selectedEpayMethod}
                   onValueChange={(v) => v !== null && setSelectedEpayMethod(v)}
                   disabled={limitReached}
@@ -440,3 +438,5 @@ export function SubscriptionPurchaseDialog(props: Props) {
     </Dialog>
   )
 }
+
+

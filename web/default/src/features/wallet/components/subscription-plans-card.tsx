@@ -20,11 +20,11 @@ import { useState, useEffect, useMemo, useCallback } from 'react'
 import { Crown, RefreshCw, Sparkles, Check } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { formatQuota } from '@/lib/format'
-import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { Progress } from '@/components/ui/progress'
+import { formatQuota } from '@shared/lib/format'
+import { cn } from '@shared/lib/utils'
+import { Button } from '@shared/ui/primitives/button'
+import { Card, CardContent, CardHeader } from '@shared/ui/primitives/card'
+import { Progress } from '@shared/ui/primitives/progress'
 import {
   Select,
   SelectContent,
@@ -32,20 +32,20 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Separator } from '@/components/ui/separator'
-import { Skeleton } from '@/components/ui/skeleton'
-import { TitledCard } from '@/components/ui/titled-card'
+} from '@shared/ui/primitives/select'
+import { Separator } from '@shared/ui/primitives/separator'
+import { Skeleton } from '@shared/ui/primitives/skeleton'
+import { TitledCard } from '@shared/ui/primitives/titled-card'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
+} from '@shared/ui/primitives/tooltip'
 import {
   StatusBadge,
   dotColorMap,
   textColorMap,
-} from '@/components/status-badge'
+} from '@shared/ui/composite/status-badge'
 import {
   getPublicPlans,
   getSelfSubscriptionFull,
@@ -652,3 +652,4 @@ export function SubscriptionPlansCard({
     </>
   )
 }
+

@@ -29,9 +29,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Switch } from '@/components/ui/switch'
-import { Textarea } from '@/components/ui/textarea'
+} from '@shared/ui/primitives/form'
+import { Switch } from '@shared/ui/primitives/switch'
+import { Textarea } from '@shared/ui/primitives/textarea'
 import { SettingsAccordion } from '../components/settings-accordion'
 import {
   SettingsForm,
@@ -214,3 +214,4 @@ export function JsonToggleSection({
     </SettingsAccordion>
   )
 }
+

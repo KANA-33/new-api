@@ -31,31 +31,31 @@ import { useState, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
 
-import { ConfirmDialog } from '@/components/confirm-dialog'
-import { BadgeListCell } from '@/components/data-table'
-import { GroupBadge } from '@/components/group-badge'
-import { ProviderBadge } from '@/components/provider-badge'
-import { StatusBadge, type StatusBadgeProps } from '@/components/status-badge'
-import { TableId } from '@/components/table-id'
-import { TruncatedText } from '@/components/truncated-text'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
+import { ConfirmDialog } from '@shared/ui/composite/confirm-dialog'
+import { BadgeListCell } from '@shared/ui/data-table'
+import { GroupBadge } from '@shared/ui/composite/group-badge'
+import { ProviderBadge } from '@shared/ui/composite/provider-badge'
+import { StatusBadge, type StatusBadgeProps } from '@shared/ui/composite/status-badge'
+import { TableId } from '@shared/ui/composite/table-id'
+import { TruncatedText } from '@shared/ui/composite/truncated-text'
+import { Button } from '@shared/ui/primitives/button'
+import { Checkbox } from '@shared/ui/primitives/checkbox'
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
+} from '@shared/ui/primitives/tooltip'
 import {
   formatCurrencyFromUSD,
   formatQuotaWithCurrency,
   getCurrencyLabel,
-} from '@/lib/currency'
+} from '@shared/lib/currency'
 import {
   formatTimestampToDate,
   formatQuota as formatQuotaValue,
-} from '@/lib/format'
-import { truncateText } from '@/lib/utils'
+} from '@shared/lib/format'
+import { truncateText } from '@shared/lib/utils'
 
 import { getCodexUsage } from '../api'
 import { CHANNEL_STATUS_CONFIG, MODEL_FETCHABLE_TYPES } from '../constants'
@@ -1117,3 +1117,4 @@ export function useChannelsColumns(): ColumnDef<Channel>[] {
     [t, locale, sensitiveVisible]
   )
 }
+

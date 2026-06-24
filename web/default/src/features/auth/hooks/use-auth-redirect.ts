@@ -18,8 +18,8 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { useNavigate } from '@tanstack/react-router'
 import i18n from 'i18next'
-import { useAuthStore } from '@/stores/auth-store'
-import { getSelf } from '@/lib/api'
+import { useAuthStore } from '@domains/identity/store/auth-store'
+import { getSelf } from '@shared/api/client'
 import type { User } from '@/features/users/types'
 import { saveUserId } from '../lib/storage'
 
@@ -118,3 +118,6 @@ export function useAuthRedirect() {
     redirectToRegister,
   }
 }
+
+
+

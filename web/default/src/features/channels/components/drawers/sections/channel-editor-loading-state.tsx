@@ -17,7 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { useTranslation } from 'react-i18next'
-import { Skeleton } from '@/components/ui/skeleton'
+import { Skeleton } from '@shared/ui/primitives/skeleton'
 
 export function ChannelEditorLoadingState() {
   const { t } = useTranslation()
@@ -42,3 +42,4 @@ export function ChannelEditorLoadingState() {
     </div>
   )
 }
+

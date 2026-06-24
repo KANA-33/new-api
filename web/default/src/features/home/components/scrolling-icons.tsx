@@ -16,7 +16,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { cn } from '@/lib/utils'
+import { cn } from '@shared/lib/utils'
 import { IconCard } from './icon-card'
 
 interface ScrollingIconsProps {
@@ -60,3 +60,4 @@ export function ScrollingIcons({
     </div>
   )
 }
+

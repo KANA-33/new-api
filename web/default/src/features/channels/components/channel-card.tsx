@@ -19,8 +19,8 @@ For commercial licensing, please contact support@quantumnous.com
 import { memo } from 'react'
 import { flexRender, type Row } from '@tanstack/react-table'
 import { useTranslation } from 'react-i18next'
-import { cn } from '@/lib/utils'
-import { GroupBadge } from '@/components/group-badge'
+import { cn } from '@shared/lib/utils'
+import { GroupBadge } from '@shared/ui/composite/group-badge'
 import { CHANNEL_STATUS } from '../constants'
 import { isTagAggregateRow, parseGroupsList } from '../lib'
 import type { Channel } from '../types'
@@ -167,3 +167,4 @@ function ChannelCardComponent({ row }: { row: Row<Channel> }) {
  * (filters, pagination, sensitive toggle, etc.) updates.
  */
 export const ChannelCard = memo(ChannelCardComponent)
+

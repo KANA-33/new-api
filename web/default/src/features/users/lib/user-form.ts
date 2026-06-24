@@ -17,9 +17,9 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { z } from 'zod'
-import { quotaUnitsToDollars } from '@/lib/format'
+import { quotaUnitsToDollars } from '@shared/lib/format'
 import { DEFAULT_GROUP } from '../constants'
-import { type UserFormData, type User } from '../types'
+import type { UserFormData, User } from '../types'
 
 // ============================================================================
 // Form Schema
@@ -95,3 +95,4 @@ export function transformUserToFormDefaults(user: User): UserFormValues {
     remark: user.remark || '',
   }
 }
+

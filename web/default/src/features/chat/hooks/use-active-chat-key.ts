@@ -17,7 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { useQuery } from '@tanstack/react-query'
-import { useAuthStore } from '@/stores/auth-store'
+import { useAuthStore } from '@domains/identity/store/auth-store'
 import { fetchTokenKey, getApiKeys } from '@/features/keys/api'
 import { API_KEY_STATUS } from '@/features/keys/constants'
 
@@ -55,3 +55,4 @@ export function useActiveChatKey(enabled: boolean) {
     gcTime: 10 * 60 * 1000,
   })
 }
+

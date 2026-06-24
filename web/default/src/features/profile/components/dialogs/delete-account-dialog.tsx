@@ -21,13 +21,13 @@ import { useNavigate } from '@tanstack/react-router'
 import { AlertTriangle, Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { useAuthStore } from '@/stores/auth-store'
-import { api } from '@/lib/api'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Dialog } from '@/components/dialog'
+import { useAuthStore } from '@domains/identity/store/auth-store'
+import { api } from '@shared/api/client'
+import { Alert, AlertDescription } from '@shared/ui/primitives/alert'
+import { Button } from '@shared/ui/primitives/button'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { Dialog } from '@shared/ui/composite/dialog'
 import { deleteUserAccount } from '../../api'
 
 // ============================================================================
@@ -77,7 +77,7 @@ export function DeleteAccountDialog({
       } else {
         toast.error(response.message || t('Failed to delete account'))
       }
-    } catch (_error) {
+    } catch {
       toast.error(t('Failed to delete account'))
     } finally {
       setLoading(false)
@@ -158,3 +158,6 @@ export function DeleteAccountDialog({
     </Dialog>
   )
 }
+
+
+

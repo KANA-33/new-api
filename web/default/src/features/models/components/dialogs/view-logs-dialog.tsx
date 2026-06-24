@@ -21,8 +21,8 @@ For commercial licensing, please contact support@quantumnous.com
 import { type ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { Dialog } from '@/components/dialog'
-import { Button } from '@/components/ui/button'
+import { Dialog } from '@shared/ui/composite/dialog'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Select,
   SelectContent,
@@ -30,8 +30,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Switch } from '@/components/ui/switch'
+} from '@shared/ui/primitives/select'
+import { Switch } from '@shared/ui/primitives/switch'
 
 import { getDeploymentLogs, listDeploymentContainers } from '../../api'
 
@@ -332,3 +332,4 @@ export function ViewLogsDialog({
     </Dialog>
   )
 }
+

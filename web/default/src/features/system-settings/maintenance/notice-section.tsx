@@ -28,8 +28,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Textarea } from '@/components/ui/textarea'
+} from '@shared/ui/primitives/form'
+import { Textarea } from '@shared/ui/primitives/textarea'
 import { SettingsForm } from '../components/settings-form-layout'
 import { SettingsPageFormActions } from '../components/settings-page-context'
 import { SettingsSection } from '../components/settings-section'
@@ -103,3 +103,4 @@ export function NoticeSection({ defaultValue }: NoticeSectionProps) {
     </SettingsSection>
   )
 }
+

@@ -21,9 +21,9 @@ import { useQueryClient } from '@tanstack/react-query'
 import { getRouteApi, useNavigate } from '@tanstack/react-router'
 import { Plus } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { SectionPageLayout } from '@/components/layout'
+import { Button } from '@shared/ui/primitives/button'
+import { Tabs, TabsList, TabsTrigger } from '@shared/ui/primitives/tabs'
+import { SectionPageLayout } from '@widgets/layout'
 import { listDeployments } from './api'
 import { DeploymentAccessGuard } from './components/deployment-access-guard'
 import { DeploymentsTable } from './components/deployments-table'
@@ -172,3 +172,4 @@ export function Models() {
     </ModelsProvider>
   )
 }
+

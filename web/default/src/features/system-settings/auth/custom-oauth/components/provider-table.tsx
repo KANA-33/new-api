@@ -19,10 +19,10 @@ For commercial licensing, please contact support@quantumnous.com
 import { useState } from 'react'
 import { Pencil, Trash2, Plus } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
-import { ConfirmDialog } from '@/components/confirm-dialog'
-import { BadgeCell, StaticDataTable } from '@/components/data-table'
-import { StatusBadge } from '@/components/status-badge'
+import { Button } from '@shared/ui/primitives/button'
+import { ConfirmDialog } from '@shared/ui/composite/confirm-dialog'
+import { BadgeCell, StaticDataTable } from '@shared/ui/data-table'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 import { useDeleteProvider } from '../hooks/use-custom-oauth-mutations'
 import type { CustomOAuthProvider } from '../types'
 
@@ -155,3 +155,4 @@ export function ProviderTable(props: ProviderTableProps) {
     </>
   )
 }
+

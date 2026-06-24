@@ -16,7 +16,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { api, type ApiRequestConfig } from '@/lib/api'
+import { api, type ApiRequestConfig } from '@shared/api/client'
 import { getGroups as getUserGroups } from '@/features/users/api'
 import type {
   AddChannelRequest,
@@ -610,3 +610,6 @@ export async function getPrefillGroups(
   const res = await api.get('/api/prefill_group', { params: { type } })
   return res.data
 }
+
+
+

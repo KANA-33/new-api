@@ -16,13 +16,13 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { useAuthStore } from '@/stores/auth-store'
-import { useStatus } from '@/hooks/use-status'
-import { Main } from '@/components/layout'
+import { useAuthStore } from '@domains/identity/store/auth-store'
+import { useStatus } from '@shared/hooks/use-status'
+import { Main } from '@widgets/layout'
 import {
   CardStaggerContainer,
   CardStaggerItem,
-} from '@/components/page-transition'
+} from '@widgets/page-transition/page-transition'
 import { CheckinCalendarCard } from './components/checkin-calendar-card'
 import { LanguagePreferencesCard } from './components/language-preferences-card'
 import { PasskeyCard } from './components/passkey-card'
@@ -87,3 +87,5 @@ export function Profile() {
     </Main>
   )
 }
+
+

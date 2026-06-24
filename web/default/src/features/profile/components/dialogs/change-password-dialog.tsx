@@ -20,10 +20,10 @@ import { useState } from 'react'
 import { Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { Button } from '@/components/ui/button'
-import { Label } from '@/components/ui/label'
-import { Dialog } from '@/components/dialog'
-import { PasswordInput } from '@/components/password-input'
+import { Button } from '@shared/ui/primitives/button'
+import { Label } from '@shared/ui/primitives/label'
+import { Dialog } from '@shared/ui/composite/dialog'
+import { PasswordInput } from '@shared/ui/composite/password-input'
 import { updateUserProfile } from '../../api'
 
 // ============================================================================
@@ -100,7 +100,7 @@ export function ChangePasswordDialog({
       } else {
         toast.error(response.message || t('Failed to change password'))
       }
-    } catch (_error) {
+    } catch {
       toast.error(t('Failed to change password'))
     } finally {
       setLoading(false)
@@ -183,3 +183,4 @@ export function ChangePasswordDialog({
     </Dialog>
   )
 }
+

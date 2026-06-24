@@ -19,9 +19,9 @@ For commercial licensing, please contact support@quantumnous.com
 import { useMemo, useState } from 'react'
 import { Check, ChevronsUpDown } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { cn } from '@/lib/utils'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { cn } from '@shared/lib/utils'
+import { Badge } from '@shared/ui/primitives/badge'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Command,
   CommandEmpty,
@@ -29,12 +29,12 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/components/ui/command'
+} from '@shared/ui/primitives/command'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover'
+} from '@shared/ui/primitives/popover'
 
 export type ApiKeyGroupOption = {
   value: string
@@ -207,3 +207,4 @@ export function ApiKeyGroupCombobox({
     </Popover>
   )
 }
+

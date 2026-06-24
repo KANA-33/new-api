@@ -20,10 +20,10 @@ import { type ReactNode, useMemo, useState } from 'react'
 import { Check, Plus, Trash2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
+import { Alert, AlertDescription } from '@shared/ui/primitives/alert'
+import { Badge } from '@shared/ui/primitives/badge'
+import { Button } from '@shared/ui/primitives/button'
+import { Input } from '@shared/ui/primitives/input'
 import {
   Select,
   SelectContent,
@@ -31,10 +31,10 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Separator } from '@/components/ui/separator'
-import { Textarea } from '@/components/ui/textarea'
-import { Dialog } from '@/components/dialog'
+} from '@shared/ui/primitives/select'
+import { Separator } from '@shared/ui/primitives/separator'
+import { Textarea } from '@shared/ui/primitives/textarea'
+import { Dialog } from '@shared/ui/composite/dialog'
 import {
   ADVANCED_CUSTOM_AUTH_MODE_OPTIONS,
   ADVANCED_CUSTOM_CONVERTER_OPTIONS,
@@ -643,3 +643,4 @@ function FieldBlock({
     </div>
   )
 }
+

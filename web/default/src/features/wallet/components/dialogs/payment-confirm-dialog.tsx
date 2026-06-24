@@ -18,7 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { formatLocalCurrencyAmount } from '@/lib/currency'
+import { formatLocalCurrencyAmount } from '@shared/lib/currency'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -28,8 +28,8 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/components/ui/alert-dialog'
-import { Skeleton } from '@/components/ui/skeleton'
+} from '@shared/ui/primitives/alert-dialog'
+import { Skeleton } from '@shared/ui/primitives/skeleton'
 import { DEFAULT_DISCOUNT_RATE } from '../../constants'
 import { formatCurrency, getPaymentIcon } from '../../lib'
 import type { PaymentMethod } from '../../types'
@@ -152,3 +152,4 @@ export function PaymentConfirmDialog({
     </AlertDialog>
   )
 }
+

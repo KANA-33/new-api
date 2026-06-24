@@ -21,13 +21,13 @@ import { useNavigate } from '@tanstack/react-router'
 import { CheckIcon, CopyIcon } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { api } from '@/lib/api'
-import { copyToClipboard } from '@/lib/copy-to-clipboard'
-import { useCountdown } from '@/hooks/use-countdown'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+import { api } from '@shared/api/client'
+import { copyToClipboard } from '@shared/lib/copy-to-clipboard'
+import { useCountdown } from '@shared/hooks/use-countdown'
+import { Alert, AlertDescription } from '@shared/ui/primitives/alert'
+import { Button } from '@shared/ui/primitives/button'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
 import { AuthLayout } from '../auth-layout'
 
 export type ResetPasswordSearchParams = {
@@ -200,3 +200,6 @@ export function ResetPasswordConfirm({
     </AuthLayout>
   )
 }
+
+
+

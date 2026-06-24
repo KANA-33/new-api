@@ -26,7 +26,7 @@ import {
 import { RotateCcw, Save } from 'lucide-react'
 import { createPortal } from 'react-dom'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 
 type SettingsPageContextValue = {
   actionsContainer: HTMLDivElement | null
@@ -144,3 +144,4 @@ export function SettingsPageFormActions(props: SettingsPageFormActionsProps) {
     </SettingsPageActionsPortal>
   )
 }
+

@@ -17,11 +17,11 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { createFileRoute, redirect } from '@tanstack/react-router'
-import { Dashboard } from '@/features/dashboard'
+import { Dashboard } from '@domains/observability/dashboard'
 import {
   DASHBOARD_SECTION_IDS,
   DASHBOARD_DEFAULT_SECTION,
-} from '@/features/dashboard/section-registry'
+} from '@domains/observability/dashboard/section-registry'
 
 export const Route = createFileRoute('/_authenticated/dashboard/$section')({
   beforeLoad: ({ params }) => {
@@ -35,3 +35,4 @@ export const Route = createFileRoute('/_authenticated/dashboard/$section')({
   },
   component: Dashboard,
 })
+

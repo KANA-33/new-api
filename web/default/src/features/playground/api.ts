@@ -16,7 +16,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { api } from '@/lib/api'
+import { api } from '@shared/api/client'
 import { API_ENDPOINTS } from './constants'
 import type {
   ChatCompletionRequest,
@@ -75,3 +75,6 @@ export async function getUserGroups(): Promise<GroupOption[]> {
     desc: info.desc,
   }))
 }
+
+
+

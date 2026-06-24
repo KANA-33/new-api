@@ -47,13 +47,13 @@ import {
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { getLobeIcon } from '@/lib/lobe-icon'
-import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
-import { useHiddenClickUnlock } from '@/hooks/use-hidden-click-unlock'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Combobox } from '@/components/ui/combobox'
+import { getLobeIcon } from '@shared/lib/lobe-icon'
+import { useCopyToClipboard } from '@shared/hooks/use-copy-to-clipboard'
+import { useHiddenClickUnlock } from '@shared/hooks/use-hidden-click-unlock'
+import { Alert, AlertDescription } from '@shared/ui/primitives/alert'
+import { Badge } from '@shared/ui/primitives/badge'
+import { Button } from '@shared/ui/primitives/button'
+import { Combobox } from '@shared/ui/primitives/combobox'
 import {
   Form,
   FormControl,
@@ -62,8 +62,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
 import {
   Select,
   SelectContent,
@@ -71,8 +71,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Separator } from '@/components/ui/separator'
+} from '@shared/ui/primitives/select'
+import { Separator } from '@shared/ui/primitives/separator'
 import {
   Sheet,
   SheetClose,
@@ -81,15 +81,15 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-} from '@/components/ui/sheet'
-import { Skeleton } from '@/components/ui/skeleton'
-import { Switch } from '@/components/ui/switch'
-import { Textarea } from '@/components/ui/textarea'
+} from '@shared/ui/primitives/sheet'
+import { Skeleton } from '@shared/ui/primitives/skeleton'
+import { Switch } from '@shared/ui/primitives/switch'
+import { Textarea } from '@shared/ui/primitives/textarea'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
+} from '@shared/ui/primitives/tooltip'
 import {
   sideDrawerContentClassName,
   sideDrawerFooterClassName,
@@ -97,9 +97,9 @@ import {
   sideDrawerHeaderClassName,
   sideDrawerSectionClassName,
   sideDrawerSwitchItemClassName,
-} from '@/components/drawer-layout'
-import { JsonEditor } from '@/components/json-editor'
-import { MultiSelect } from '@/components/multi-select'
+} from '@shared/ui/composite/drawer-layout'
+import { JsonEditor } from '@shared/ui/composite/json-editor'
+import { MultiSelect } from '@shared/ui/composite/multi-select'
 import {
   SecureVerificationDialog,
   useSecureVerification,
@@ -447,7 +447,7 @@ export function ChannelMutateDrawer({
   const groupOptions = useMemo(() => {
     if (!groupsData?.data) return []
     const allGroups = new Set([...groupsData.data, ...(currentGroups || [])])
-    return Array.from(allGroups).map((group) => ({
+    return [...allGroups].map((group) => ({
       value: group,
       label: group,
     }))
@@ -497,7 +497,7 @@ export function ChannelMutateDrawer({
   // Transform models to multi-select options
   const modelOptions = useMemo(() => {
     const allModels = new Set([...allModelsList, ...currentModelsArray])
-    return Array.from(allModels).map((model) => ({
+    return [...allModels].map((model) => ({
       value: model,
       label: model,
     }))
@@ -528,29 +528,9 @@ export function ChannelMutateDrawer({
         return acc
       }, [])
 
-      const missingSourceModels = Array.from(
-        new Set(
-          entries
-            .filter(
-              (entry) =>
-                Boolean(entry.source) &&
-                !currentModelsArray.includes(entry.source)
-            )
-            .map((entry) => entry.source)
-        )
-      )
+      const missingSourceModels = [...new Set(entries.filter((entry) => Boolean(entry.source) && !currentModelsArray.includes(entry.source)).map((entry) => entry.source))]
 
-      const exposedTargetModels = Array.from(
-        new Set(
-          entries
-            .filter(
-              (entry) =>
-                Boolean(entry.target) &&
-                currentModelsArray.includes(entry.target)
-            )
-            .map((entry) => entry.target)
-        )
-      )
+      const exposedTargetModels = [...new Set(entries.filter((entry) => Boolean(entry.target) && currentModelsArray.includes(entry.target)).map((entry) => entry.target))]
 
       return {
         invalidJson: false,
@@ -584,7 +564,7 @@ export function ChannelMutateDrawer({
 
     return {
       lastCheckTime: settings.upstream_model_update_last_check_time,
-      detectedModels: Array.from(new Set(detectedModels)),
+      detectedModels: [...new Set(detectedModels)],
     }
   }, [currentSettings])
 
@@ -1025,9 +1005,7 @@ export function ChannelMutateDrawer({
             return
           }
           if (confirmAction === 'add') {
-            const updatedModels = Array.from(
-              new Set([...normalizedModels, ...missingModels])
-            )
+            const updatedModels = [...new Set([...normalizedModels, ...missingModels])]
             data.models = formatModelsArray(updatedModels)
             form.setValue('models', data.models)
           }
@@ -1601,7 +1579,7 @@ export function ChannelMutateDrawer({
                                 onChange={async (e) => {
                                   const fileList = e.target.files
                                   const files = fileList
-                                    ? Array.from(fileList)
+                                    ? [...fileList]
                                     : []
                                   // allow re-selecting the same file
                                   e.target.value = ''
@@ -1882,12 +1860,10 @@ export function ChannelMutateDrawer({
                             <FormItem>
                               <FormLabel>{t('Add Mode')}</FormLabel>
                               <Select
-                                items={[
-                                  ...addModeOptions.map((option) => ({
+                                items={addModeOptions.map((option) => ({
                                     value: option.value,
                                     label: t(option.label),
-                                  })),
-                                ]}
+                                  }))}
                                 onValueChange={field.onChange}
                                 value={field.value}
                               >
@@ -2900,7 +2876,7 @@ export function ChannelMutateDrawer({
                                         field.onChange(
                                           JSON.stringify(parsed, null, 2)
                                         )
-                                      } catch (_e) {
+                                      } catch {
                                         /* ignore invalid JSON */
                                       }
                                     }}
@@ -3548,3 +3524,4 @@ export function ChannelMutateDrawer({
     </>
   )
 }
+

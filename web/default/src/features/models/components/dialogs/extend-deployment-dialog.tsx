@@ -21,10 +21,10 @@ import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Separator } from '@/components/ui/separator'
-import { Dialog } from '@/components/dialog'
+import { Button } from '@shared/ui/primitives/button'
+import { Input } from '@shared/ui/primitives/input'
+import { Separator } from '@shared/ui/primitives/separator'
+import { Dialog } from '@shared/ui/composite/dialog'
 import { estimatePrice, extendDeployment, getDeployment } from '../../api'
 import { deploymentsQueryKeys } from '../../lib'
 
@@ -231,3 +231,4 @@ export function ExtendDeploymentDialog({
     </Dialog>
   )
 }
+

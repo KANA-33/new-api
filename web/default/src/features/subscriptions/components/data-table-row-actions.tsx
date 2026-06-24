@@ -16,16 +16,16 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { type Row } from '@tanstack/react-table'
+import type { Row } from '@tanstack/react-table'
 import { MoreHorizontal, Pencil, Power, PowerOff } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+} from '@shared/ui/primitives/dropdown-menu'
 import type { PlanRecord } from '../types'
 import { useSubscriptions } from './subscriptions-provider'
 
@@ -80,3 +80,4 @@ export function DataTableRowActions({ row }: DataTableRowActionsProps) {
     </div>
   )
 }
+

@@ -18,8 +18,8 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { QrCode } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Dialog } from '@/components/dialog'
+import { Alert, AlertDescription } from '@shared/ui/primitives/alert'
+import { Dialog } from '@shared/ui/composite/dialog'
 
 // ============================================================================
 // WeChat Bind Dialog Component
@@ -73,3 +73,4 @@ export function WeChatBindDialog({
     </Dialog>
   )
 }
+

@@ -21,7 +21,7 @@ import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -30,9 +30,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Dialog } from '@/components/dialog'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Dialog } from '@shared/ui/composite/dialog'
 
 const createChatDialogSchema = (t: (key: string) => string) =>
   z.object({
@@ -162,3 +162,4 @@ export function ChatDialog({
     </Dialog>
   )
 }
+

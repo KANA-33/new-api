@@ -28,7 +28,7 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/components/ui/alert-dialog'
+} from '@shared/ui/primitives/alert-dialog'
 import { deleteApiKey } from '../api'
 import { ERROR_MESSAGES, SUCCESS_MESSAGES } from '../constants'
 import { useApiKeys } from './api-keys-provider'
@@ -51,7 +51,7 @@ export function ApiKeysDeleteDialog() {
       } else {
         toast.error(result.message || t(ERROR_MESSAGES.DELETE_FAILED))
       }
-    } catch (_error) {
+    } catch {
       toast.error(t(ERROR_MESSAGES.UNEXPECTED))
     } finally {
       setIsDeleting(false)
@@ -88,3 +88,4 @@ export function ApiKeysDeleteDialog() {
     </AlertDialog>
   )
 }
+

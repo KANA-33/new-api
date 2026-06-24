@@ -16,8 +16,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { getLobeIcon } from '@/lib/lobe-icon'
-import { cn } from '@/lib/utils'
+import { getLobeIcon } from '@shared/lib/lobe-icon'
+import { cn } from '@shared/lib/utils'
 
 interface IconCardProps {
   iconName: string
@@ -45,3 +45,4 @@ export function IconCard({ iconName, size = 32, className }: IconCardProps) {
     </div>
   )
 }
+

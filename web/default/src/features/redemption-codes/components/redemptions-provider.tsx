@@ -17,8 +17,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import React, { useState } from 'react'
-import useDialogState from '@/hooks/use-dialog'
-import { type Redemption, type RedemptionsDialogType } from '../types'
+import useDialogState from '@shared/hooks/use-dialog'
+import type { Redemption, RedemptionsDialogType } from '../types'
 
 type RedemptionsContextType = {
   open: RedemptionsDialogType | null
@@ -72,3 +72,4 @@ export const useRedemptions = () => {
 
   return redemptionsContext
 }
+

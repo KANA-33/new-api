@@ -21,10 +21,10 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { getCurrencyDisplay, getCurrencyLabel } from '@/lib/currency'
-import { formatQuota, parseQuotaFromDollars } from '@/lib/format'
-import { addTimeToDate } from '@/lib/time'
-import { Button } from '@/components/ui/button'
+import { getCurrencyDisplay, getCurrencyLabel } from '@shared/lib/currency'
+import { formatQuota, parseQuotaFromDollars } from '@shared/lib/format'
+import { addTimeToDate } from '@shared/lib/time'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -33,8 +33,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
 import {
   Sheet,
   SheetClose,
@@ -43,15 +43,15 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-} from '@/components/ui/sheet'
-import { DateTimePicker } from '@/components/datetime-picker'
+} from '@shared/ui/primitives/sheet'
+import { DateTimePicker } from '@shared/ui/composite/datetime-picker'
 import {
   SideDrawerSection,
   sideDrawerContentClassName,
   sideDrawerFooterClassName,
   sideDrawerFormClassName,
   sideDrawerHeaderClassName,
-} from '@/components/drawer-layout'
+} from '@shared/ui/composite/drawer-layout'
 import { createRedemption, updateRedemption, getRedemption } from '../api'
 import { SUCCESS_MESSAGES } from '../constants'
 import {
@@ -61,7 +61,7 @@ import {
   transformFormDataToPayload,
   transformRedemptionToFormDefaults,
 } from '../lib'
-import { type Redemption } from '../types'
+import type { Redemption } from '../types'
 import { useRedemptions } from './redemptions-provider'
 
 type RedemptionsMutateDrawerProps = {
@@ -224,7 +224,7 @@ export function RedemptionsMutateDrawer({
                         step={tokensOnly ? 1 : 0.01}
                         placeholder={quotaPlaceholder}
                         onChange={(e) =>
-                          field.onChange(parseFloat(e.target.value) || 0)
+                          field.onChange(Number.parseFloat(e.target.value) || 0)
                         }
                       />
                     </FormControl>
@@ -312,7 +312,7 @@ export function RedemptionsMutateDrawer({
                           max='100'
                           placeholder={t('Number of codes to create')}
                           onChange={(e) =>
-                            field.onChange(parseInt(e.target.value, 10) || 1)
+                            field.onChange(Number.parseInt(e.target.value, 10) || 1)
                           }
                         />
                       </FormControl>
@@ -339,3 +339,4 @@ export function RedemptionsMutateDrawer({
     </Sheet>
   )
 }
+

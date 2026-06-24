@@ -19,9 +19,9 @@ For commercial licensing, please contact support@quantumnous.com
 import { useState } from 'react'
 import { Search, Copy, Check, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { formatCurrencyFromUSD } from '@/lib/currency'
-import { formatNumber } from '@/lib/format'
-import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
+import { formatCurrencyFromUSD } from '@shared/lib/currency'
+import { formatNumber } from '@shared/lib/format'
+import { useCopyToClipboard } from '@shared/hooks/use-copy-to-clipboard'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -31,10 +31,10 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/components/ui/alert-dialog'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+} from '@shared/ui/primitives/alert-dialog'
+import { Button } from '@shared/ui/primitives/button'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
 import {
   Select,
   SelectContent,
@@ -42,10 +42,10 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Skeleton } from '@/components/ui/skeleton'
-import { Dialog } from '@/components/dialog'
-import { StatusBadge } from '@/components/status-badge'
+} from '@shared/ui/primitives/select'
+import { Skeleton } from '@shared/ui/primitives/skeleton'
+import { Dialog } from '@shared/ui/composite/dialog'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 import { useBillingHistory } from '../../hooks/use-billing-history'
 import {
   getStatusConfig,
@@ -126,7 +126,7 @@ export function BillingHistoryDialog({
               ]}
               value={pageSize.toString()}
               onValueChange={(value) =>
-                value !== null && handlePageSizeChange(parseInt(value))
+                value !== null && handlePageSizeChange(Number.parseInt(value))
               }
             >
               <SelectTrigger className='h-9 w-[92px] sm:w-32'>
@@ -343,3 +343,4 @@ export function BillingHistoryDialog({
     </>
   )
 }
+

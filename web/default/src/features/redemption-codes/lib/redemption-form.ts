@@ -18,12 +18,12 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { z } from 'zod'
 import type { TFunction } from 'i18next'
-import { parseQuotaFromDollars, quotaUnitsToDollars } from '@/lib/format'
+import { parseQuotaFromDollars, quotaUnitsToDollars } from '@shared/lib/format'
 import {
   REDEMPTION_VALIDATION,
   getRedemptionFormErrorMessages,
 } from '../constants'
-import { type RedemptionFormData, type Redemption } from '../types'
+import type { RedemptionFormData, Redemption } from '../types'
 
 // ============================================================================
 // Form Schema (use getRedemptionFormSchema(t) in components for i18n messages)
@@ -100,3 +100,4 @@ export function transformRedemptionToFormDefaults(
     count: 1,
   }
 }
+

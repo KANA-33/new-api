@@ -19,8 +19,8 @@ For commercial licensing, please contact support@quantumnous.com
 import { Link } from '@tanstack/react-router'
 import { ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
-import { AnimateInView } from '@/components/animate-in-view'
+import { Button } from '@shared/ui/primitives/button'
+import { AnimateInView } from '@shared/ui/composite/animate-in-view'
 
 interface CTAProps {
   className?: string
@@ -81,3 +81,4 @@ export function CTA(props: CTAProps) {
     </section>
   )
 }
+

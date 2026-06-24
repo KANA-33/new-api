@@ -23,8 +23,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { ConfirmDialog } from '@/components/confirm-dialog'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@shared/ui/primitives/tabs'
+import { ConfirmDialog } from '@shared/ui/composite/confirm-dialog'
 import { resetModelRatios } from '../api'
 import { SettingsPageTitleStatusPortal } from '../components/settings-page-context'
 import { SettingsSection } from '../components/settings-section'
@@ -487,3 +487,4 @@ export function RatioSettingsCard({
     </>
   )
 }
+

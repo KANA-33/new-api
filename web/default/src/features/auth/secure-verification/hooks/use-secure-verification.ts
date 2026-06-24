@@ -22,7 +22,7 @@ import { toast } from 'sonner'
 import {
   extractVerificationInfo,
   isVerificationRequiredError,
-} from '@/lib/secure-verification'
+} from '@shared/lib/secure-verification'
 import { checkVerificationMethods, verify } from '../api'
 import type {
   SecureVerificationState,
@@ -236,3 +236,4 @@ export function useSecureVerification(
     code: state.code,
   }
 }
+

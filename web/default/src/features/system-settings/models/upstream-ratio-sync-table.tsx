@@ -19,7 +19,7 @@ For commercial licensing, please contact support@quantumnous.com
 import { useCallback, useMemo, useState } from 'react'
 import { Loader2, Search } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Input } from '@/components/ui/input'
+import { Input } from '@shared/ui/primitives/input'
 import {
   Select,
   SelectContent,
@@ -27,12 +27,12 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
+} from '@shared/ui/primitives/select'
 import {
   DataTablePagination,
   DataTableView,
   useDataTable,
-} from '@/components/data-table'
+} from '@shared/ui/data-table'
 import type { DifferencesMap, RatioType } from '../types'
 import { RATIO_TYPE_OPTIONS } from './constants'
 import { useUpstreamRatioSyncColumns } from './upstream-ratio-sync-columns'
@@ -110,7 +110,7 @@ export function UpstreamRatioSyncTable({
         }
       )
     })
-    return Array.from(set)
+    return [...set]
   }, [filteredData, ratioTypeFilter])
 
   const handleBulkSelect = useCallback(
@@ -261,3 +261,4 @@ export function UpstreamRatioSyncTable({
     </div>
   )
 }
+

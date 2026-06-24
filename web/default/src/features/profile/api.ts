@@ -16,7 +16,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { api } from '@/lib/api'
+import { api } from '@shared/api/client'
 import type {
   ApiResponse,
   UserProfile,
@@ -184,3 +184,6 @@ export async function performCheckin(
   const res = await api.post(url)
   return res.data
 }
+
+
+

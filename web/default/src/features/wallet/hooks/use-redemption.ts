@@ -19,8 +19,8 @@ For commercial licensing, please contact support@quantumnous.com
 import { useState, useCallback } from 'react'
 import i18next from 'i18next'
 import { toast } from 'sonner'
-import { getSelf } from '@/lib/api'
-import { formatQuota } from '@/lib/format'
+import { getSelf } from '@shared/api/client'
+import { formatQuota } from '@shared/lib/format'
 import { redeemTopupCode } from '../api'
 
 // ============================================================================
@@ -53,7 +53,7 @@ export function useRedemption() {
 
       toast.error(response.message || i18next.t('Redemption failed'))
       return false
-    } catch (_error) {
+    } catch {
       toast.error(i18next.t('Redemption failed'))
       return false
     } finally {
@@ -66,3 +66,6 @@ export function useRedemption() {
     redeemCode,
   }
 }
+
+
+

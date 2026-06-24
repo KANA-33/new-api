@@ -22,10 +22,10 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { api } from '@/lib/api'
-import dayjs from '@/lib/dayjs'
-import { formatTimestampToDate } from '@/lib/format'
-import { Alert, AlertDescription } from '@/components/ui/alert'
+import { api } from '@shared/api/client'
+import dayjs from '@shared/lib/dayjs'
+import { formatTimestampToDate } from '@shared/lib/format'
+import { Alert, AlertDescription } from '@shared/ui/primitives/alert'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -36,8 +36,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@/components/ui/alert-dialog'
-import { Button } from '@/components/ui/button'
+} from '@shared/ui/primitives/alert-dialog'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -45,10 +45,10 @@ import {
   FormField,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Progress } from '@/components/ui/progress'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { Progress } from '@shared/ui/primitives/progress'
 import {
   Select,
   SelectContent,
@@ -56,10 +56,10 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Separator } from '@/components/ui/separator'
-import { Switch } from '@/components/ui/switch'
-import { DateTimePicker } from '@/components/datetime-picker'
+} from '@shared/ui/primitives/select'
+import { Separator } from '@shared/ui/primitives/separator'
+import { Switch } from '@shared/ui/primitives/switch'
+import { DateTimePicker } from '@shared/ui/composite/datetime-picker'
 import {
   getCurrentLogCleanupTask,
   getSystemTask,
@@ -609,3 +609,6 @@ export function LogSettingsSection({
     </SettingsSection>
   )
 }
+
+
+

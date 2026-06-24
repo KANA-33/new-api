@@ -22,14 +22,14 @@ import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
 
-import { Dialog } from '@/components/dialog'
-import { Button } from '@/components/ui/button'
+import { Dialog } from '@shared/ui/composite/dialog'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@/components/ui/collapsible'
-import { Separator } from '@/components/ui/separator'
+} from '@shared/ui/primitives/collapsible'
+import { Separator } from '@shared/ui/primitives/separator'
 
 import { getDeployment, listDeploymentContainers } from '../../api'
 
@@ -287,3 +287,4 @@ export function ViewDetailsDialog({
     </Dialog>
   )
 }
+

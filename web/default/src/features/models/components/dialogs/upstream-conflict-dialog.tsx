@@ -18,7 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { useEffect, useMemo, useState, useCallback } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
-import { type ColumnDef, type RowSelectionState } from '@tanstack/react-table'
+import type { ColumnDef, RowSelectionState } from '@tanstack/react-table'
 import {
   Search,
   Info,
@@ -28,15 +28,15 @@ import {
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { useIsMobile } from '@/hooks/use-mobile'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Input } from '@/components/ui/input'
+import { useIsMobile } from '@shared/hooks/use-mobile'
+import { Button } from '@shared/ui/primitives/button'
+import { Checkbox } from '@shared/ui/primitives/checkbox'
+import { Input } from '@shared/ui/primitives/input'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover'
+} from '@shared/ui/primitives/popover'
 import {
   Select,
   SelectContent,
@@ -44,10 +44,10 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { DataTableView, useDataTable } from '@/components/data-table'
-import { Dialog } from '@/components/dialog'
-import { StatusBadge } from '@/components/status-badge'
+} from '@shared/ui/primitives/select'
+import { DataTableView, useDataTable } from '@shared/ui/data-table'
+import { Dialog } from '@shared/ui/composite/dialog'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 import { applyUpstreamOverwrite } from '../../api'
 import { modelsQueryKeys, vendorsQueryKeys } from '../../lib'
 import type { SyncOverwritePayload } from '../../types'
@@ -394,7 +394,7 @@ export function UpstreamConflictDialog({
     const payload: SyncOverwritePayload[] = Object.entries(groupedSelections)
       .map(([modelName, fields]) => ({
         model_name: modelName,
-        fields: Array.from(fields),
+        fields: [...fields],
       }))
       .filter((item) => item.fields.length > 0)
 
@@ -619,3 +619,4 @@ export function UpstreamConflictDialog({
     </Dialog>
   )
 }
+

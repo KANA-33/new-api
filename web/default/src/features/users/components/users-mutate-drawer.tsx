@@ -23,9 +23,9 @@ import { useQuery } from '@tanstack/react-query'
 import { Pencil } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { getCurrencyDisplay, getCurrencyLabel } from '@/lib/currency'
-import { formatQuota, parseQuotaFromDollars } from '@/lib/format'
-import { Button } from '@/components/ui/button'
+import { getCurrencyDisplay, getCurrencyLabel } from '@shared/lib/currency'
+import { formatQuota, parseQuotaFromDollars } from '@shared/lib/format'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -34,9 +34,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
 import {
   Select,
   SelectContent,
@@ -44,7 +44,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
+} from '@shared/ui/primitives/select'
 import {
   Sheet,
   SheetClose,
@@ -53,15 +53,15 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-} from '@/components/ui/sheet'
-import { Textarea } from '@/components/ui/textarea'
+} from '@shared/ui/primitives/sheet'
+import { Textarea } from '@shared/ui/primitives/textarea'
 import {
   SideDrawerSection,
   sideDrawerContentClassName,
   sideDrawerFooterClassName,
   sideDrawerFormClassName,
   sideDrawerHeaderClassName,
-} from '@/components/drawer-layout'
+} from '@shared/ui/composite/drawer-layout'
 import { createUser, updateUser, getUser, getGroups } from '../api'
 import { BINDING_FIELDS, ERROR_MESSAGES, SUCCESS_MESSAGES } from '../constants'
 import {
@@ -71,7 +71,7 @@ import {
   transformFormDataToPayload,
   transformUserToFormDefaults,
 } from '../lib'
-import { type User } from '../types'
+import type { User } from '../types'
 import { UserQuotaDialog } from './user-quota-dialog'
 import { useUsers } from './users-provider'
 
@@ -162,7 +162,7 @@ export function UsersMutateDrawer({
               : t(ERROR_MESSAGES.CREATE_FAILED))
         )
       }
-    } catch (_error) {
+    } catch {
       toast.error(t(ERROR_MESSAGES.UNEXPECTED))
     } finally {
       setIsSubmitting(false)
@@ -245,7 +245,7 @@ export function UsersMutateDrawer({
                             { value: '10', label: t('Admin') },
                           ]}
                           onValueChange={(value) =>
-                            value !== null && field.onChange(parseInt(value))
+                            value !== null && field.onChange(Number.parseInt(value))
                           }
                           value={String(field.value)}
                         >
@@ -327,12 +327,10 @@ export function UsersMutateDrawer({
                       <FormItem>
                         <FormLabel>{t('Group')}</FormLabel>
                         <Select
-                          items={[
-                            ...groups.map((group) => ({
+                          items={groups.map((group) => ({
                               value: group,
                               label: group,
-                            })),
-                          ]}
+                            }))}
                           onValueChange={field.onChange}
                           value={field.value}
                         >
@@ -473,3 +471,4 @@ export function UsersMutateDrawer({
     </>
   )
 }
+

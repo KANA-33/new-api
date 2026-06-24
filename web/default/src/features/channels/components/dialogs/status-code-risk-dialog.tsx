@@ -19,11 +19,11 @@ For commercial licensing, please contact support@quantumnous.com
 import { useState } from 'react'
 import { AlertTriangle } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Dialog } from '@/components/dialog'
+import { Button } from '@shared/ui/primitives/button'
+import { Checkbox } from '@shared/ui/primitives/checkbox'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { Dialog } from '@shared/ui/composite/dialog'
 
 interface StatusCodeRiskDialogProps {
   open: boolean
@@ -162,3 +162,4 @@ export function StatusCodeRiskDialog({
     </Dialog>
   )
 }
+

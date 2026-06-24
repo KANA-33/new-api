@@ -99,3 +99,5 @@ export const MESSAGE_ACTION_LABELS = {
   NO_CONTENT: 'No content to copy',
   WAIT_GENERATION: 'Please wait for the current generation to complete',
 } as const
+
+

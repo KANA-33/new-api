@@ -21,19 +21,19 @@ import { Mail, Shield, Send, Link2, Unlink } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { SiGithub, SiWechat, SiLinux } from 'react-icons/si'
 import { toast } from 'sonner'
-import { IconDiscord } from '@/assets/brand-icons'
+import { IconDiscord } from '@shared/assets/brand-icons'
 import {
   handleGitHubOAuth,
   handleOIDCOAuth,
   handleDiscordOAuth,
   handleLinuxDOOAuth,
-} from '@/lib/oauth'
-import { useDialogs } from '@/hooks/use-dialog'
-import { useStatus } from '@/hooks/use-status'
-import { Button } from '@/components/ui/button'
-import { Separator } from '@/components/ui/separator'
-import { ConfirmDialog } from '@/components/confirm-dialog'
-import { StatusBadge } from '@/components/status-badge'
+} from '@shared/lib/oauth'
+import { useDialogs } from '@shared/hooks/use-dialog'
+import { useStatus } from '@shared/hooks/use-status'
+import { Button } from '@shared/ui/primitives/button'
+import { Separator } from '@shared/ui/primitives/separator'
+import { ConfirmDialog } from '@shared/ui/composite/confirm-dialog'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 import { OAUTH_BIND_STORAGE_KEY } from '@/features/auth/constants'
 import {
   getSelfOAuthBindings,
@@ -423,3 +423,4 @@ export function AccountBindingsTab({
     </>
   )
 }
+

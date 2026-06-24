@@ -19,9 +19,9 @@ For commercial licensing, please contact support@quantumnous.com
 import { useState, useMemo } from 'react'
 import { Pencil, Plus, Search, Trash2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { StaticDataTable } from '@/components/data-table'
+import { Button } from '@shared/ui/primitives/button'
+import { Input } from '@shared/ui/primitives/input'
+import { StaticDataTable } from '@shared/ui/data-table'
 import { safeJsonParseWithValidation } from '../utils/json-parser'
 import { isArray } from '../utils/json-validators'
 import { ChatDialog, type ChatEntryData } from './chat-dialog'
@@ -201,3 +201,4 @@ export function ChatSettingsVisualEditor({
     </div>
   )
 }
+

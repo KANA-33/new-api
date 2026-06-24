@@ -20,11 +20,11 @@ import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { Code2, Copy, Eye, Plus, Trash2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { StaticDataTable } from '@/components/data-table'
+import { Alert, AlertDescription } from '@shared/ui/primitives/alert'
+import { Button } from '@shared/ui/primitives/button'
+import { Input } from '@shared/ui/primitives/input'
+import { Textarea } from '@shared/ui/primitives/textarea'
+import { StaticDataTable } from '@shared/ui/data-table'
 import { useUpdateOption } from '../hooks/use-update-option'
 
 const OPTION_KEY = 'tool_price_setting.prices'
@@ -330,3 +330,4 @@ export const ToolPriceSettings = memo(function ToolPriceSettings({
     </div>
   )
 })
+

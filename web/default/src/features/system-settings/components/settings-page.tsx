@@ -19,7 +19,7 @@ For commercial licensing, please contact support@quantumnous.com
 import { useMemo, useState, type ReactNode } from 'react'
 import { useParams } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
-import { SectionPageLayout } from '@/components/layout'
+import { SectionPageLayout } from '@widgets/layout'
 import { useSystemOptions, getOptionValue } from '../hooks/use-system-options'
 import type { SystemOption } from '../types'
 import { SettingsPageProvider } from './settings-page-context'
@@ -145,3 +145,4 @@ export function SettingsPage<
     </SettingsPageFrame>
   )
 }
+

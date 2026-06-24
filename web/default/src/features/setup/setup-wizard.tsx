@@ -22,8 +22,8 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useNavigate } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { cn } from '@/lib/utils'
-import { useSystemConfig } from '@/hooks/use-system-config'
+import { cn } from '@shared/lib/utils'
+import { useSystemConfig } from '@shared/hooks/use-system-config'
 import {
   Card,
   CardContent,
@@ -31,12 +31,12 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
-import { Form } from '@/components/ui/form'
-import { Skeleton } from '@/components/ui/skeleton'
-import { ErrorState } from '@/components/error-state'
-import { LanguageSwitcher } from '@/components/language-switcher'
-import { LoadingState } from '@/components/loading-state'
+} from '@shared/ui/primitives/card'
+import { Form } from '@shared/ui/primitives/form'
+import { Skeleton } from '@shared/ui/primitives/skeleton'
+import { ErrorState } from '@shared/ui/composite/error-state'
+import { LanguageSwitcher } from '@shared/ui/composite/language-switcher'
+import { LoadingState } from '@shared/ui/composite/loading-state'
 import { buildSetupPayload, getSetupStatus, submitSetup } from './api'
 import { AdminStep } from './components/admin-step'
 import { CompleteStep } from './components/complete-step'
@@ -398,3 +398,4 @@ export function SetupWizard() {
     </div>
   )
 }
+

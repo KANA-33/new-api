@@ -18,10 +18,10 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { useState } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
-import { type Row } from '@tanstack/react-table'
+import type { Row } from '@tanstack/react-table'
 import { MoreHorizontal, Pencil, Power, PowerOff, Trash2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -29,8 +29,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { ConfirmDialog } from '@/components/confirm-dialog'
+} from '@shared/ui/primitives/dropdown-menu'
+import { ConfirmDialog } from '@shared/ui/composite/confirm-dialog'
 import {
   handleDeleteModel,
   handleToggleModelStatus,
@@ -138,3 +138,4 @@ export function DataTableRowActions({ row }: DataTableRowActionsProps) {
     </div>
   )
 }
+

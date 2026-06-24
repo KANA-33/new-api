@@ -20,13 +20,13 @@ import { useState, useEffect, useCallback } from 'react'
 import { Bell, Loader2, Mail, Server, Webhook } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { ROLE } from '@/lib/roles'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Switch } from '@/components/ui/switch'
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
-import { PasswordInput } from '@/components/password-input'
+import { ROLE } from '@shared/lib/roles'
+import { Button } from '@shared/ui/primitives/button'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { Switch } from '@shared/ui/primitives/switch'
+import { ToggleGroup, ToggleGroupItem } from '@shared/ui/primitives/toggle-group'
+import { PasswordInput } from '@shared/ui/composite/password-input'
 import { updateUserSettings } from '../../api'
 import {
   DEFAULT_QUOTA_WARNING_THRESHOLD,
@@ -123,7 +123,7 @@ export function NotificationTab({ profile, onUpdate }: NotificationTabProps) {
       } else {
         toast.error(response.message || t('Failed to update settings'))
       }
-    } catch (_error) {
+    } catch {
       toast.error(t('Failed to update settings'))
     } finally {
       setLoading(false)
@@ -142,7 +142,7 @@ export function NotificationTab({ profile, onUpdate }: NotificationTabProps) {
           onValueChange={(value) => {
             const nextValue = value.find((item) => item !== notifyType)
             if (nextValue)
-              updateField('notify_type', normalizeNotifyType(nextValue))
+              {updateField('notify_type', normalizeNotifyType(nextValue))}
           }}
           aria-label={t('Notification Method')}
           variant='outline'
@@ -401,3 +401,4 @@ export function NotificationTab({ profile, onUpdate }: NotificationTabProps) {
     </div>
   )
 }
+

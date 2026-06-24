@@ -39,7 +39,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+} from '@shared/ui/primitives/dropdown-menu'
 import {
   PromptInput,
   PromptInputButton,
@@ -47,9 +47,9 @@ import {
   PromptInputTextarea,
   PromptInputTools,
   type PromptInputMessage,
-} from '@/components/ai-elements/prompt-input'
-import { Suggestion, Suggestions } from '@/components/ai-elements/suggestion'
-import { ModelGroupSelector } from '@/components/model-group-selector'
+} from '@shared/ui/ai-elements/prompt-input'
+import { Suggestion, Suggestions } from '@shared/ui/ai-elements/suggestion'
+import { ModelGroupSelector } from '@shared/ui/composite/model-group-selector'
 import type { ModelOption, GroupOption } from '../types'
 
 interface PlaygroundInputProps {
@@ -237,3 +237,5 @@ export function PlaygroundInput({
     </div>
   )
 }
+
+

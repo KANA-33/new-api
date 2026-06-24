@@ -18,7 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { useNavigate, useRouter } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 
 export function ForbiddenError() {
   const { t } = useTranslation()
@@ -45,3 +45,4 @@ export function ForbiddenError() {
     </div>
   )
 }
+

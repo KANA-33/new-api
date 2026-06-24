@@ -18,17 +18,17 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { Shield, AlertTriangle, RefreshCw } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { useDialogs } from '@/hooks/use-dialog'
-import { Button } from '@/components/ui/button'
+import { useDialogs } from '@shared/hooks/use-dialog'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
-import { Skeleton } from '@/components/ui/skeleton'
-import { StatusBadge } from '@/components/status-badge'
+} from '@shared/ui/primitives/card'
+import { Skeleton } from '@shared/ui/primitives/skeleton'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 import { useTwoFA } from '../hooks'
 import { TwoFABackupDialog } from './dialogs/two-fa-backup-dialog'
 import { TwoFADisableDialog } from './dialogs/two-fa-disable-dialog'
@@ -182,3 +182,4 @@ export function TwoFACard({ loading: pageLoading }: TwoFACardProps) {
     </>
   )
 }
+

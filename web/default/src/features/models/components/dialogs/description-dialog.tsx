@@ -17,8 +17,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { useTranslation } from 'react-i18next'
-import { ScrollArea } from '@/components/ui/scroll-area'
-import { Dialog } from '@/components/dialog'
+import { ScrollArea } from '@shared/ui/primitives/scroll-area'
+import { Dialog } from '@shared/ui/composite/dialog'
 
 type DescriptionDialogProps = {
   open: boolean
@@ -54,3 +54,4 @@ export function DescriptionDialog({
     </Dialog>
   )
 }
+

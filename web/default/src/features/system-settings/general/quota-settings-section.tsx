@@ -21,7 +21,7 @@ import * as z from 'zod'
 import type { Resolver } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslation } from 'react-i18next'
-import { Alert, AlertDescription } from '@/components/ui/alert'
+import { Alert, AlertDescription } from '@shared/ui/primitives/alert'
 import {
   Form,
   FormControl,
@@ -30,9 +30,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Switch } from '@/components/ui/switch'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Switch } from '@shared/ui/primitives/switch'
 import { FormDirtyIndicator } from '../components/form-dirty-indicator'
 import { FormNavigationGuard } from '../components/form-navigation-guard'
 import {
@@ -289,3 +289,4 @@ export function QuotaSettingsSection({
     </SettingsSection>
   )
 }
+

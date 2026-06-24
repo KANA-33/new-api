@@ -16,11 +16,11 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import i18next from 'i18next'
 import { CreditCard, Landmark } from 'lucide-react'
 import { SiAlipay, SiWechat, SiStripe } from 'react-icons/si'
-import { ReactIconByName } from '@/components/react-icon-by-name'
+import { ReactIconByName } from '@shared/ui/composite/react-icon-by-name'
 import { PAYMENT_TYPES, PAYMENT_ICON_COLORS } from '../constants'
 
 // ============================================================================
@@ -156,3 +156,4 @@ export function getPaymentIcon(
       return <CreditCard className={className} />
   }
 }
+

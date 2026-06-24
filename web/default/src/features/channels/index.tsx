@@ -20,15 +20,15 @@ import { useTranslation } from 'react-i18next'
 import { Link } from '@tanstack/react-router'
 import { useQuery } from '@tanstack/react-query'
 import { Settings2 } from 'lucide-react'
-import { SectionPageLayout } from '@/components/layout'
-import { Badge } from '@/components/ui/badge'
+import { SectionPageLayout } from '@widgets/layout'
+import { Badge } from '@shared/ui/primitives/badge'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
-import { ROLE } from '@/lib/roles'
-import { useAuthStore } from '@/stores/auth-store'
+} from '@shared/ui/primitives/tooltip'
+import { ROLE } from '@shared/lib/roles'
+import { useAuthStore } from '@domains/identity/store/auth-store'
 import { getChannelOps } from './api'
 import { ChannelsDialogs } from './components/channels-dialogs'
 import { ChannelsPrimaryButtons } from './components/channels-primary-buttons'
@@ -105,3 +105,4 @@ export function Channels() {
     </ChannelsProvider>
   )
 }
+

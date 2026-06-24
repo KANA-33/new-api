@@ -23,7 +23,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -31,8 +31,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
 import {
   Select,
   SelectContent,
@@ -40,7 +40,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
+} from '@shared/ui/primitives/select'
 import {
   Sheet,
   SheetClose,
@@ -49,16 +49,16 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-} from '@/components/ui/sheet'
-import { Textarea } from '@/components/ui/textarea'
+} from '@shared/ui/primitives/sheet'
+import { Textarea } from '@shared/ui/primitives/textarea'
 import {
   SideDrawerSection,
   sideDrawerContentClassName,
   sideDrawerFooterClassName,
   sideDrawerFormClassName,
   sideDrawerHeaderClassName,
-} from '@/components/drawer-layout'
-import { MultiSelect } from '@/components/multi-select'
+} from '@shared/ui/composite/drawer-layout'
+import { MultiSelect } from '@shared/ui/composite/multi-select'
 import {
   checkClusterNameAvailability,
   createDeployment,
@@ -194,7 +194,7 @@ export function CreateDeploymentDrawer({
         map.set(key, { label: String(name), value: key })
       }
     })
-    return Array.from(map.values())
+    return [...map.values()]
   }, [replicasData])
 
   const { data: priceData, isLoading: _isLoadingPrice } = useQuery({
@@ -458,12 +458,10 @@ export function CreateDeploymentDrawer({
                     <FormItem>
                       <FormLabel>{t('Hardware type')}</FormLabel>
                       <Select
-                        items={[
-                          ...hardwareOptions.map((opt) => ({
+                        items={hardwareOptions.map((opt) => ({
                             value: opt.value,
                             label: opt.label,
-                          })),
-                        ]}
+                          }))}
                         value={field.value}
                         onValueChange={(v) => field.onChange(v)}
                         disabled={isLoadingHardware}
@@ -785,3 +783,4 @@ export function CreateDeploymentDrawer({
     </Sheet>
   )
 }
+

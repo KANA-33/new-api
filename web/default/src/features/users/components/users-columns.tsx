@@ -16,29 +16,29 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { type ColumnDef } from '@tanstack/react-table'
+import type { ColumnDef } from '@tanstack/react-table'
 import { useTranslation } from 'react-i18next'
-import { formatQuota, formatTimestamp } from '@/lib/format'
-import { cn } from '@/lib/utils'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Progress } from '@/components/ui/progress'
+import { formatQuota, formatTimestamp } from '@shared/lib/format'
+import { cn } from '@shared/lib/utils'
+import { Checkbox } from '@shared/ui/primitives/checkbox'
+import { Progress } from '@shared/ui/primitives/progress'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
-import { BadgeCell } from '@/components/data-table'
-import { GroupBadge } from '@/components/group-badge'
-import { LongText } from '@/components/long-text'
-import { StatusBadge } from '@/components/status-badge'
-import { TableId } from '@/components/table-id'
+} from '@shared/ui/primitives/tooltip'
+import { BadgeCell } from '@shared/ui/data-table'
+import { GroupBadge } from '@shared/ui/composite/group-badge'
+import { LongText } from '@shared/ui/composite/long-text'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
+import { TableId } from '@shared/ui/composite/table-id'
 import {
   USER_STATUS,
   USER_STATUSES,
   USER_ROLES,
   isUserDeleted,
 } from '../constants'
-import { type User } from '../types'
+import type { User } from '../types'
 import { DataTableRowActions } from './data-table-row-actions'
 
 function getQuotaProgressColor(percentage: number): string {
@@ -377,3 +377,4 @@ export function useUsersColumns(): ColumnDef<User>[] {
     },
   ]
 }
+

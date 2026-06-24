@@ -18,10 +18,10 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { type ChangeEvent, useCallback, useMemo, useRef, useState } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
-import {
-  type ColumnDef,
-  type RowSelectionState,
-  type Table as TanStackTable,
+import type {
+  ColumnDef,
+  RowSelectionState,
+  Table as TanStackTable,
 } from '@tanstack/react-table'
 import {
   Check,
@@ -34,13 +34,13 @@ import {
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
-import { useIsMobile } from '@/hooks/use-mobile'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Progress } from '@/components/ui/progress'
+import { useCopyToClipboard } from '@shared/hooks/use-copy-to-clipboard'
+import { useIsMobile } from '@shared/hooks/use-mobile'
+import { Button } from '@shared/ui/primitives/button'
+import { Checkbox } from '@shared/ui/primitives/checkbox'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { Progress } from '@shared/ui/primitives/progress'
 import {
   Select,
   SelectContent,
@@ -48,7 +48,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
+} from '@shared/ui/primitives/select'
 import {
   Sheet,
   SheetContent,
@@ -56,28 +56,28 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-} from '@/components/ui/sheet'
-import { Switch } from '@/components/ui/switch'
+} from '@shared/ui/primitives/sheet'
+import { Switch } from '@shared/ui/primitives/switch'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
+} from '@shared/ui/primitives/tooltip'
 import {
   DataTableBulkActions as BulkActionsToolbar,
   DataTablePagination,
   DataTableView,
   useDataTable,
-} from '@/components/data-table'
-import { ConfirmDialog } from '@/components/confirm-dialog'
-import { Dialog } from '@/components/dialog'
+} from '@shared/ui/data-table'
+import { ConfirmDialog } from '@shared/ui/composite/confirm-dialog'
+import { Dialog } from '@shared/ui/composite/dialog'
 import {
   sideDrawerContentClassName,
   sideDrawerFooterClassName,
   sideDrawerFormClassName,
   sideDrawerHeaderClassName,
-} from '@/components/drawer-layout'
-import { StatusBadge } from '@/components/status-badge'
+} from '@shared/ui/composite/drawer-layout'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 import { updateChannel } from '../../api'
 import {
   channelsQueryKeys,
@@ -222,7 +222,7 @@ function sleep(ms: number) {
 }
 
 function normalizeInlineError(errorText: string) {
-  return errorText.replace(/\s+/g, ' ').trim()
+  return errorText.replaceAll(/\s+/g, ' ').trim()
 }
 
 function getFirstErrorLine(errorText: string) {
@@ -569,9 +569,7 @@ function ChannelTestDialogContent({
 
   const handleBatchTest = useCallback(
     async (modelsToTest: string[]) => {
-      const uniqueModels = Array.from(
-        new Set(modelsToTest.map((model) => model.trim()).filter(Boolean))
-      )
+      const uniqueModels = [...new Set(modelsToTest.map((model) => model.trim()).filter(Boolean))]
       if (!uniqueModels.length) return
 
       batchStopRequestedRef.current = false
@@ -1380,3 +1378,4 @@ function TestModelsBulkActions({
     </BulkActionsToolbar>
   )
 }
+

@@ -22,8 +22,8 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { api } from '@/lib/api'
-import { Alert, AlertDescription } from '@/components/ui/alert'
+import { api } from '@shared/api/client'
+import { Alert, AlertDescription } from '@shared/ui/primitives/alert'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -34,8 +34,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@/components/ui/alert-dialog'
-import { Button } from '@/components/ui/button'
+} from '@shared/ui/primitives/alert-dialog'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -44,12 +44,12 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Progress } from '@/components/ui/progress'
-import { Separator } from '@/components/ui/separator'
-import { Switch } from '@/components/ui/switch'
-import { StatusBadge } from '@/components/status-badge'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Progress } from '@shared/ui/primitives/progress'
+import { Separator } from '@shared/ui/primitives/separator'
+import { Switch } from '@shared/ui/primitives/switch'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 import {
   SettingsForm,
   SettingsSwitchContent,
@@ -710,3 +710,6 @@ export function PerformanceSection(props: Props) {
     </SettingsSection>
   )
 }
+
+
+

@@ -28,10 +28,10 @@ import {
   buildAssertionResult,
   prepareCredentialRequestOptions,
   isPasskeySupported as detectPasskeySupport,
-} from '@/lib/passkey'
-import { cn } from '@/lib/utils'
-import { useStatus } from '@/hooks/use-status'
-import { Button } from '@/components/ui/button'
+} from '@shared/lib/passkey'
+import { cn } from '@shared/lib/utils'
+import { useStatus } from '@shared/hooks/use-status'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -39,12 +39,12 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Dialog } from '@/components/dialog'
-import { PasswordInput } from '@/components/password-input'
-import { Turnstile } from '@/components/turnstile'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { Dialog } from '@shared/ui/composite/dialog'
+import { PasswordInput } from '@shared/ui/composite/password-input'
+import { Turnstile } from '@shared/ui/composite/turnstile'
 import { login, wechatLoginByCode } from '@/features/auth/api'
 import { LegalConsent } from '@/features/auth/components/legal-consent'
 import { OAuthProviders } from '@/features/auth/components/oauth-providers'
@@ -167,7 +167,7 @@ export function UserAuthForm({
         await handleLoginSuccess(res.data as { id?: number } | null, redirectTo)
         toast.success(t('Welcome back!'))
       }
-    } catch (_error) {
+    } catch {
       // Errors are handled by global interceptor
     } finally {
       setIsLoading(false)
@@ -207,7 +207,7 @@ export function UserAuthForm({
       } else {
         toast.error(res?.message || loginFailedMessage)
       }
-    } catch (_error) {
+    } catch {
       toast.error(loginFailedMessage)
     } finally {
       setIsWeChatSubmitting(false)
@@ -471,3 +471,4 @@ export function UserAuthForm({
     </Form>
   )
 }
+

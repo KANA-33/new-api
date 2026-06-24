@@ -23,7 +23,7 @@ import { useQueryClient } from '@tanstack/react-query'
 import { Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -32,8 +32,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
 import {
   Select,
   SelectContent,
@@ -41,7 +41,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
+} from '@shared/ui/primitives/select'
 import {
   Sheet,
   SheetClose,
@@ -50,18 +50,18 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-} from '@/components/ui/sheet'
-import { Textarea } from '@/components/ui/textarea'
+} from '@shared/ui/primitives/sheet'
+import { Textarea } from '@shared/ui/primitives/textarea'
 import {
   SideDrawerSection,
   sideDrawerContentClassName,
   sideDrawerFooterClassName,
   sideDrawerFormClassName,
   sideDrawerHeaderClassName,
-} from '@/components/drawer-layout'
-import { JsonEditor } from '@/components/json-editor'
-import { StatusBadge } from '@/components/status-badge'
-import { TagInput } from '@/components/tag-input'
+} from '@shared/ui/composite/drawer-layout'
+import { JsonEditor } from '@shared/ui/composite/json-editor'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
+import { TagInput } from '@shared/ui/composite/tag-input'
 import { createPrefillGroup, updatePrefillGroup } from '../../api'
 import { ENDPOINT_TEMPLATES } from '../../constants'
 import { prefillGroupsQueryKeys } from '../../lib'
@@ -275,8 +275,7 @@ export function PrefillGroupFormDrawer({
                   <FormItem>
                     <FormLabel>Group Type</FormLabel>
                     <Select
-                      items={[
-                        ...PREFILL_GROUP_TYPES.map((type) => ({
+                      items={PREFILL_GROUP_TYPES.map((type) => ({
                           value: type.value,
                           label: (
                             <div className='flex flex-col text-left'>
@@ -289,8 +288,7 @@ export function PrefillGroupFormDrawer({
                               </span>
                             </div>
                           ),
-                        })),
-                      ]}
+                        }))}
                       value={field.value}
                       onValueChange={(value) =>
                         value !== null &&
@@ -408,3 +406,4 @@ export function PrefillGroupFormDrawer({
     </Sheet>
   )
 }
+

@@ -24,12 +24,12 @@ import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@/components/ui/collapsible'
+} from '@shared/ui/primitives/collapsible'
 import {
   Form,
   FormControl,
@@ -37,10 +37,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Dialog } from '@/components/dialog'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Textarea } from '@shared/ui/primitives/textarea'
+import { Dialog } from '@shared/ui/composite/dialog'
 import { getDeployment, updateDeployment } from '../../api'
 import { deploymentsQueryKeys } from '../../lib'
 
@@ -433,3 +433,4 @@ export function UpdateConfigDialog({
     </Dialog>
   )
 }
+

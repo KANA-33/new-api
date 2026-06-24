@@ -31,10 +31,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Switch } from '@/components/ui/switch'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Switch } from '@shared/ui/primitives/switch'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@shared/ui/primitives/tabs'
 import { FormDirtyIndicator } from '../components/form-dirty-indicator'
 import { FormNavigationGuard } from '../components/form-navigation-guard'
 import {
@@ -900,3 +900,4 @@ export function OAuthSection(props: OAuthSectionProps) {
     </>
   )
 }
+

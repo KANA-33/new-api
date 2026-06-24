@@ -21,13 +21,13 @@ import { useQueryClient } from '@tanstack/react-query'
 import { Loader2, RefreshCw } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { cn } from '@/lib/utils'
-import { useIsMobile } from '@/hooks/use-mobile'
-import { Button } from '@/components/ui/button'
-import { Label } from '@/components/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Dialog } from '@/components/dialog'
-import { StatusBadge } from '@/components/status-badge'
+import { cn } from '@shared/lib/utils'
+import { useIsMobile } from '@shared/hooks/use-mobile'
+import { Button } from '@shared/ui/primitives/button'
+import { Label } from '@shared/ui/primitives/label'
+import { RadioGroup, RadioGroupItem } from '@shared/ui/primitives/radio-group'
+import { Dialog } from '@shared/ui/composite/dialog'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 import { syncUpstream, previewUpstreamDiff } from '../../api'
 import { getSyncLocaleOptions, getSyncSourceOptions } from '../../constants'
 import { modelsQueryKeys, vendorsQueryKeys } from '../../lib'
@@ -241,3 +241,4 @@ export function SyncWizardDialog({
     </Dialog>
   )
 }
+

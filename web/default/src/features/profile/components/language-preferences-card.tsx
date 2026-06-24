@@ -20,11 +20,11 @@ import { useEffect, useMemo, useState } from 'react'
 import {
   INTERFACE_LANGUAGE_OPTIONS,
   normalizeInterfaceLanguage,
-} from '@/i18n/languages'
+} from '@shared/i18n/languages'
 import { Languages, Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { useAuthStore } from '@/stores/auth-store'
+import { useAuthStore } from '@domains/identity/store/auth-store'
 import {
   Select,
   SelectContent,
@@ -32,8 +32,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { TitledCard } from '@/components/ui/titled-card'
+} from '@shared/ui/primitives/select'
+import { TitledCard } from '@shared/ui/primitives/titled-card'
 import { updateUserLanguage } from '../api'
 import { parseUserSettings } from '../lib'
 import type { UserProfile } from '../types'
@@ -91,7 +91,7 @@ export function LanguagePreferencesCard(props: LanguagePreferencesCardProps) {
 
       props.onProfileUpdate()
       toast.success(t('Language preference saved'))
-    } catch (_error) {
+    } catch {
       setCurrentLanguage(previousLanguage)
       await i18n.changeLanguage(previousLanguage)
       toast.error(t('Failed to update settings'))
@@ -118,12 +118,10 @@ export function LanguagePreferencesCard(props: LanguagePreferencesCardProps) {
         </div>
         <div className='flex items-center gap-2 sm:min-w-48'>
           <Select
-            items={[
-              ...INTERFACE_LANGUAGE_OPTIONS.map((language) => ({
+            items={INTERFACE_LANGUAGE_OPTIONS.map((language) => ({
                 value: language.code,
                 label: language.label,
-              })),
-            ]}
+              }))}
             value={currentLanguage}
             onValueChange={handleLanguageChange}
             disabled={saving}
@@ -149,3 +147,5 @@ export function LanguagePreferencesCard(props: LanguagePreferencesCardProps) {
     </TitledCard>
   )
 }
+
+

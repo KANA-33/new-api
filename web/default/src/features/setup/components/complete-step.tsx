@@ -18,8 +18,8 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { CheckCircle2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Separator } from '@/components/ui/separator'
-import { StatusBadge } from '@/components/status-badge'
+import { Separator } from '@shared/ui/primitives/separator'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 import type { SetupFormValues, SetupStatus } from '../types'
 
 interface CompleteStepProps {
@@ -106,3 +106,4 @@ export function CompleteStep({ status, values }: CompleteStepProps) {
     </div>
   )
 }
+

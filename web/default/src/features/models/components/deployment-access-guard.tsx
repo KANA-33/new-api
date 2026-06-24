@@ -28,9 +28,9 @@ import {
   WifiOff,
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { cn } from '@/lib/utils'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
+import { cn } from '@shared/lib/utils'
+import { Alert, AlertDescription, AlertTitle } from '@shared/ui/primitives/alert'
+import { Button } from '@shared/ui/primitives/button'
 
 type LoadingPhase = 'idle' | 'settings' | 'connection' | 'done'
 type StepStatus = 'pending' | 'loading' | 'done'
@@ -200,3 +200,4 @@ export function DeploymentAccessGuard({
 
   return <>{children}</>
 }
+

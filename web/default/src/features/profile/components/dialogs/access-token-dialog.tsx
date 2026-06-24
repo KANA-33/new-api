@@ -19,11 +19,11 @@ For commercial licensing, please contact support@quantumnous.com
 import { useEffect } from 'react'
 import { RefreshCw, Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { CopyButton } from '@/components/copy-button'
-import { Dialog } from '@/components/dialog'
+import { Button } from '@shared/ui/primitives/button'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { CopyButton } from '@shared/ui/composite/copy-button'
+import { Dialog } from '@shared/ui/composite/dialog'
 import { useAccessToken } from '../../hooks'
 
 // ============================================================================
@@ -114,3 +114,4 @@ export function AccessTokenDialog({
     </Dialog>
   )
 }
+

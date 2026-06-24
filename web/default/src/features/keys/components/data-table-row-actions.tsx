@@ -17,7 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { useCallback, useState } from 'react'
-import { type Row } from '@tanstack/react-table'
+import type { Row } from '@tanstack/react-table'
 import {
   Trash2,
   Edit,
@@ -32,8 +32,8 @@ import {
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { copyToClipboard } from '@/lib/copy-to-clipboard'
-import { Button } from '@/components/ui/button'
+import { copyToClipboard } from '@shared/lib/copy-to-clipboard'
+import { Button } from '@shared/ui/primitives/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -44,12 +44,12 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+} from '@shared/ui/primitives/dropdown-menu'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
+} from '@shared/ui/primitives/tooltip'
 import { useChatPresets } from '@/features/chat/hooks/use-chat-presets'
 import { resolveChatUrl, type ChatPreset } from '@/features/chat/lib/chat-links'
 import { sendToFluent } from '@/features/chat/lib/send-to-fluent'
@@ -328,3 +328,4 @@ export function DataTableRowActions<TData>({
     </div>
   )
 }
+

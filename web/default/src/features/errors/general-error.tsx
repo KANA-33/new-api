@@ -18,8 +18,8 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { useNavigate, useRouter } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
-import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
+import { cn } from '@shared/lib/utils'
+import { Button } from '@shared/ui/primitives/button'
 
 const FEEDBACK_URL = 'https://github.com/QuantumNous/new-api/issues'
 
@@ -96,3 +96,4 @@ export function GeneralError({
     </div>
   )
 }
+

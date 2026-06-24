@@ -28,8 +28,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
 import {
   Select,
   SelectContent,
@@ -37,8 +37,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Textarea } from '@/components/ui/textarea'
+} from '@shared/ui/primitives/select'
+import { Textarea } from '@shared/ui/primitives/textarea'
 import { FormDirtyIndicator } from '../components/form-dirty-indicator'
 import { FormNavigationGuard } from '../components/form-navigation-guard'
 import {
@@ -385,3 +385,4 @@ export function SystemInfoSection({ defaultValues }: SystemInfoSectionProps) {
     </>
   )
 }
+

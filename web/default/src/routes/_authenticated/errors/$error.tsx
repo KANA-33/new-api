@@ -17,11 +17,11 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { createFileRoute } from '@tanstack/react-router'
-import { ConfigDrawer } from '@/components/config-drawer'
-import { Header } from '@/components/layout'
-import { ProfileDropdown } from '@/components/profile-dropdown'
-import { Search } from '@/components/search'
-import { ThemeSwitch } from '@/components/theme-switch'
+import { ConfigDrawer } from '@widgets/config-drawer/config-drawer'
+import { Header } from '@widgets/layout'
+import { ProfileDropdown } from '@widgets/profile-dropdown/profile-dropdown'
+import { Search } from '@widgets/search/search'
+import { ThemeSwitch } from '@shared/ui/composite/theme-switch'
 import { ForbiddenError } from '@/features/errors/forbidden'
 import { GeneralError } from '@/features/errors/general-error'
 import { MaintenanceError } from '@/features/errors/maintenance-error'
@@ -60,3 +60,5 @@ function RouteComponent() {
     </>
   )
 }
+
+

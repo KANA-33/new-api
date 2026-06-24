@@ -23,9 +23,9 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { cn } from '@/lib/utils'
-import { useStatus } from '@/hooks/use-status'
-import { Button } from '@/components/ui/button'
+import { cn } from '@shared/lib/utils'
+import { useStatus } from '@shared/hooks/use-status'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -33,12 +33,12 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Dialog } from '@/components/dialog'
-import { PasswordInput } from '@/components/password-input'
-import { Turnstile } from '@/components/turnstile'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { Dialog } from '@shared/ui/composite/dialog'
+import { PasswordInput } from '@shared/ui/composite/password-input'
+import { Turnstile } from '@shared/ui/composite/turnstile'
 import { register, wechatLoginByCode } from '@/features/auth/api'
 import { LegalConsent } from '@/features/auth/components/legal-consent'
 import { OAuthProviders } from '@/features/auth/components/oauth-providers'
@@ -171,7 +171,7 @@ export function SignUpForm({
       } else {
         toast.error(res?.message || t('Failed to create account'))
       }
-    } catch (_error) {
+    } catch {
       // Errors are handled by global interceptor
     } finally {
       setIsLoading(false)
@@ -215,7 +215,7 @@ export function SignUpForm({
       } else {
         toast.error(res?.message || t('Login failed'))
       }
-    } catch (_error) {
+    } catch {
       toast.error(t('Login failed'))
     } finally {
       setIsWeChatSubmitting(false)
@@ -444,3 +444,4 @@ export function SignUpForm({
     </Form>
   )
 }
+

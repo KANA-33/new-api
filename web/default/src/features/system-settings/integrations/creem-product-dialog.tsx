@@ -21,7 +21,7 @@ import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -30,8 +30,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
 import {
   Select,
   SelectContent,
@@ -39,8 +39,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Dialog } from '@/components/dialog'
+} from '@shared/ui/primitives/select'
+import { Dialog } from '@shared/ui/composite/dialog'
 import type { CreemProduct } from '@/features/wallet/types'
 import { safeNumberFieldProps } from '../utils/numeric-field'
 
@@ -260,3 +260,4 @@ export function CreemProductDialog({
     </Dialog>
   )
 }
+

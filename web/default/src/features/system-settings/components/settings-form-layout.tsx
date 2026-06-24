@@ -17,10 +17,10 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import type { ComponentProps, ReactNode } from 'react'
-import { cn } from '@/lib/utils'
-import { FormItem } from '@/components/ui/form'
-import { Label } from '@/components/ui/label'
-import { Switch } from '@/components/ui/switch'
+import { cn } from '@shared/lib/utils'
+import { FormItem } from '@shared/ui/primitives/form'
+import { Label } from '@shared/ui/primitives/label'
+import { Switch } from '@shared/ui/primitives/switch'
 
 type SettingsFormGridProps = {
   children: ReactNode
@@ -184,3 +184,4 @@ export function SettingsForm({ className, ...props }: ComponentProps<'form'>) {
     />
   )
 }
+

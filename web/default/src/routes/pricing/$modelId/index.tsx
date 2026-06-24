@@ -18,9 +18,9 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import z from 'zod'
 import { createFileRoute, redirect } from '@tanstack/react-router'
-import { useAuthStore } from '@/stores/auth-store'
-import { getFreshModuleAccess } from '@/lib/nav-modules'
-import { ModelDetails } from '@/features/pricing/components/model-details'
+import { useAuthStore } from '@domains/identity/store/auth-store'
+import { getFreshModuleAccess } from '@shared/lib/nav-modules'
+import { ModelDetails } from '@domains/billing/pricing/components/model-details'
 
 const modelDetailsSearchSchema = z.object({
   search: z.string().optional(),
@@ -54,3 +54,5 @@ export const Route = createFileRoute('/pricing/$modelId/')({
   },
   component: ModelDetails,
 })
+
+

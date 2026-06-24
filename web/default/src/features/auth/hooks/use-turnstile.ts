@@ -19,7 +19,7 @@ For commercial licensing, please contact support@quantumnous.com
 import { useState } from 'react'
 import i18next from 'i18next'
 import { toast } from 'sonner'
-import { useStatus } from '@/hooks/use-status'
+import { useStatus } from '@shared/hooks/use-status'
 
 /**
  * Hook for managing Turnstile verification
@@ -54,3 +54,4 @@ export function useTurnstile() {
     validateTurnstile,
   }
 }
+

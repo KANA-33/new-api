@@ -16,7 +16,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { api } from '@/lib/api'
+import { api } from '@shared/api/client'
 import type { CacheStats } from './types'
 
 export async function getCacheStats(): Promise<{
@@ -61,3 +61,6 @@ export async function getAffinityUsageCache(params: {
   } as Record<string, unknown>)
   return res.data
 }
+
+
+

@@ -21,22 +21,22 @@ import { useQueryClient } from '@tanstack/react-query'
 import { Loader2, Search, Info, ChevronDown } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
+import { Button } from '@shared/ui/primitives/button'
+import { Checkbox } from '@shared/ui/primitives/checkbox'
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@/components/ui/collapsible'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+} from '@shared/ui/primitives/collapsible'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@shared/ui/primitives/tabs'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
-import { Dialog } from '@/components/dialog'
+} from '@shared/ui/primitives/tooltip'
+import { Dialog } from '@shared/ui/composite/dialog'
 import { fetchUpstreamModels, updateChannel } from '../../api'
 import {
   channelsQueryKeys,
@@ -47,9 +47,7 @@ import {
 import { useChannels } from '../channels-provider'
 
 function normalizeModelNameList(models: readonly string[]): string[] {
-  return Array.from(
-    new Set(models.map((m) => normalizeModelName(m)).filter(Boolean))
-  )
+  return [...new Set(models.map((m) => normalizeModelName(m)).filter(Boolean))]
 }
 
 type FetchModelsDialogProps = {
@@ -343,7 +341,7 @@ export function FetchModelsDialog({
                     <Tooltip>
                       <TooltipTrigger
                         render={<Info className='h-3.5 w-3.5 text-amber-500' />}
-                      ></TooltipTrigger>
+                       />
                       <TooltipContent>
                         {t('From model redirect, not yet added to models list')}
                       </TooltipContent>
@@ -508,3 +506,4 @@ export function FetchModelsDialog({
     </Dialog>
   )
 }
+

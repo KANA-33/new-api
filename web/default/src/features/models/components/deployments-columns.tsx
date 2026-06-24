@@ -16,13 +16,13 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { type ColumnDef } from '@tanstack/react-table'
+import type { ColumnDef } from '@tanstack/react-table'
 import { Eye, Info, Pencil, Settings2, Timer, Trash2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { formatTimestampToDate } from '@/lib/format'
-import { Button } from '@/components/ui/button'
-import { StatusBadge } from '@/components/status-badge'
-import { TableId } from '@/components/table-id'
+import { formatTimestampToDate } from '@shared/lib/format'
+import { Button } from '@shared/ui/primitives/button'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
+import { TableId } from '@shared/ui/composite/table-id'
 import { getDeploymentStatusConfig } from '../constants'
 import {
   formatRemainingMinutes,
@@ -114,7 +114,7 @@ export function useDeploymentsColumns(opts: {
       cell: ({ row }) => {
         const provider = row.original.provider
         if (!provider)
-          return <span className='text-muted-foreground text-xs'>-</span>
+          {return <span className='text-muted-foreground text-xs'>-</span>}
         return (
           <StatusBadge
             label={String(provider)}
@@ -195,7 +195,7 @@ export function useDeploymentsColumns(opts: {
             ? row.original.hardware_quantity
             : null
         if (!hardware)
-          return <span className='text-muted-foreground text-xs'>-</span>
+          {return <span className='text-muted-foreground text-xs'>-</span>}
         return (
           <div className='flex max-w-full min-w-0 flex-nowrap items-center gap-2 overflow-hidden'>
             <StatusBadge
@@ -303,3 +303,4 @@ export function useDeploymentsColumns(opts: {
     },
   ]
 }
+

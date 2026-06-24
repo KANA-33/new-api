@@ -20,8 +20,8 @@ import { useMemo } from 'react'
 import { Link, createFileRoute, redirect } from '@tanstack/react-router'
 import { Loader2, MessageCircleWarning } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
+import { Alert, AlertDescription, AlertTitle } from '@shared/ui/primitives/alert'
+import { Button } from '@shared/ui/primitives/button'
 import { useActiveChatKey } from '@/features/chat/hooks/use-active-chat-key'
 import { useChatPresets } from '@/features/chat/hooks/use-chat-presets'
 import {
@@ -162,3 +162,4 @@ function ChatRouteComponent() {
     />
   )
 }
+

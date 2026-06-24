@@ -24,14 +24,14 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { Code2, Eye, ShieldAlert } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { cn } from '@/lib/utils'
+import { cn } from '@shared/lib/utils'
 import {
   Alert,
   AlertAction,
   AlertDescription,
   AlertTitle,
-} from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
+} from '@shared/ui/primitives/alert'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -40,12 +40,12 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Switch } from '@/components/ui/switch'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Textarea } from '@/components/ui/textarea'
-import { RiskAcknowledgementDialog } from '@/components/risk-acknowledgement-dialog'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Switch } from '@shared/ui/primitives/switch'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@shared/ui/primitives/tabs'
+import { Textarea } from '@shared/ui/primitives/textarea'
+import { RiskAcknowledgementDialog } from '@shared/ui/composite/risk-acknowledgement-dialog'
 import { confirmPaymentCompliance } from '../api'
 import {
   SettingsForm,
@@ -1614,3 +1614,4 @@ export function PaymentSettingsSection({
     </SettingsSection>
   )
 }
+

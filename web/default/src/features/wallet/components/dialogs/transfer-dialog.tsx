@@ -19,11 +19,11 @@ For commercial licensing, please contact support@quantumnous.com
 import { useState, useEffect } from 'react'
 import { Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { formatQuota } from '@/lib/format'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Dialog } from '@/components/dialog'
+import { formatQuota } from '@shared/lib/format'
+import { Button } from '@shared/ui/primitives/button'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { Dialog } from '@shared/ui/composite/dialog'
 import { QUOTA_PER_DOLLAR } from '../../constants'
 
 interface TransferDialogProps {
@@ -120,3 +120,4 @@ export function TransferDialog({
     </Dialog>
   )
 }
+

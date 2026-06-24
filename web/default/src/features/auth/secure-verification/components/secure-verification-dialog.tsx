@@ -19,10 +19,10 @@ For commercial licensing, please contact support@quantumnous.com
 import { useMemo } from 'react'
 import { ShieldCheck, KeyRound, Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Dialog } from '@/components/dialog'
+import { Button } from '@shared/ui/primitives/button'
+import { Input } from '@shared/ui/primitives/input'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@shared/ui/primitives/tabs'
+import { Dialog } from '@shared/ui/composite/dialog'
 import type {
   SecureVerificationState,
   VerificationMethod,
@@ -199,3 +199,4 @@ export function SecureVerificationDialog({
     </Dialog>
   )
 }
+

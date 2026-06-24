@@ -31,7 +31,7 @@ import {
   ArrowUpFromLine,
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -40,10 +40,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { Label } from '@/components/ui/label'
-import { Switch } from '@/components/ui/switch'
-import { ConfirmDialog } from '@/components/confirm-dialog'
+} from '@shared/ui/primitives/dropdown-menu'
+import { Label } from '@shared/ui/primitives/label'
+import { Switch } from '@shared/ui/primitives/switch'
+import { ConfirmDialog } from '@shared/ui/composite/confirm-dialog'
 import {
   handleDeleteAllDisabled,
   handleFixAbilities,
@@ -239,3 +239,4 @@ export function ChannelsPrimaryButtons() {
     </>
   )
 }
+

@@ -32,9 +32,9 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/components/ui/alert-dialog'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
+} from '@shared/ui/primitives/alert-dialog'
+import { Button } from '@shared/ui/primitives/button'
+import { Checkbox } from '@shared/ui/primitives/checkbox'
 import {
   Form,
   FormControl,
@@ -43,11 +43,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { StaticDataTable } from '@/components/data-table'
-import { Dialog } from '@/components/dialog'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Textarea } from '@shared/ui/primitives/textarea'
+import { StaticDataTable } from '@shared/ui/data-table'
+import { Dialog } from '@shared/ui/composite/dialog'
 import { SettingsSwitchField } from '../components/settings-form-layout'
 import { SettingsSection } from '../components/settings-section'
 import { useUpdateOption } from '../hooks/use-update-option'
@@ -421,3 +421,4 @@ export function FAQSection({ enabled, data }: FAQSectionProps) {
     </SettingsSection>
   )
 }
+

@@ -16,7 +16,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { api } from '@/lib/api'
+import { api } from '@shared/api/client'
 
 // Catalog / pair / save admin endpoints. Match
 // controller/topup_waffo_pancake.go: empty body creds make the backend
@@ -100,3 +100,6 @@ export async function saveWaffoPancakeConfig(params: {
   })
   return res.data
 }
+
+
+

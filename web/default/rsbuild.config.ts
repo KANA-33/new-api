@@ -1,5 +1,5 @@
-import path from 'path'
-import { fileURLToPath } from 'url'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { defineConfig, loadEnv } from '@rsbuild/core'
 import { pluginReact } from '@rsbuild/plugin-react'
 import { tanstackRouter } from '@tanstack/router-plugin/rspack'
@@ -58,6 +58,17 @@ export default defineConfig(({ envMode }) => {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
+        '@app': path.resolve(__dirname, './src/app'),
+        '@routes': path.resolve(__dirname, './src/routes'),
+        '@pages': path.resolve(__dirname, './src/pages'),
+        '@domains': path.resolve(__dirname, './src/domains'),
+        '@features': path.resolve(__dirname, './src/features'),
+        '@widgets': path.resolve(__dirname, './src/widgets'),
+        '@shared': path.resolve(__dirname, './src/shared'),
+        '@ui': path.resolve(__dirname, './src/shared/ui'),
+        '@ui-primitives': path.resolve(__dirname, './src/shared/ui/primitives'),
+        '@assets': path.resolve(__dirname, './src/shared/assets'),
+        '@styles': path.resolve(__dirname, './src/shared/styles'),
       },
     },
     html: {
@@ -102,3 +113,4 @@ export default defineConfig(({ envMode }) => {
     },
   }
 })
+

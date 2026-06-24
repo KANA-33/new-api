@@ -22,7 +22,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { CalendarClock, CreditCard, RefreshCw, Settings2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -31,8 +31,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
 import {
   Select,
   SelectContent,
@@ -40,7 +40,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
+} from '@shared/ui/primitives/select'
 import {
   Sheet,
   SheetClose,
@@ -49,8 +49,8 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-} from '@/components/ui/sheet'
-import { Switch } from '@/components/ui/switch'
+} from '@shared/ui/primitives/sheet'
+import { Switch } from '@shared/ui/primitives/switch'
 import {
   SideDrawerSection,
   sideDrawerContentClassName,
@@ -58,7 +58,7 @@ import {
   sideDrawerFormClassName,
   sideDrawerHeaderClassName,
   sideDrawerSwitchItemClassName,
-} from '@/components/drawer-layout'
+} from '@shared/ui/composite/drawer-layout'
 import {
   createPlan,
   updatePlan,
@@ -66,7 +66,7 @@ import {
   createWaffoPancakeSubscriptionProduct,
   listWaffoPancakeSubscriptionProductOptions,
 } from '../api'
-import { getCurrencyDisplay, getCurrencyLabel } from '@/lib/currency'
+import { getCurrencyDisplay, getCurrencyLabel } from '@shared/lib/currency'
 import { getDurationUnitOptions, getResetPeriodOptions } from '../constants'
 import {
   getPlanFormSchema,
@@ -326,7 +326,7 @@ export function SubscriptionsMutateDrawer({
                           step='0.01'
                           min={0}
                           onChange={(e) =>
-                            field.onChange(parseFloat(e.target.value) || 0)
+                            field.onChange(Number.parseFloat(e.target.value) || 0)
                           }
                         />
                       </FormControl>
@@ -362,7 +362,7 @@ export function SubscriptionsMutateDrawer({
                                 })
                           }
                           onChange={(e) =>
-                            field.onChange(parseFloat(e.target.value) || 0)
+                            field.onChange(Number.parseFloat(e.target.value) || 0)
                           }
                         />
                       </FormControl>
@@ -476,7 +476,7 @@ export function SubscriptionsMutateDrawer({
                           type='number'
                           min={0}
                           onChange={(e) =>
-                            field.onChange(parseInt(e.target.value, 10) || 0)
+                            field.onChange(Number.parseInt(e.target.value, 10) || 0)
                           }
                         />
                       </FormControl>
@@ -500,7 +500,7 @@ export function SubscriptionsMutateDrawer({
                         {...field}
                         type='number'
                         onChange={(e) =>
-                          field.onChange(parseInt(e.target.value, 10) || 0)
+                          field.onChange(Number.parseInt(e.target.value, 10) || 0)
                         }
                       />
                     </FormControl>
@@ -581,12 +581,10 @@ export function SubscriptionsMutateDrawer({
                     <FormItem>
                       <FormLabel>{t('Duration Unit')}</FormLabel>
                       <Select
-                        items={[
-                          ...durationUnitOpts.map((o) => ({
+                        items={durationUnitOpts.map((o) => ({
                             value: o.value,
                             label: o.label,
-                          })),
-                        ]}
+                          }))}
                         onValueChange={field.onChange}
                         value={field.value}
                       >
@@ -623,7 +621,7 @@ export function SubscriptionsMutateDrawer({
                             type='number'
                             min={1}
                             onChange={(e) =>
-                              field.onChange(parseInt(e.target.value, 10) || 0)
+                              field.onChange(Number.parseInt(e.target.value, 10) || 0)
                             }
                           />
                         </FormControl>
@@ -644,7 +642,7 @@ export function SubscriptionsMutateDrawer({
                             type='number'
                             min={1}
                             onChange={(e) =>
-                              field.onChange(parseInt(e.target.value, 10) || 0)
+                              field.onChange(Number.parseInt(e.target.value, 10) || 0)
                             }
                           />
                         </FormControl>
@@ -671,12 +669,10 @@ export function SubscriptionsMutateDrawer({
                     <FormItem>
                       <FormLabel>{t('Reset Cycle')}</FormLabel>
                       <Select
-                        items={[
-                          ...resetPeriodOpts.map((o) => ({
+                        items={resetPeriodOpts.map((o) => ({
                             value: o.value,
                             label: o.label,
-                          })),
-                        ]}
+                          }))}
                         onValueChange={field.onChange}
                         value={field.value}
                       >
@@ -713,7 +709,7 @@ export function SubscriptionsMutateDrawer({
                           min={0}
                           disabled={resetPeriod !== 'custom'}
                           onChange={(e) =>
-                            field.onChange(parseInt(e.target.value, 10) || 0)
+                            field.onChange(Number.parseInt(e.target.value, 10) || 0)
                           }
                         />
                       </FormControl>
@@ -838,3 +834,4 @@ export function SubscriptionsMutateDrawer({
     </Sheet>
   )
 }
+

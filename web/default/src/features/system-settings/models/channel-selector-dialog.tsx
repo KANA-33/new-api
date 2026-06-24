@@ -17,12 +17,12 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { type ColumnDef, type RowSelectionState } from '@tanstack/react-table'
+import type { ColumnDef, RowSelectionState } from '@tanstack/react-table'
 import { Search } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Input } from '@/components/ui/input'
+import { Button } from '@shared/ui/primitives/button'
+import { Checkbox } from '@shared/ui/primitives/checkbox'
+import { Input } from '@shared/ui/primitives/input'
 import {
   Select,
   SelectContent,
@@ -30,14 +30,14 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
+} from '@shared/ui/primitives/select'
 import {
   DataTablePagination,
   DataTableView,
   useDataTable,
-} from '@/components/data-table'
-import { Dialog } from '@/components/dialog'
-import { StatusBadge } from '@/components/status-badge'
+} from '@shared/ui/data-table'
+import { Dialog } from '@shared/ui/composite/dialog'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 import type { UpstreamChannel } from '../types'
 import {
   CHANNEL_STATUS_CONFIG,
@@ -224,12 +224,10 @@ export function ChannelSelectorDialog({
           return (
             <div className='flex items-center gap-2'>
               <Select
-                items={[
-                  ...ENDPOINT_OPTIONS.map((option) => ({
+                items={ENDPOINT_OPTIONS.map((option) => ({
                     value: option.value,
                     label: option.label,
-                  })),
-                ]}
+                  }))}
                 value={endpointType}
                 onValueChange={(v) => v !== null && handleTypeChange(v)}
               >
@@ -348,3 +346,4 @@ export function ChannelSelectorDialog({
     </Dialog>
   )
 }
+

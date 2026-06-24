@@ -19,10 +19,10 @@ For commercial licensing, please contact support@quantumnous.com
 import { useState } from 'react'
 import { Link2, Settings } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { Skeleton } from '@/components/ui/skeleton'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { TitledCard } from '@/components/ui/titled-card'
+import { Card, CardContent, CardHeader } from '@shared/ui/primitives/card'
+import { Skeleton } from '@shared/ui/primitives/skeleton'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@shared/ui/primitives/tabs'
+import { TitledCard } from '@shared/ui/primitives/titled-card'
 import type { UserProfile } from '../types'
 import { AccountBindingsTab } from './tabs/account-bindings-tab'
 import { NotificationTab } from './tabs/notification-tab'
@@ -102,3 +102,4 @@ export function ProfileSettingsCard({
     </TitledCard>
   )
 }
+

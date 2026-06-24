@@ -18,9 +18,9 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { formatNumber } from '@/lib/format'
-import { Button } from '@/components/ui/button'
-import { Dialog } from '@/components/dialog'
+import { formatNumber } from '@shared/lib/format'
+import { Button } from '@shared/ui/primitives/button'
+import { Dialog } from '@shared/ui/composite/dialog'
 import { formatCreemPrice } from '../../lib/format'
 import type { CreemProduct } from '../../types'
 
@@ -88,3 +88,4 @@ export function CreemConfirmDialog({
     </Dialog>
   )
 }
+

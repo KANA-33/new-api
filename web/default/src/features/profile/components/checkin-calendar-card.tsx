@@ -28,20 +28,20 @@ import {
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { formatQuotaWithCurrency } from '@/lib/currency'
-import dayjs from '@/lib/dayjs'
-import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
-import { Skeleton } from '@/components/ui/skeleton'
+import { formatQuotaWithCurrency } from '@shared/lib/currency'
+import dayjs from '@shared/lib/dayjs'
+import { cn } from '@shared/lib/utils'
+import { Button } from '@shared/ui/primitives/button'
+import { Card } from '@shared/ui/primitives/card'
+import { Skeleton } from '@shared/ui/primitives/skeleton'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
   TooltipProvider,
-} from '@/components/ui/tooltip'
-import { Dialog } from '@/components/dialog'
-import { Turnstile } from '@/components/turnstile'
+} from '@shared/ui/primitives/tooltip'
+import { Dialog } from '@shared/ui/composite/dialog'
+import { Turnstile } from '@shared/ui/composite/turnstile'
 import { getCheckinStatus, performCheckin } from '../api'
 import type { CheckinRecord } from '../types'
 
@@ -160,7 +160,7 @@ export function CheckinCalendarCard({
           }
           toast.error(res.message || t('Check-in failed'))
         }
-      } catch (_error) {
+      } catch {
         toast.error(t('Check-in failed'))
       } finally {
         setCheckinLoading(false)
@@ -436,7 +436,7 @@ export function CheckinCalendarCard({
                     if (isCheckedIn && dayObj.isCurrentMonth) {
                       return (
                         <Tooltip key={idx}>
-                          <TooltipTrigger render={dayButton}></TooltipTrigger>
+                          <TooltipTrigger render={dayButton} />
                           <TooltipContent>
                             <div className='text-xs'>
                               <div className='font-medium'>
@@ -479,3 +479,4 @@ export function CheckinCalendarCard({
     </TooltipProvider>
   )
 }
+

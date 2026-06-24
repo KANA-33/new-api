@@ -19,13 +19,13 @@ For commercial licensing, please contact support@quantumnous.com
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { getCurrencyDisplay, getCurrencyLabel } from '@/lib/currency'
-import { formatQuota, parseQuotaFromDollars } from '@/lib/format'
-import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Dialog } from '@/components/dialog'
+import { getCurrencyDisplay, getCurrencyLabel } from '@shared/lib/currency'
+import { formatQuota, parseQuotaFromDollars } from '@shared/lib/format'
+import { cn } from '@shared/lib/utils'
+import { Button } from '@shared/ui/primitives/button'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { Dialog } from '@shared/ui/composite/dialog'
 import { adjustUserQuota } from '../api'
 import type { QuotaAdjustMode } from '../types'
 
@@ -47,7 +47,7 @@ export function UserQuotaDialog(props: UserQuotaDialogProps) {
   const currencyLabel = getCurrencyLabel()
   const tokensOnly = currencyMeta.kind === 'tokens'
 
-  const amountValue = parseFloat(amount) || 0
+  const amountValue = Number.parseFloat(amount) || 0
   const quotaValue = parseQuotaFromDollars(Math.abs(amountValue))
 
   const getPreviewText = () => {
@@ -177,3 +177,4 @@ export function UserQuotaDialog(props: UserQuotaDialogProps) {
     </Dialog>
   )
 }
+

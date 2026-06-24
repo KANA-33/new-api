@@ -18,30 +18,30 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { useQuery } from '@tanstack/react-query'
 import { getRouteApi } from '@tanstack/react-router'
-import { type Table as TanstackTable } from '@tanstack/react-table'
+import type { Table as TanstackTable } from '@tanstack/react-table'
 import { Database } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { formatQuota } from '@/lib/format'
-import { cn } from '@/lib/utils'
-import { useTableUrlState } from '@/hooks/use-table-url-state'
+import { formatQuota } from '@shared/lib/format'
+import { cn } from '@shared/lib/utils'
+import { useTableUrlState } from '@shared/hooks/use-table-url-state'
 import {
   Empty,
   EmptyDescription,
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from '@/components/ui/empty'
-import { Input } from '@/components/ui/input'
-import { Skeleton } from '@/components/ui/skeleton'
+} from '@shared/ui/primitives/empty'
+import { Input } from '@shared/ui/primitives/input'
+import { Skeleton } from '@shared/ui/primitives/skeleton'
 import {
   DISABLED_ROW_DESKTOP,
   DISABLED_ROW_MOBILE,
-  DataTablePage,
   useDebouncedColumnFilter,
   useDataTable,
-} from '@/components/data-table'
-import { StatusBadge } from '@/components/status-badge'
+} from '@shared/ui/data-table'
+import { DataTablePage } from '@widgets/data-table-page'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 import { getApiKeys, searchApiKeys } from '../api'
 import {
   API_KEY_STATUS,
@@ -49,7 +49,7 @@ import {
   API_KEY_STATUSES,
   ERROR_MESSAGES,
 } from '../constants'
-import { type ApiKey } from '../types'
+import type { ApiKey } from '../types'
 import { ApiKeyCell } from './api-keys-cells'
 import { useApiKeysColumns } from './api-keys-columns'
 import { useApiKeys } from './api-keys-provider'
@@ -318,3 +318,5 @@ export function ApiKeysTable() {
     />
   )
 }
+
+

@@ -20,8 +20,8 @@ import { useEffect } from 'react'
 import { createFileRoute, useNavigate, useSearch } from '@tanstack/react-router'
 import i18next from 'i18next'
 import { toast } from 'sonner'
-import { useAuthStore, type AuthUser } from '@/stores/auth-store'
-import { getSelf } from '@/lib/api'
+import { useAuthStore, type AuthUser } from '@domains/identity/store/auth-store'
+import { getSelf } from '@shared/api/client'
 import { wechatLoginByCode } from '@/features/auth/api'
 
 function OAuthComponent() {
@@ -60,3 +60,6 @@ function OAuthComponent() {
 export const Route = createFileRoute('/(auth)/oauth')({
   component: OAuthComponent,
 })
+
+
+

@@ -20,7 +20,7 @@ import { useCallback, useMemo, useState } from 'react'
 import { AlertTriangle, KeyRound, Loader2, ShieldAlert } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import dayjs from '@/lib/dayjs'
+import dayjs from '@shared/lib/dayjs'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -31,17 +31,17 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@/components/ui/alert-dialog'
-import { Button } from '@/components/ui/button'
+} from '@shared/ui/primitives/alert-dialog'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
-import { Skeleton } from '@/components/ui/skeleton'
-import { StatusBadge } from '@/components/status-badge'
+} from '@shared/ui/primitives/card'
+import { Skeleton } from '@shared/ui/primitives/skeleton'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 import { usePasskeyManagement } from '@/features/auth/passkey'
 import {
   SecureVerificationDialog,
@@ -357,3 +357,4 @@ export function PasskeyCard({ loading: pageLoading }: PasskeyCardProps) {
     </>
   )
 }
+

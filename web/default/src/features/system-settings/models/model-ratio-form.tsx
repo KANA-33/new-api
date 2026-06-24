@@ -17,10 +17,10 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { memo, useCallback, useRef, useState } from 'react'
-import { type UseFormReturn } from 'react-hook-form'
+import type { UseFormReturn } from 'react-hook-form'
 import { Code2, Eye, RotateCcw, Save } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -29,9 +29,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Switch } from '@/components/ui/switch'
-import { JsonCodeEditor } from '@/components/json-code-editor'
+} from '@shared/ui/primitives/form'
+import { Switch } from '@shared/ui/primitives/switch'
+import { JsonCodeEditor } from '@shared/ui/composite/json-code-editor'
 import {
   SettingsForm,
   SettingsSwitchContent,
@@ -332,3 +332,4 @@ export const ModelRatioForm = memo(function ModelRatioForm({
     </div>
   )
 })
+

@@ -16,12 +16,12 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { api, get2FAStatus } from '@/lib/api'
+import { api, get2FAStatus } from '@shared/api/client'
 import {
   buildAssertionResult,
   prepareCredentialRequestOptions,
   isPasskeySupported as detectPasskeySupport,
-} from '@/lib/passkey'
+} from '@shared/lib/passkey'
 import {
   beginPasskeyVerification,
   finishPasskeyVerification,
@@ -159,3 +159,6 @@ async function verifyPasskey(): Promise<void> {
     throw error
   }
 }
+
+
+

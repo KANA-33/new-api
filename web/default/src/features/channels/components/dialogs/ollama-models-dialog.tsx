@@ -21,7 +21,7 @@ import { useQueryClient } from '@tanstack/react-query'
 import { Loader2, RefreshCw, Trash2, Download, Search } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { getCommonHeaders } from '@/lib/api'
+import { getCommonHeaders } from '@shared/api/client'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -31,14 +31,14 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/components/ui/alert-dialog'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Progress } from '@/components/ui/progress'
-import { Separator } from '@/components/ui/separator'
-import { Dialog } from '@/components/dialog'
+} from '@shared/ui/primitives/alert-dialog'
+import { Button } from '@shared/ui/primitives/button'
+import { Checkbox } from '@shared/ui/primitives/checkbox'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { Progress } from '@shared/ui/primitives/progress'
+import { Separator } from '@shared/ui/primitives/separator'
+import { Dialog } from '@shared/ui/composite/dialog'
 import {
   deleteOllamaModel,
   fetchModels as fetchModelsFromEndpoint,
@@ -186,7 +186,7 @@ export function OllamaModelsDialog({
     setSelected((prev) => {
       const next = new Set(prev)
       filteredModels.forEach((m) => next.add(m.id))
-      return Array.from(next)
+      return [...next]
     })
   }
 
@@ -201,8 +201,8 @@ export function OllamaModelsDialog({
 
     const next =
       mode === 'replace'
-        ? Array.from(new Set(selected))
-        : Array.from(new Set([...existingModels, ...selected]))
+        ? [...new Set(selected)]
+        : [...new Set([...existingModels, ...selected])]
 
     try {
       const res = await updateChannel(currentRow.id, { models: next.join(',') })
@@ -605,3 +605,6 @@ export function OllamaModelsDialog({
     </Dialog>
   )
 }
+
+
+

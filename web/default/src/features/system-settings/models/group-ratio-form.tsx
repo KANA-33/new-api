@@ -17,7 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { memo, useCallback, useState } from 'react'
-import { type UseFormReturn } from 'react-hook-form'
+import type { UseFormReturn } from 'react-hook-form'
 import { Code2, Eye, HelpCircle } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import {
@@ -25,8 +25,8 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/accordion'
-import { Button } from '@/components/ui/button'
+} from '@shared/ui/primitives/accordion'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -35,21 +35,21 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
+} from '@shared/ui/primitives/form'
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from '@/components/ui/sheet'
-import { Switch } from '@/components/ui/switch'
-import { Textarea } from '@/components/ui/textarea'
+} from '@shared/ui/primitives/sheet'
+import { Switch } from '@shared/ui/primitives/switch'
+import { Textarea } from '@shared/ui/primitives/textarea'
 import {
   sideDrawerContentClassName,
   sideDrawerFormClassName,
   sideDrawerHeaderClassName,
-} from '@/components/drawer-layout'
+} from '@shared/ui/composite/drawer-layout'
 import {
   SettingsForm,
   SettingsSwitchContent,
@@ -490,3 +490,4 @@ vip          0.5     ${t('No')}                ${t('Assigned by administrator on
     </Sheet>
   )
 }
+

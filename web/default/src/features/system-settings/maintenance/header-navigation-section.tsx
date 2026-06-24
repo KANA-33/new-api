@@ -28,8 +28,8 @@ import {
   FormField,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Switch } from '@/components/ui/switch'
+} from '@shared/ui/primitives/form'
+import { Switch } from '@shared/ui/primitives/switch'
 import {
   SettingsControlChildren,
   SettingsForm,
@@ -297,3 +297,4 @@ export function HeaderNavigationSection({
     </SettingsSection>
   )
 }
+

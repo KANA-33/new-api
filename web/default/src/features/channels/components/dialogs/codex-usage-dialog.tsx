@@ -28,11 +28,11 @@ For commercial licensing, please contact support@quantumnous.com
 import { type ReactNode, useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { ConfirmDialog } from '@/components/confirm-dialog'
-import { Dialog } from '@/components/dialog'
-import { StatusBadge, type StatusBadgeProps } from '@/components/status-badge'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
+import { ConfirmDialog } from '@shared/ui/composite/confirm-dialog'
+import { Dialog } from '@shared/ui/composite/dialog'
+import { StatusBadge, type StatusBadgeProps } from '@shared/ui/composite/status-badge'
+import { Alert, AlertDescription, AlertTitle } from '@shared/ui/primitives/alert'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Card,
   CardAction,
@@ -40,25 +40,25 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
+} from '@shared/ui/primitives/card'
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@/components/ui/collapsible'
+} from '@shared/ui/primitives/collapsible'
 import {
   Empty,
   EmptyDescription,
   EmptyHeader,
   EmptyTitle,
-} from '@/components/ui/empty'
-import { Progress } from '@/components/ui/progress'
-import { ScrollArea } from '@/components/ui/scroll-area'
-import { Skeleton } from '@/components/ui/skeleton'
-import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
-import dayjs from '@/lib/dayjs'
-import { formatDateTimeStr, formatTimestampToDate } from '@/lib/format'
-import { cn } from '@/lib/utils'
+} from '@shared/ui/primitives/empty'
+import { Progress } from '@shared/ui/primitives/progress'
+import { ScrollArea } from '@shared/ui/primitives/scroll-area'
+import { Skeleton } from '@shared/ui/primitives/skeleton'
+import { useCopyToClipboard } from '@shared/hooks/use-copy-to-clipboard'
+import dayjs from '@shared/lib/dayjs'
+import { formatDateTimeStr, formatTimestampToDate } from '@shared/lib/format'
+import { cn } from '@shared/lib/utils'
 
 import {
   getCodexResetCredits,
@@ -1334,3 +1334,4 @@ export function CodexUsageDialog({
     </Dialog>
   )
 }
+

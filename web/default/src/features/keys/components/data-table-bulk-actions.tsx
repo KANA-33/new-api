@@ -17,19 +17,19 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { useState, useCallback } from 'react'
-import { type Table } from '@tanstack/react-table'
+import type { Table } from '@tanstack/react-table'
 import { Copy, Trash2, Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { copyToClipboard } from '@/lib/copy-to-clipboard'
-import { Button } from '@/components/ui/button'
+import { copyToClipboard } from '@shared/lib/copy-to-clipboard'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
-import { DataTableBulkActions as BulkActionsToolbar } from '@/components/data-table'
-import { type ApiKey } from '../types'
+} from '@shared/ui/primitives/tooltip'
+import { DataTableBulkActions as BulkActionsToolbar } from '@shared/ui/data-table'
+import type { ApiKey } from '../types'
 import { ApiKeysMultiDeleteDialog } from './api-keys-multi-delete-dialog'
 import { useApiKeys } from './api-keys-provider'
 
@@ -134,3 +134,4 @@ export function DataTableBulkActions<TData>({
     </>
   )
 }
+

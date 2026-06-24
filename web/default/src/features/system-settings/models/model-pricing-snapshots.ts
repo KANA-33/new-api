@@ -16,7 +16,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { splitBillingExprAndRequestRules } from '@/features/pricing/lib/billing-expr'
+import { splitBillingExprAndRequestRules } from '@domains/billing/pricing/lib/billing-expr'
 import { safeJsonParse } from '../utils/json-parser'
 import { formatPricingNumber } from './pricing-format'
 
@@ -222,7 +222,7 @@ export const buildModelSnapshots = ({
     ...Object.keys(billingExprMap),
   ])
 
-  return Array.from(modelNames).map((name) => {
+  return [...modelNames].map((name) => {
     const price = priceMap[name]?.toString() || ''
     const ratio = ratioMap[name]?.toString() || ''
     const cache = cacheMap[name]?.toString() || ''
@@ -294,3 +294,4 @@ export const getSnapshotSignature = (snapshot?: ModelPricingSnapshot) => {
     requestRuleExpr: snapshot.requestRuleExpr || '',
   })
 }
+

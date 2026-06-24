@@ -20,13 +20,13 @@ import { useState } from 'react'
 import { RefreshCw, Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { regenerate2FABackupCodes } from '@/lib/api'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { CopyButton } from '@/components/copy-button'
-import { Dialog } from '@/components/dialog'
+import { regenerate2FABackupCodes } from '@shared/api/client'
+import { Alert, AlertDescription } from '@shared/ui/primitives/alert'
+import { Button } from '@shared/ui/primitives/button'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { CopyButton } from '@shared/ui/composite/copy-button'
+import { Dialog } from '@shared/ui/composite/dialog'
 
 // ============================================================================
 // Two-FA Backup Codes Dialog Component
@@ -64,7 +64,7 @@ export function TwoFABackupDialog({
       } else {
         toast.error(response.message || t('Failed to regenerate backup codes'))
       }
-    } catch (_error) {
+    } catch {
       toast.error(t('Failed to regenerate backup codes'))
     } finally {
       setLoading(false)
@@ -190,3 +190,6 @@ export function TwoFABackupDialog({
     </Dialog>
   )
 }
+
+
+

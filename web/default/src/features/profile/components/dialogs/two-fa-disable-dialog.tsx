@@ -20,13 +20,13 @@ import { useState } from 'react'
 import { AlertTriangle, Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { disable2FA } from '@/lib/api'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Dialog } from '@/components/dialog'
+import { disable2FA } from '@shared/api/client'
+import { Alert, AlertDescription } from '@shared/ui/primitives/alert'
+import { Button } from '@shared/ui/primitives/button'
+import { Checkbox } from '@shared/ui/primitives/checkbox'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { Dialog } from '@shared/ui/composite/dialog'
 
 // ============================================================================
 // Two-FA Disable Dialog Component
@@ -73,7 +73,7 @@ export function TwoFADisableDialog({
       } else {
         toast.error(response.message || t('Failed to disable 2FA'))
       }
-    } catch (_error) {
+    } catch {
       toast.error(t('Failed to disable 2FA'))
     } finally {
       setLoading(false)
@@ -168,3 +168,6 @@ export function TwoFADisableDialog({
     </Dialog>
   )
 }
+
+
+

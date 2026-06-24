@@ -16,22 +16,22 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { type ColumnDef } from '@tanstack/react-table'
+import type { ColumnDef } from '@tanstack/react-table'
 import { useTranslation } from 'react-i18next'
-import { formatTimestampToDate } from '@/lib/format'
-import { getLobeIcon } from '@/lib/lobe-icon'
-import { Checkbox } from '@/components/ui/checkbox'
+import { formatTimestampToDate } from '@shared/lib/format'
+import { getLobeIcon } from '@shared/lib/lobe-icon'
+import { Checkbox } from '@shared/ui/primitives/checkbox'
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
-import { BadgeCell, BadgeListCell } from '@/components/data-table'
-import { GroupBadge } from '@/components/group-badge'
-import { ProviderBadge } from '@/components/provider-badge'
-import { StatusBadge } from '@/components/status-badge'
-import { TableId } from '@/components/table-id'
+} from '@shared/ui/primitives/tooltip'
+import { BadgeCell, BadgeListCell } from '@shared/ui/data-table'
+import { GroupBadge } from '@shared/ui/composite/group-badge'
+import { ProviderBadge } from '@shared/ui/composite/provider-badge'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
+import { TableId } from '@shared/ui/composite/table-id'
 import {
   getModelStatusConfig,
   getNameRuleConfig,
@@ -477,3 +477,4 @@ export function useModelsColumns(vendors: Vendor[] = []): ColumnDef<Model>[] {
     },
   ]
 }
+

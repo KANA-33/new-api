@@ -22,7 +22,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { parseHttpStatusCodeRules } from '@/lib/http-status-code-rules'
+import { parseHttpStatusCodeRules } from '@shared/api/http-status-code-rules'
 import {
   Form,
   FormControl,
@@ -31,8 +31,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
 import {
   Select,
   SelectContent,
@@ -40,10 +40,10 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Separator } from '@/components/ui/separator'
-import { Switch } from '@/components/ui/switch'
-import { Textarea } from '@/components/ui/textarea'
+} from '@shared/ui/primitives/select'
+import { Separator } from '@shared/ui/primitives/separator'
+import { Switch } from '@shared/ui/primitives/switch'
+import { Textarea } from '@shared/ui/primitives/textarea'
 import {
   SettingsForm,
   SettingsSwitchContent,
@@ -587,3 +587,6 @@ export function RoutingReliabilitySection({
     </SettingsSection>
   )
 }
+
+
+

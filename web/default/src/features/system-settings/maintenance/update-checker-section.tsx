@@ -20,10 +20,10 @@ import { useState } from 'react'
 import { ExternalLinkIcon, RefreshCcwIcon } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { formatTimestamp, formatTimestampToDate } from '@/lib/format'
-import { Button } from '@/components/ui/button'
-import { Markdown } from '@/components/ui/markdown'
-import { Dialog } from '@/components/dialog'
+import { formatTimestamp, formatTimestampToDate } from '@shared/lib/format'
+import { Button } from '@shared/ui/primitives/button'
+import { Markdown } from '@shared/ui/primitives/markdown'
+import { Dialog } from '@shared/ui/composite/dialog'
 import { SettingsSection } from '../components/settings-section'
 
 type ReleaseInfo = {
@@ -185,3 +185,4 @@ export function UpdateCheckerSection({
     </>
   )
 }
+

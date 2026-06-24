@@ -20,21 +20,21 @@ import { useState, useCallback } from 'react'
 import { Check, Copy, Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { copyToClipboard } from '@/lib/copy-to-clipboard'
-import { Button } from '@/components/ui/button'
+import { copyToClipboard } from '@shared/lib/copy-to-clipboard'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover'
+} from '@shared/ui/primitives/popover'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
-import { BadgeCell } from '@/components/data-table'
-import { StatusBadge } from '@/components/status-badge'
-import { type ApiKey } from '../types'
+} from '@shared/ui/primitives/tooltip'
+import { BadgeCell } from '@shared/ui/data-table'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
+import type { ApiKey } from '../types'
 import { useApiKeys } from './api-keys-provider'
 
 export function ApiKeyCell({ apiKey }: { apiKey: ApiKey }) {
@@ -232,3 +232,4 @@ export function IpRestrictionsCell({ apiKey }: { apiKey: ApiKey }) {
     </Tooltip>
   )
 }
+

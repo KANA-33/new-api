@@ -18,9 +18,9 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { AlertCircle, AlertTriangle, Settings } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { useAuthStore } from '@/stores/auth-store'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
+import { useAuthStore } from '@domains/identity/store/auth-store'
+import { Alert, AlertDescription, AlertTitle } from '@shared/ui/primitives/alert'
+import { Button } from '@shared/ui/primitives/button'
 import { MESSAGE_STATUS } from '../constants'
 import type { Message } from '../types'
 
@@ -77,3 +77,4 @@ export function MessageError({ message, className = '' }: MessageErrorProps) {
     </Alert>
   )
 }
+

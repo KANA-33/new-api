@@ -18,13 +18,13 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { Activity, BarChart3, WalletCards } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { getUserAvatarFallback, getUserAvatarStyle } from '@/lib/avatar'
-import { formatCompactNumber, formatQuota } from '@/lib/format'
-import { getRoleLabel } from '@/lib/roles'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Card, CardContent } from '@/components/ui/card'
-import { Skeleton } from '@/components/ui/skeleton'
-import { StatusBadge } from '@/components/status-badge'
+import { getUserAvatarFallback, getUserAvatarStyle } from '@shared/lib/avatar'
+import { formatCompactNumber, formatQuota } from '@shared/lib/format'
+import { getRoleLabel } from '@shared/lib/roles'
+import { Avatar, AvatarFallback } from '@shared/ui/primitives/avatar'
+import { Card, CardContent } from '@shared/ui/primitives/card'
+import { Skeleton } from '@shared/ui/primitives/skeleton'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 import { getDisplayName } from '../lib'
 import type { UserProfile } from '../types'
 
@@ -174,3 +174,4 @@ export function ProfileHeader({ profile, loading }: ProfileHeaderProps) {
     </Card>
   )
 }
+

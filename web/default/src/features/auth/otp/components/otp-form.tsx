@@ -23,9 +23,9 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { useAuthStore } from '@/stores/auth-store'
-import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
+import { useAuthStore } from '@domains/identity/store/auth-store'
+import { cn } from '@shared/lib/utils'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -34,14 +34,14 @@ import {
   FormLabel,
   FormMessage,
   FormDescription,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
   InputOTPSeparator,
-} from '@/components/ui/input-otp'
+} from '@shared/ui/primitives/input-otp'
 import { login2fa } from '@/features/auth/api'
 import {
   otpFormSchema,
@@ -235,3 +235,4 @@ export function OtpForm({ className, ...props }: OtpFormProps) {
     </Form>
   )
 }
+

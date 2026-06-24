@@ -26,19 +26,19 @@ import {
   useImperativeHandle,
   useRef,
 } from 'react'
-import {
-  type ColumnFiltersState,
-  type OnChangeFn,
-  type PaginationState,
-  type RowSelectionState,
-  type VisibilityState,
-  type SortingState,
+import type {
+  ColumnFiltersState,
+  OnChangeFn,
+  PaginationState,
+  RowSelectionState,
+  VisibilityState,
+  SortingState,
 } from '@tanstack/react-table'
-import { useMediaQuery } from '@/hooks'
+import { useMediaQuery } from '@shared/hooks'
 import { Copy, Plus } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   DataTableBulkActions,
   DataTableToolbar,
@@ -46,8 +46,8 @@ import {
   DataTableRow,
   DataTableView,
   useDataTable,
-} from '@/components/data-table'
-import { combineBillingExpr } from '@/features/pricing/lib/billing-expr'
+} from '@shared/ui/data-table'
+import { combineBillingExpr } from '@domains/billing/pricing/lib/billing-expr'
 import { safeJsonParse } from '../utils/json-parser'
 import {
   ModelPricingEditorPanel,
@@ -208,7 +208,7 @@ const ModelRatioVisualEditorComponent = forwardRef<
     const draftByName = new Map(draftRows.map((row) => [row.name, row]))
     const modelNames = new Set([...savedByName.keys(), ...draftByName.keys()])
 
-    return Array.from(modelNames)
+    return [...modelNames]
       .map((name) => {
         const saved = savedByName.get(name)
         const draft = draftByName.get(name)
@@ -498,7 +498,7 @@ const ModelRatioVisualEditorComponent = forwardRef<
         value: string | undefined
       ) => {
         if (!value || value === '') return
-        const parsed = parseFloat(value)
+        const parsed = Number.parseFloat(value)
         if (Number.isFinite(parsed)) target[name] = parsed
       }
 
@@ -795,3 +795,5 @@ export const ModelRatioVisualEditor = memo(
     )
   }
 )
+
+

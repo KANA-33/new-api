@@ -19,7 +19,7 @@ For commercial licensing, please contact support@quantumnous.com
 import { useRef, useState, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { api, type ApiRequestConfig } from '@/lib/api'
+import { api, type ApiRequestConfig } from '@shared/api/client'
 import { normalizeModelList } from '../lib/upstream-update-utils'
 
 const upstreamUpdateRequestConfig = {
@@ -30,7 +30,7 @@ const upstreamUpdateRequestConfig = {
 function getManualIgnoredModelCount(settings: unknown): number {
   let parsed: Record<string, unknown> | null = null
   if (settings && typeof settings === 'object')
-    parsed = settings as Record<string, unknown>
+    {parsed = settings as Record<string, unknown>}
   else if (typeof settings === 'string') {
     try {
       parsed = JSON.parse(settings)
@@ -323,3 +323,6 @@ export function useChannelUpstreamUpdates(refresh: () => Promise<void>) {
     ]
   )
 }
+
+
+

@@ -21,13 +21,13 @@ import { Loader2 } from 'lucide-react'
 import { QRCodeSVG } from 'qrcode.react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { setup2FA, enable2FA } from '@/lib/api'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { CopyButton } from '@/components/copy-button'
-import { Dialog } from '@/components/dialog'
+import { setup2FA, enable2FA } from '@shared/api/client'
+import { Alert, AlertDescription } from '@shared/ui/primitives/alert'
+import { Button } from '@shared/ui/primitives/button'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { CopyButton } from '@shared/ui/composite/copy-button'
+import { Dialog } from '@shared/ui/composite/dialog'
 import type { TwoFASetupData } from '../../types'
 
 // ============================================================================
@@ -100,7 +100,7 @@ export function TwoFASetupDialog({
       } else {
         toast.error(response.message || t('Failed to enable 2FA'))
       }
-    } catch (_error) {
+    } catch {
       toast.error(t('Failed to enable 2FA'))
     } finally {
       setLoading(false)
@@ -283,3 +283,6 @@ export function TwoFASetupDialog({
     </Dialog>
   )
 }
+
+
+

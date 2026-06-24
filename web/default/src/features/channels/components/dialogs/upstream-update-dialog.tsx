@@ -19,14 +19,14 @@ For commercial licensing, please contact support@quantumnous.com
 import { useState, useMemo } from 'react'
 import { Search } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Input } from '@/components/ui/input'
-import { ScrollArea } from '@/components/ui/scroll-area'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { ConfirmDialog } from '@/components/confirm-dialog'
-import { Dialog } from '@/components/dialog'
-import { StatusBadge } from '@/components/status-badge'
+import { Button } from '@shared/ui/primitives/button'
+import { Checkbox } from '@shared/ui/primitives/checkbox'
+import { Input } from '@shared/ui/primitives/input'
+import { ScrollArea } from '@shared/ui/primitives/scroll-area'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@shared/ui/primitives/tabs'
+import { ConfirmDialog } from '@shared/ui/composite/confirm-dialog'
+import { Dialog } from '@shared/ui/composite/dialog'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 
 interface UpstreamUpdateDialogProps {
   open: boolean
@@ -96,8 +96,8 @@ export function UpstreamUpdateDialog(props: UpstreamUpdateDialogProps) {
   const handleConfirm = () => {
     const hasAdd = props.addModels.length > 0
     const hasRemove = props.removeModels.length > 0
-    const selectedAddArr = Array.from(selectedAdd)
-    const selectedRemoveArr = Array.from(selectedRemove)
+    const selectedAddArr = [...selectedAdd]
+    const selectedRemoveArr = [...selectedRemove]
     const anyAdd = selectedAddArr.length > 0
     const anyRemove = selectedRemoveArr.length > 0
 
@@ -281,11 +281,12 @@ export function UpstreamUpdateDialog(props: UpstreamUpdateDialogProps) {
         handleConfirm={() => {
           setPartialConfirmOpen(false)
           props.onConfirm({
-            addModels: Array.from(selectedAdd),
-            removeModels: Array.from(selectedRemove),
+            addModels: [...selectedAdd],
+            removeModels: [...selectedRemove],
           })
         }}
       />
     </>
   )
 }
+

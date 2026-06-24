@@ -19,16 +19,16 @@ For commercial licensing, please contact support@quantumnous.com
 import type { UseFormReturn } from 'react-hook-form'
 import { ShieldCheck } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Alert, AlertDescription } from '@/components/ui/alert'
+import { Alert, AlertDescription } from '@shared/ui/primitives/alert'
 import {
   FormControl,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { PasswordInput } from '@/components/password-input'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { PasswordInput } from '@shared/ui/composite/password-input'
 import type { SetupFormValues } from '../types'
 
 interface AdminStepProps {
@@ -121,3 +121,4 @@ export function AdminStep({ form, rootInitialized }: AdminStepProps) {
     </div>
   )
 }
+

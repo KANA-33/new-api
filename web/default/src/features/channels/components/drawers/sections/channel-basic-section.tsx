@@ -22,7 +22,7 @@ import { useTranslation } from 'react-i18next'
 import {
   SideDrawerSection,
   SideDrawerSectionHeader,
-} from '@/components/drawer-layout'
+} from '@shared/ui/composite/drawer-layout'
 
 type ChannelBasicSectionProps = {
   children: ReactNode
@@ -42,3 +42,4 @@ export function ChannelBasicSection(props: ChannelBasicSectionProps) {
     </SideDrawerSection>
   )
 }
+

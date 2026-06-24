@@ -18,7 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { Plus } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import { useApiKeys } from './api-keys-provider'
 
 export function ApiKeysPrimaryButtons() {
@@ -33,3 +33,4 @@ export function ApiKeysPrimaryButtons() {
     </div>
   )
 }
+

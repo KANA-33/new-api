@@ -16,7 +16,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { api } from '@/lib/api'
+import { api } from '@shared/api/client'
 import type {
   Redemption,
   ApiResponse,
@@ -94,3 +94,6 @@ export async function deleteInvalidRedemptions(): Promise<ApiResponse<number>> {
   const res = await api.delete('/api/redemption/invalid')
   return res.data
 }
+
+
+

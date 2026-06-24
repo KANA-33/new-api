@@ -19,12 +19,12 @@ For commercial licensing, please contact support@quantumnous.com
 import type { ReactNode } from 'react'
 import { ChevronDown, Settings } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { cn } from '@/lib/utils'
+import { cn } from '@shared/lib/utils'
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@/components/ui/collapsible'
+} from '@shared/ui/primitives/collapsible'
 
 type ChannelAdvancedSectionProps = {
   children: ReactNode
@@ -76,3 +76,4 @@ export function ChannelAdvancedSection(props: ChannelAdvancedSectionProps) {
     </Collapsible>
   )
 }
+

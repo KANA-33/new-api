@@ -20,17 +20,17 @@ import { useCallback, useEffect, useState } from 'react'
 import { LayoutDashboard } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { useAuthStore } from '@/stores/auth-store'
-import { api } from '@/lib/api'
-import { Button } from '@/components/ui/button'
+import { useAuthStore } from '@domains/identity/store/auth-store'
+import { api } from '@shared/api/client'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
-import { Switch } from '@/components/ui/switch'
+} from '@shared/ui/primitives/card'
+import { Switch } from '@shared/ui/primitives/switch'
 
 type SidebarModuleConfig = {
   enabled: boolean
@@ -278,3 +278,6 @@ export function SidebarModulesCard() {
     </Card>
   )
 }
+
+
+

@@ -26,8 +26,8 @@ import {
 } from '@tanstack/react-router'
 import i18next from 'i18next'
 import { toast } from 'sonner'
-import { useAuthStore, type AuthUser } from '@/stores/auth-store'
-import { api, getSelf } from '@/lib/api'
+import { useAuthStore, type AuthUser } from '@domains/identity/store/auth-store'
+import { api, getSelf } from '@shared/api/client'
 import { OAuthCallbackScreen } from '@/features/auth/components/oauth-callback-screen'
 import { OAUTH_BIND_STORAGE_KEY } from '@/features/auth/constants'
 
@@ -245,3 +245,6 @@ function OAuthCallback() {
 export const Route = createFileRoute('/oauth/$provider')({
   component: OAuthCallback,
 })
+
+
+

@@ -29,8 +29,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
 import {
   Select,
   SelectContent,
@@ -38,8 +38,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Switch } from '@/components/ui/switch'
+} from '@shared/ui/primitives/select'
+import { Switch } from '@shared/ui/primitives/switch'
 import {
   SettingsForm,
   SettingsSwitchContent,
@@ -152,12 +152,10 @@ export function DashboardSection({ defaultValues }: DashboardSectionProps) {
                 <FormItem>
                   <FormLabel>{t('Default time granularity')}</FormLabel>
                   <Select
-                    items={[
-                      ...granularityOptions.map((option) => ({
+                    items={granularityOptions.map((option) => ({
                         value: option.value,
                         label: t(option.label),
-                      })),
-                    ]}
+                      }))}
                     onValueChange={field.onChange}
                     value={field.value}
                     disabled={!isEnabled}
@@ -192,3 +190,4 @@ export function DashboardSection({ defaultValues }: DashboardSectionProps) {
     </SettingsSection>
   )
 }
+

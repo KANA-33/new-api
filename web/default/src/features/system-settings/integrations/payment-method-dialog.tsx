@@ -21,8 +21,8 @@ import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
-import { Combobox } from '@/components/ui/combobox'
+import { Button } from '@shared/ui/primitives/button'
+import { Combobox } from '@shared/ui/primitives/combobox'
 import {
   Form,
   FormControl,
@@ -31,10 +31,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Dialog } from '@/components/dialog'
-import { ReactIconByName } from '@/components/react-icon-by-name'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Dialog } from '@shared/ui/composite/dialog'
+import { ReactIconByName } from '@shared/ui/composite/react-icon-by-name'
 
 const createPaymentMethodDialogSchema = (t: (key: string) => string) =>
   z.object({
@@ -314,3 +314,4 @@ export function PaymentMethodDialog({
     </Dialog>
   )
 }
+

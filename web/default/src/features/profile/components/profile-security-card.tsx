@@ -18,10 +18,10 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { Shield, Key, Trash2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { useDialogs } from '@/hooks/use-dialog'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { Skeleton } from '@/components/ui/skeleton'
-import { TitledCard } from '@/components/ui/titled-card'
+import { useDialogs } from '@shared/hooks/use-dialog'
+import { Card, CardContent, CardHeader } from '@shared/ui/primitives/card'
+import { Skeleton } from '@shared/ui/primitives/skeleton'
+import { TitledCard } from '@shared/ui/primitives/titled-card'
 import type { UserProfile } from '../types'
 import { AccessTokenDialog } from './dialogs/access-token-dialog'
 import { ChangePasswordDialog } from './dialogs/change-password-dialog'
@@ -151,3 +151,4 @@ export function ProfileSecurityCard({
     </>
   )
 }
+

@@ -21,7 +21,7 @@ import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -30,9 +30,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Dialog } from '@/components/dialog'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Dialog } from '@shared/ui/composite/dialog'
 
 const rateLimitDialogSchema = z.object({
   groupName: z.string().min(1, 'Group name is required'),
@@ -171,7 +171,7 @@ export function RateLimitDialog({
                       step={1}
                       {...field}
                       onChange={(e) =>
-                        field.onChange(parseInt(e.target.value) || 0)
+                        field.onChange(Number.parseInt(e.target.value) || 0)
                       }
                     />
                     <span className='text-muted-foreground text-sm'>
@@ -202,7 +202,7 @@ export function RateLimitDialog({
                       step={1}
                       {...field}
                       onChange={(e) =>
-                        field.onChange(parseInt(e.target.value) || 1)
+                        field.onChange(Number.parseInt(e.target.value) || 1)
                       }
                     />
                     <span className='text-muted-foreground text-sm'>
@@ -222,3 +222,4 @@ export function RateLimitDialog({
     </Dialog>
   )
 }
+

@@ -21,24 +21,24 @@ import { useQuery } from '@tanstack/react-query'
 import { getRouteApi } from '@tanstack/react-router'
 import type { OnChangeFn, SortingState, Row } from '@tanstack/react-table'
 import { Eye, EyeOff } from 'lucide-react'
-import { useMediaQuery } from '@/hooks'
+import { useMediaQuery } from '@shared/hooks'
 import { useTranslation } from 'react-i18next'
-import { getLobeIcon } from '@/lib/lobe-icon'
-import { useTableUrlState } from '@/hooks/use-table-url-state'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
+import { getLobeIcon } from '@shared/lib/lobe-icon'
+import { useTableUrlState } from '@shared/hooks/use-table-url-state'
+import { Button } from '@shared/ui/primitives/button'
+import { Input } from '@shared/ui/primitives/input'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
+} from '@shared/ui/primitives/tooltip'
 import {
   DISABLED_ROW_DESKTOP,
   DISABLED_ROW_MOBILE,
-  DataTablePage,
   useDebouncedColumnFilter,
   useDataTable,
-} from '@/components/data-table'
+} from '@shared/ui/data-table'
+import { DataTablePage } from '@widgets/data-table-page'
 import { getChannels, searchChannels, getGroups } from '../api'
 import {
   DEFAULT_PAGE_SIZE,
@@ -443,3 +443,6 @@ export function ChannelsTable() {
     />
   )
 }
+
+
+

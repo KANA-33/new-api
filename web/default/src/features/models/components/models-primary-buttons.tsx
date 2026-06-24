@@ -25,7 +25,7 @@ import {
   AlertCircle,
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -33,7 +33,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+} from '@shared/ui/primitives/dropdown-menu'
 import { useModels } from './models-provider'
 
 export function ModelsPrimaryButtons() {
@@ -109,3 +109,4 @@ export function ModelsPrimaryButtons() {
     </div>
   )
 }
+

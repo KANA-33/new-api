@@ -17,9 +17,9 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { useEffect, useMemo, useState } from 'react'
-import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
-import { Textarea } from '@/components/ui/textarea'
+import { cn } from '@shared/lib/utils'
+import { Button } from '@shared/ui/primitives/button'
+import { Textarea } from '@shared/ui/primitives/textarea'
 import {
   Branch,
   BranchMessages,
@@ -27,27 +27,27 @@ import {
   BranchPage,
   BranchPrevious,
   BranchSelector,
-} from '@/components/ai-elements/branch'
+} from '@shared/ui/ai-elements/branch'
 import {
   Conversation,
   ConversationContent,
   ConversationScrollButton,
-} from '@/components/ai-elements/conversation'
-import { Loader } from '@/components/ai-elements/loader'
-import { Message, MessageContent } from '@/components/ai-elements/message'
+} from '@shared/ui/ai-elements/conversation'
+import { Loader } from '@shared/ui/ai-elements/loader'
+import { Message, MessageContent } from '@shared/ui/ai-elements/message'
 import {
   Reasoning,
   ReasoningContent,
   ReasoningTrigger,
-} from '@/components/ai-elements/reasoning'
-import { Response } from '@/components/ai-elements/response'
-import { Shimmer } from '@/components/ai-elements/shimmer'
+} from '@shared/ui/ai-elements/reasoning'
+import { Response } from '@shared/ui/ai-elements/response'
+import { Shimmer } from '@shared/ui/ai-elements/shimmer'
 import {
   Source,
   Sources,
   SourcesContent,
   SourcesTrigger,
-} from '@/components/ai-elements/sources'
+} from '@shared/ui/ai-elements/sources'
 import { MESSAGE_ROLES } from '../constants'
 import { getMessageContentStyles } from '../lib/message-styles'
 import { parseThinkTags } from '../lib/message-utils'
@@ -218,7 +218,7 @@ export function PlaygroundChat({
                                   {/* Reasoning */}
                                   {showReasoning && (
                                     <Reasoning
-                                      defaultOpen={true}
+                                      defaultOpen
                                       isStreaming={message.isReasoningStreaming}
                                     >
                                       <ReasoningTrigger />
@@ -289,3 +289,5 @@ export function PlaygroundChat({
     </Conversation>
   )
 }
+
+

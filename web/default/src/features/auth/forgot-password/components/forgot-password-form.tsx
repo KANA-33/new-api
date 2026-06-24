@@ -23,9 +23,9 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { ArrowRight, Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { cn } from '@/lib/utils'
-import { useCountdown } from '@/hooks/use-countdown'
-import { Button } from '@/components/ui/button'
+import { cn } from '@shared/lib/utils'
+import { useCountdown } from '@shared/hooks/use-countdown'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -33,9 +33,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Turnstile } from '@/components/turnstile'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Turnstile } from '@shared/ui/composite/turnstile'
 import { sendPasswordResetEmail } from '@/features/auth/api'
 import {
   forgotPasswordFormSchema,
@@ -82,7 +82,7 @@ export function ForgotPasswordForm({
       } else {
         toast.error(res?.message || t('Failed to send reset email'))
       }
-    } catch (_error) {
+    } catch {
       // Errors are handled by global interceptor
     } finally {
       setIsLoading(false)
@@ -133,3 +133,4 @@ export function ForgotPasswordForm({
     </Form>
   )
 }
+

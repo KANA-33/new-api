@@ -18,8 +18,8 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { useState, useEffect, useRef } from 'react'
 import { Minus, Plus } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { Label } from '@/components/ui/label'
+import { cn } from '@shared/lib/utils'
+import { Label } from '@shared/ui/primitives/label'
 
 interface NumericSpinnerInputProps {
   value: number | null | undefined
@@ -194,3 +194,4 @@ export function NumericSpinnerInput({
     </div>
   )
 }
+

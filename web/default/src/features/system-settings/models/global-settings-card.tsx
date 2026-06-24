@@ -22,8 +22,8 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
+import { Alert, AlertDescription, AlertTitle } from '@shared/ui/primitives/alert'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -32,12 +32,12 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Separator } from '@/components/ui/separator'
-import { Switch } from '@/components/ui/switch'
-import { Textarea } from '@/components/ui/textarea'
-import { StatusBadge } from '@/components/status-badge'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Separator } from '@shared/ui/primitives/separator'
+import { Switch } from '@shared/ui/primitives/switch'
+import { Textarea } from '@shared/ui/primitives/textarea'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 import {
   SettingsForm,
   SettingsSwitchContent,
@@ -410,3 +410,4 @@ export function GlobalSettingsCard({ defaultValues }: GlobalSettingsCardProps) {
     </SettingsSection>
   )
 }
+

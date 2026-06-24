@@ -28,7 +28,7 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/components/ui/alert-dialog'
+} from '@shared/ui/primitives/alert-dialog'
 import { deleteRedemption } from '../api'
 import { SUCCESS_MESSAGES } from '../constants'
 import { useRedemptions } from './redemptions-provider'
@@ -84,3 +84,4 @@ export function RedemptionsDeleteDialog() {
     </AlertDialog>
   )
 }
+

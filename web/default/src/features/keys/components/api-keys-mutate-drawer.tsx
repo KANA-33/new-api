@@ -23,16 +23,16 @@ import { useQuery } from '@tanstack/react-query'
 import { ChevronDown, KeyRound, Settings2, WalletCards } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { getUserModels, getUserGroups } from '@/lib/api'
-import { getCurrencyDisplay, getCurrencyLabel } from '@/lib/currency'
-import { cn } from '@/lib/utils'
-import { useStatus } from '@/hooks/use-status'
-import { Button } from '@/components/ui/button'
+import { getUserModels, getUserGroups } from '@shared/api/client'
+import { getCurrencyDisplay, getCurrencyLabel } from '@shared/lib/currency'
+import { cn } from '@shared/lib/utils'
+import { useStatus } from '@shared/hooks/use-status'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@/components/ui/collapsible'
+} from '@shared/ui/primitives/collapsible'
 import {
   Form,
   FormControl,
@@ -41,8 +41,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
 import {
   Sheet,
   SheetClose,
@@ -51,10 +51,10 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-} from '@/components/ui/sheet'
-import { Switch } from '@/components/ui/switch'
-import { Textarea } from '@/components/ui/textarea'
-import { DateTimePicker } from '@/components/datetime-picker'
+} from '@shared/ui/primitives/sheet'
+import { Switch } from '@shared/ui/primitives/switch'
+import { Textarea } from '@shared/ui/primitives/textarea'
+import { DateTimePicker } from '@shared/ui/composite/datetime-picker'
 import {
   SideDrawerSection,
   SideDrawerSectionHeader,
@@ -63,8 +63,8 @@ import {
   sideDrawerFormClassName,
   sideDrawerHeaderClassName,
   sideDrawerSwitchItemClassName,
-} from '@/components/drawer-layout'
-import { MultiSelect } from '@/components/multi-select'
+} from '@shared/ui/composite/drawer-layout'
+import { MultiSelect } from '@shared/ui/composite/multi-select'
 import { createApiKey, updateApiKey, getApiKey } from '../api'
 import { ERROR_MESSAGES, SUCCESS_MESSAGES } from '../constants'
 import {
@@ -74,7 +74,7 @@ import {
   transformFormDataToPayload,
   transformApiKeyToFormDefaults,
 } from '../lib'
-import { type ApiKey } from '../types'
+import type { ApiKey } from '../types'
 import {
   ApiKeyGroupCombobox,
   type ApiKeyGroupOption,
@@ -213,7 +213,7 @@ export function ApiKeysMutateDrawer({
           triggerRefresh()
         }
       }
-    } catch (_error) {
+    } catch {
       toast.error(t(ERROR_MESSAGES.UNEXPECTED))
     } finally {
       setIsSubmitting(false)
@@ -416,7 +416,7 @@ export function ApiKeysMutateDrawer({
                           min='1'
                           placeholder={t('Number of keys to create')}
                           onChange={(e) =>
-                            field.onChange(parseInt(e.target.value, 10) || 1)
+                            field.onChange(Number.parseInt(e.target.value, 10) || 1)
                           }
                         />
                       </FormControl>
@@ -452,7 +452,7 @@ export function ApiKeysMutateDrawer({
                           step={tokensOnly ? 1 : 0.01}
                           placeholder={quotaPlaceholder}
                           onChange={(e) =>
-                            field.onChange(parseFloat(e.target.value) || 0)
+                            field.onChange(Number.parseFloat(e.target.value) || 0)
                           }
                         />
                       </FormControl>
@@ -597,3 +597,6 @@ export function ApiKeysMutateDrawer({
     </Sheet>
   )
 }
+
+
+

@@ -27,21 +27,21 @@ import {
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import i18next from 'i18next'
 import { toast } from 'sonner'
-import { useAuthStore } from '@/stores/auth-store'
-import { getStatus } from '@/lib/api'
-import { installBuildMetadata } from '@/lib/build-metadata'
-import '@/lib/dayjs'
-import { applyFaviconToDom } from '@/lib/dom-utils'
-import { initializeFrontendCache } from '@/lib/frontend-cache'
-import { handleServerError } from '@/lib/handle-server-error'
-import { DirectionProvider } from './context/direction-provider'
-import { FontProvider } from './context/font-provider'
-import { ThemeProvider } from './context/theme-provider'
-import './i18n/config'
+import { useAuthStore } from '@domains/identity/store/auth-store'
+import { getStatus } from '@shared/api/client'
+import { installBuildMetadata } from '@shared/lib/build-metadata'
+import '@shared/lib/dayjs'
+import { applyFaviconToDom } from '@shared/lib/dom-utils'
+import { initializeFrontendCache } from '@shared/lib/frontend-cache'
+import { handleServerError } from '@shared/api/handle-server-error'
+import { DirectionProvider } from '@app/providers/direction-provider'
+import { FontProvider } from '@app/providers/font-provider'
+import { ThemeProvider } from '@app/providers/theme-provider'
+import '@shared/i18n/config'
 // Generated Routes
 import { routeTree } from './routeTree.gen'
 // Styles
-import './styles/index.css'
+import './shared/styles/index.css'
 
 // Ensure VChart theme is initialized before any chart mounts (prevents white default theme flash)
 // VChart theme is driven by our ThemeProvider (html.light/html.dark) via per-chart `theme` prop.
@@ -113,7 +113,7 @@ declare module '@tanstack/react-router' {
 }
 
 // Render the app
-const rootElement = document.getElementById('root')!
+const rootElement = document.querySelector('#root')!
 // Set document.title and favicon from cached status, then refresh from network
 ;(function initSystemBranding() {
   try {
@@ -172,3 +172,8 @@ if (!rootElement.innerHTML) {
     </StrictMode>
   )
 }
+
+
+
+
+

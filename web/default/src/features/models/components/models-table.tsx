@@ -19,10 +19,11 @@ For commercial licensing, please contact support@quantumnous.com
 import { useMemo } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getRouteApi } from '@tanstack/react-router'
-import { useMediaQuery } from '@/hooks'
+import { useMediaQuery } from '@shared/hooks'
 import { useTranslation } from 'react-i18next'
-import { useTableUrlState } from '@/hooks/use-table-url-state'
-import { DataTablePage, useDataTable } from '@/components/data-table'
+import { useTableUrlState } from '@shared/hooks/use-table-url-state'
+import { useDataTable } from '@shared/ui/data-table'
+import { DataTablePage } from '@widgets/data-table-page'
 import { getModels, searchModels, getVendors } from '../api'
 import {
   DEFAULT_PAGE_SIZE,
@@ -234,3 +235,6 @@ export function ModelsTable() {
     />
   )
 }
+
+
+

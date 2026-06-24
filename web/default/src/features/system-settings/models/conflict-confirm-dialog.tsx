@@ -26,8 +26,8 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/components/ui/alert-dialog'
-import { StaticDataTable } from '@/components/data-table'
+} from '@shared/ui/primitives/alert-dialog'
+import { StaticDataTable } from '@shared/ui/data-table'
 
 export type ConflictItem = {
   channel: string
@@ -113,3 +113,4 @@ export function ConflictConfirmDialog({
     </AlertDialog>
   )
 }
+

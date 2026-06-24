@@ -19,10 +19,10 @@ For commercial licensing, please contact support@quantumnous.com
 import { useMemo, useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { getRouteApi } from '@tanstack/react-router'
-import { useMediaQuery } from '@/hooks'
+import { useMediaQuery } from '@shared/hooks'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { useTableUrlState } from '@/hooks/use-table-url-state'
+import { useTableUrlState } from '@shared/hooks/use-table-url-state'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -32,8 +32,9 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/components/ui/alert-dialog'
-import { DataTablePage, useDataTable } from '@/components/data-table'
+} from '@shared/ui/primitives/alert-dialog'
+import { useDataTable } from '@shared/ui/data-table'
+import { DataTablePage } from '@widgets/data-table-page'
 import { deleteDeployment, listDeployments, searchDeployments } from '../api'
 import { getDeploymentStatusOptions } from '../constants'
 import { deploymentsQueryKeys } from '../lib'
@@ -318,3 +319,6 @@ export function DeploymentsTable() {
     </>
   )
 }
+
+
+

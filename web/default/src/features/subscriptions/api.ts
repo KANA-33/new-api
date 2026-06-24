@@ -16,7 +16,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { api } from '@/lib/api'
+import { api } from '@shared/api/client'
 import type {
   ApiResponse,
   PlanRecord,
@@ -211,3 +211,6 @@ export async function getGroups(): Promise<ApiResponse<string[]>> {
   const res = await api.get('/api/group')
   return res.data
 }
+
+
+

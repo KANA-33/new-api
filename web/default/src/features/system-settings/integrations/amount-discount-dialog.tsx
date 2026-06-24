@@ -21,7 +21,7 @@ import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -30,9 +30,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Dialog } from '@/components/dialog'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Dialog } from '@shared/ui/composite/dialog'
 
 const createAmountDiscountDialogSchema = (t: (key: string) => string) =>
   z.object({
@@ -155,7 +155,7 @@ export function AmountDiscountDialog({
                     placeholder={t('e.g., 100')}
                     {...field}
                     onChange={(e) =>
-                      field.onChange(parseInt(e.target.value) || 0)
+                      field.onChange(Number.parseInt(e.target.value) || 0)
                     }
                     disabled={isEditMode}
                   />
@@ -187,7 +187,7 @@ export function AmountDiscountDialog({
                     placeholder={t('e.g., 0.95')}
                     {...field}
                     onChange={(e) =>
-                      field.onChange(parseFloat(e.target.value) || 0)
+                      field.onChange(Number.parseFloat(e.target.value) || 0)
                     }
                   />
                 </FormControl>
@@ -210,3 +210,4 @@ export function AmountDiscountDialog({
     </Dialog>
   )
 }
+

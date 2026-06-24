@@ -17,13 +17,13 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { useMemo } from 'react'
-import { type ColumnDef } from '@tanstack/react-table'
+import type { ColumnDef } from '@tanstack/react-table'
 import { useTranslation } from 'react-i18next'
-import { formatQuota } from '@/lib/format'
-import { BadgeCell } from '@/components/data-table'
-import { GroupBadge } from '@/components/group-badge'
-import { StatusBadge } from '@/components/status-badge'
-import { TableId } from '@/components/table-id'
+import { formatQuota } from '@shared/lib/format'
+import { BadgeCell } from '@shared/ui/data-table'
+import { GroupBadge } from '@shared/ui/composite/group-badge'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
+import { TableId } from '@shared/ui/composite/table-id'
 import { formatDuration, formatResetPeriod } from '../lib'
 import type { PlanRecord } from '../types'
 import { DataTableRowActions } from './data-table-row-actions'
@@ -202,3 +202,4 @@ export function useSubscriptionsColumns(): ColumnDef<PlanRecord>[] {
     [t]
   )
 }
+

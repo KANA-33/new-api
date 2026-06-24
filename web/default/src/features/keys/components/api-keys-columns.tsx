@@ -17,23 +17,23 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { useQuery } from '@tanstack/react-query'
-import { type ColumnDef } from '@tanstack/react-table'
+import type { ColumnDef } from '@tanstack/react-table'
 import { useTranslation } from 'react-i18next'
-import { getUserGroups } from '@/lib/api'
-import { formatQuota, formatTimestampToDate } from '@/lib/format'
-import { cn } from '@/lib/utils'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Progress } from '@/components/ui/progress'
+import { getUserGroups } from '@shared/api/client'
+import { formatQuota, formatTimestampToDate } from '@shared/lib/format'
+import { cn } from '@shared/lib/utils'
+import { Checkbox } from '@shared/ui/primitives/checkbox'
+import { Progress } from '@shared/ui/primitives/progress'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
-import { BadgeCell, TruncatedCell } from '@/components/data-table'
-import { GroupBadge } from '@/components/group-badge'
-import { StatusBadge } from '@/components/status-badge'
+} from '@shared/ui/primitives/tooltip'
+import { BadgeCell, TruncatedCell } from '@shared/ui/data-table'
+import { GroupBadge } from '@shared/ui/composite/group-badge'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 import { API_KEY_STATUSES } from '../constants'
-import { type ApiKey } from '../types'
+import type { ApiKey } from '../types'
 import {
   ApiKeyCell,
   ModelLimitsCell,
@@ -318,3 +318,6 @@ export function useApiKeysColumns(): ColumnDef<ApiKey>[] {
     },
   ]
 }
+
+
+

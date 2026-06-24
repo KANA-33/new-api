@@ -16,7 +16,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { cn } from '@/lib/utils'
+import { cn } from '@shared/lib/utils'
 
 interface ConnectionLineProps {
   direction?: 'left' | 'right'
@@ -37,3 +37,4 @@ export function ConnectionLine({ direction = 'left' }: ConnectionLineProps) {
     </div>
   )
 }
+

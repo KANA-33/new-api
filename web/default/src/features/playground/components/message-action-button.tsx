@@ -17,12 +17,12 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import type { LucideIcon } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
+} from '@shared/ui/primitives/tooltip'
 import { MESSAGE_ACTION_BUTTON_STYLES } from '../constants'
 
 interface MessageActionButtonProps {
@@ -69,3 +69,4 @@ export function MessageActionButton({
     </Tooltip>
   )
 }
+

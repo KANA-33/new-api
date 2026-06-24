@@ -20,14 +20,14 @@ import { type ChangeEvent, useRef, type SetStateAction, useState } from 'react'
 import { Plus, Pencil, Trash2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Separator } from '@/components/ui/separator'
-import { Textarea } from '@/components/ui/textarea'
-import { StaticDataTable } from '@/components/data-table'
-import { Dialog } from '@/components/dialog'
+import { Alert, AlertDescription } from '@shared/ui/primitives/alert'
+import { Button } from '@shared/ui/primitives/button'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { Separator } from '@shared/ui/primitives/separator'
+import { Textarea } from '@shared/ui/primitives/textarea'
+import { StaticDataTable } from '@shared/ui/data-table'
+import { Dialog } from '@shared/ui/composite/dialog'
 import { SettingsSwitchField } from '../components/settings-form-layout'
 
 export interface WaffoSettingsValues {
@@ -506,3 +506,4 @@ export function WaffoSettingsSection({
     </>
   )
 }
+

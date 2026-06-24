@@ -23,7 +23,7 @@ import {
   CardHeader,
   CardTitle,
   CardDescription,
-} from '@/components/ui/card'
+} from '@shared/ui/primitives/card'
 
 type SettingsCardProps = {
   title: string
@@ -48,3 +48,4 @@ export const SettingsCard = memo(function SettingsCard({
     </Card>
   )
 })
+

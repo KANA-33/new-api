@@ -19,20 +19,20 @@ For commercial licensing, please contact support@quantumnous.com
 import { useCallback, useMemo, useState } from 'react'
 import { ChevronDown, ChevronUp, Plus, Trash2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
+} from '@shared/ui/primitives/card'
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@/components/ui/collapsible'
-import { Input } from '@/components/ui/input'
+} from '@shared/ui/primitives/collapsible'
+import { Input } from '@shared/ui/primitives/input'
 import {
   Select,
   SelectContent,
@@ -40,8 +40,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { StatusBadge } from '@/components/status-badge'
+} from '@shared/ui/primitives/select'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 
 const OP_ADD = 'add' as const
 const OP_REMOVE = 'remove' as const
@@ -68,7 +68,7 @@ function uid() {
 function parsePrefix(rawKey: string): { op: OpType; groupName: string } {
   if (rawKey.startsWith('+:')) return { op: OP_ADD, groupName: rawKey.slice(2) }
   if (rawKey.startsWith('-:'))
-    return { op: OP_REMOVE, groupName: rawKey.slice(2) }
+    {return { op: OP_REMOVE, groupName: rawKey.slice(2) }}
   return { op: OP_APPEND, groupName: rawKey }
 }
 
@@ -331,7 +331,7 @@ export function GroupSpecialUsableRulesEditor(
           if (r._id !== id) return r
           const updated = { ...r, [field]: val }
           if (field === 'op' && val === OP_REMOVE)
-            updated.description = 'remove'
+            {updated.description = 'remove'}
           else if (field === 'op' && r.op === OP_REMOVE && val !== OP_REMOVE) {
             if (updated.description === 'remove') updated.description = ''
           }
@@ -452,3 +452,4 @@ export function GroupSpecialUsableRulesEditor(
     </Card>
   )
 }
+

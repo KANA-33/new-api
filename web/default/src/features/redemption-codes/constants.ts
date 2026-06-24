@@ -16,8 +16,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { type TFunction } from 'i18next'
-import { type StatusBadgeProps } from '@/components/status-badge'
+import type { TFunction } from 'i18next'
+import type { StatusBadgeProps } from '@shared/ui/composite/status-badge'
 
 // ============================================================================
 // Redemption Status Configuration
@@ -132,3 +132,4 @@ export const SUCCESS_MESSAGES = {
   REDEMPTION_DISABLED: 'Redemption code disabled successfully',
   COPY_SUCCESS: 'Copied to clipboard',
 } as const
+

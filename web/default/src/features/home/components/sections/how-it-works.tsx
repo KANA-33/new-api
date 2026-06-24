@@ -18,7 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { Settings, Zap, BarChart3 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { AnimateInView } from '@/components/animate-in-view'
+import { AnimateInView } from '@shared/ui/composite/animate-in-view'
 
 export function HowItWorks() {
   const { t } = useTranslation()
@@ -87,3 +87,4 @@ export function HowItWorks() {
     </section>
   )
 }
+

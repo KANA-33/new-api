@@ -17,8 +17,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { createFileRoute, redirect } from '@tanstack/react-router'
-import { isSidebarModuleEnabled } from '@/lib/nav-modules'
-import { Main } from '@/components/layout'
+import { isSidebarModuleEnabled } from '@shared/lib/nav-modules'
+import { Main } from '@widgets/layout'
 import { Playground } from '@/features/playground'
 
 export const Route = createFileRoute('/_authenticated/playground/')({
@@ -37,3 +37,4 @@ function PlaygroundPage() {
     </Main>
   )
 }
+

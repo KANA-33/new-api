@@ -222,3 +222,5 @@ export const AUTH_STYLE_OPTIONS = [
   { value: 1, labelKey: 'Params (in body)' },
   { value: 2, labelKey: 'Header (Basic Auth)' },
 ] as const
+
+

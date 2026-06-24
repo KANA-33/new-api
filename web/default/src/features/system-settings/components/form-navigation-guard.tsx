@@ -19,7 +19,7 @@ For commercial licensing, please contact support@quantumnous.com
 import { useState, useEffect } from 'react'
 import { useBlocker } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
-import { ConfirmDialog } from '@/components/confirm-dialog'
+import { ConfirmDialog } from '@shared/ui/composite/confirm-dialog'
 
 type FormNavigationGuardProps = {
   when: boolean
@@ -101,3 +101,4 @@ export function FormNavigationGuard({
     />
   )
 }
+

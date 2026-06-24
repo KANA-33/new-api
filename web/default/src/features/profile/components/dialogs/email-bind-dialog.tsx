@@ -20,11 +20,11 @@ import { useState } from 'react'
 import { Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { useCountdown } from '@/hooks/use-countdown'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Dialog } from '@/components/dialog'
+import { useCountdown } from '@shared/hooks/use-countdown'
+import { Button } from '@shared/ui/primitives/button'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { Dialog } from '@shared/ui/composite/dialog'
 import { sendEmailVerification, bindEmail } from '../../api'
 
 // ============================================================================
@@ -74,7 +74,7 @@ export function EmailBindDialog({
       } else {
         toast.error(response.message || t('Failed to send verification code'))
       }
-    } catch (_error) {
+    } catch {
       toast.error(t('Failed to send verification code'))
     } finally {
       setSendingCode(false)
@@ -102,7 +102,7 @@ export function EmailBindDialog({
       } else {
         toast.error(response.message || t('Failed to bind email'))
       }
-    } catch (_error) {
+    } catch {
       toast.error(t('Failed to bind email'))
     } finally {
       setLoading(false)
@@ -199,3 +199,4 @@ export function EmailBindDialog({
     </Dialog>
   )
 }
+

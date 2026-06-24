@@ -27,7 +27,7 @@ import {
   HeartHandshake,
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { AnimateInView } from '@/components/animate-in-view'
+import { AnimateInView } from '@shared/ui/composite/animate-in-view'
 
 interface FeaturesProps {
   className?: string
@@ -238,3 +238,4 @@ export function Features(_props: FeaturesProps) {
     </section>
   )
 }
+

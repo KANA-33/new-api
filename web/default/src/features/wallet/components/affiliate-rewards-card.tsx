@@ -18,12 +18,12 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { Share2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { formatQuota } from '@/lib/format'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Skeleton } from '@/components/ui/skeleton'
-import { CopyButton } from '@/components/copy-button'
+import { formatQuota } from '@shared/lib/format'
+import { Button } from '@shared/ui/primitives/button'
+import { Card, CardContent } from '@shared/ui/primitives/card'
+import { Input } from '@shared/ui/primitives/input'
+import { Skeleton } from '@shared/ui/primitives/skeleton'
+import { CopyButton } from '@shared/ui/composite/copy-button'
 import type { UserWalletData } from '../types'
 
 interface AffiliateRewardsCardProps {
@@ -131,3 +131,4 @@ export function AffiliateRewardsCard({
     </Card>
   )
 }
+

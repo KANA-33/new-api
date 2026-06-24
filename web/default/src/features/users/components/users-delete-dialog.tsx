@@ -28,7 +28,7 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/components/ui/alert-dialog'
+} from '@shared/ui/primitives/alert-dialog'
 import { deleteUser } from '../api'
 import { ERROR_MESSAGES } from '../constants'
 import { getUserActionMessage } from '../lib'
@@ -52,7 +52,7 @@ export function UsersDeleteDialog() {
       } else {
         toast.error(result.message || t(ERROR_MESSAGES.DELETE_FAILED))
       }
-    } catch (_error) {
+    } catch {
       toast.error(t(ERROR_MESSAGES.UNEXPECTED))
     } finally {
       setIsDeleting(false)
@@ -89,3 +89,4 @@ export function UsersDeleteDialog() {
     </AlertDialog>
   )
 }
+

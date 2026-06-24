@@ -17,8 +17,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import React, { useState } from 'react'
-import useDialogState from '@/hooks/use-dialog'
-import { type User, type UsersDialogType } from '../types'
+import useDialogState from '@shared/hooks/use-dialog'
+import type { User, UsersDialogType } from '../types'
 
 type UsersContextType = {
   open: UsersDialogType | null
@@ -64,3 +64,4 @@ export const useUsers = () => {
 
   return usersContext
 }
+

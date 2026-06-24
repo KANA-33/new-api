@@ -21,10 +21,10 @@ import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { ScrollArea } from '@/components/ui/scroll-area'
+import { Button } from '@shared/ui/primitives/button'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { ScrollArea } from '@shared/ui/primitives/scroll-area'
 import {
   Select,
   SelectContent,
@@ -32,12 +32,12 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Separator } from '@/components/ui/separator'
-import { Textarea } from '@/components/ui/textarea'
-import { Dialog } from '@/components/dialog'
-import { GroupBadge } from '@/components/group-badge'
-import { StatusBadge } from '@/components/status-badge'
+} from '@shared/ui/primitives/select'
+import { Separator } from '@shared/ui/primitives/separator'
+import { Textarea } from '@shared/ui/primitives/textarea'
+import { Dialog } from '@shared/ui/composite/dialog'
+import { GroupBadge } from '@shared/ui/composite/group-badge'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 import {
   editTagChannels,
   getTagModels,
@@ -302,12 +302,10 @@ export function EditTagDialog({ open, onOpenChange }: EditTagDialogProps) {
 
                 <div className='flex gap-2'>
                   <Select<string>
-                    items={[
-                      ...availableModels.map((model) => ({
+                    items={availableModels.map((model) => ({
                         value: model,
                         label: model,
-                      })),
-                    ]}
+                      }))}
                     onValueChange={(value) => {
                       if (value === null) return
                       if (!selectedModels.includes(value)) {
@@ -440,3 +438,4 @@ export function EditTagDialog({ open, onOpenChange }: EditTagDialogProps) {
     </Dialog>
   )
 }
+

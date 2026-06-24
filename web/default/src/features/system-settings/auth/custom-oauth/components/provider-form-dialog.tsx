@@ -20,7 +20,7 @@ import { useEffect } from 'react'
 import { type Resolver, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -29,8 +29,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
 import {
   Select,
   SelectContent,
@@ -38,11 +38,11 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Separator } from '@/components/ui/separator'
-import { Switch } from '@/components/ui/switch'
-import { Textarea } from '@/components/ui/textarea'
-import { Dialog } from '@/components/dialog'
+} from '@shared/ui/primitives/select'
+import { Separator } from '@shared/ui/primitives/separator'
+import { Switch } from '@shared/ui/primitives/switch'
+import { Textarea } from '@shared/ui/primitives/textarea'
+import { Dialog } from '@shared/ui/composite/dialog'
 import {
   SettingsForm,
   SettingsSwitchContent,
@@ -339,12 +339,10 @@ export function ProviderFormDialog(props: ProviderFormDialogProps) {
                 <FormItem>
                   <FormLabel>{t('Auth Style')}</FormLabel>
                   <Select
-                    items={[
-                      ...AUTH_STYLE_OPTIONS.map((option) => ({
+                    items={AUTH_STYLE_OPTIONS.map((option) => ({
                         value: String(option.value),
                         label: t(option.labelKey),
-                      })),
-                    ]}
+                      }))}
                     value={String(field.value)}
                     onValueChange={(val) => field.onChange(Number(val))}
                   >
@@ -605,3 +603,4 @@ export function ProviderFormDialog(props: ProviderFormDialogProps) {
     </Dialog>
   )
 }
+

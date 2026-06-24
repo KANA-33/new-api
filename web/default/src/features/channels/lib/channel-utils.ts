@@ -16,8 +16,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { formatCurrencyFromUSD, formatQuotaWithCurrency } from '@/lib/currency'
-import { formatTimestampToDate } from '@/lib/format'
+import { formatCurrencyFromUSD, formatQuotaWithCurrency } from '@shared/lib/currency'
+import { formatTimestampToDate } from '@shared/lib/format'
 
 import {
   CHANNEL_STATUS_CONFIG,
@@ -767,3 +767,4 @@ export function deduplicateKeys(keysText: string): {
 export function getKeyPromptForType(type: number): string {
   return TYPE_TO_KEY_PROMPT[type] || 'Enter API key for this channel'
 }
+

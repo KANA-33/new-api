@@ -24,7 +24,7 @@ import {
   createCredential,
   isPasskeySupported as detectPasskeySupport,
   prepareCredentialCreationOptions,
-} from '@/lib/passkey'
+} from '@shared/lib/passkey'
 import {
   beginPasskeyRegistration,
   deletePasskey,
@@ -185,3 +185,4 @@ export function usePasskeyManagement(
     remove,
   }
 }
+

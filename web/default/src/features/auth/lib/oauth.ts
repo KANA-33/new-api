@@ -23,7 +23,7 @@ export {
   buildDiscordOAuthUrl,
   buildOIDCOAuthUrl,
   buildLinuxDOOAuthUrl,
-} from '@/lib/oauth'
+} from '@shared/lib/oauth'
 
 // ============================================================================
 // OAuth Providers Utilities
@@ -101,3 +101,4 @@ export function hasOAuthProviders(status: SystemStatus | null): boolean {
     status.wechat_login
   )
 }
+

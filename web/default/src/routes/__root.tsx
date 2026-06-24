@@ -17,7 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { useEffect } from 'react'
-import { type QueryClient } from '@tanstack/react-query'
+import type { QueryClient } from '@tanstack/react-query'
 import {
   createRootRouteWithContext,
   Outlet,
@@ -25,10 +25,10 @@ import {
 } from '@tanstack/react-router'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
-import { ThemeCustomizationProvider } from '@/context/theme-customization-provider'
-import { useSystemConfig } from '@/hooks/use-system-config'
-import { Toaster } from '@/components/ui/sonner'
-import { NavigationProgress } from '@/components/navigation-progress'
+import { ThemeCustomizationProvider } from '@app/providers/theme-customization-provider'
+import { useSystemConfig } from '@shared/hooks/use-system-config'
+import { Toaster } from '@shared/ui/primitives/sonner'
+import { NavigationProgress } from '@shared/ui/composite/navigation-progress'
 import { saveAffiliateCode } from '@/features/auth/lib/storage'
 import { GeneralError } from '@/features/errors/general-error'
 import { NotFoundError } from '@/features/errors/not-found-error'
@@ -129,3 +129,5 @@ export const Route = createRootRouteWithContext<{
   notFoundComponent: NotFoundError,
   errorComponent: GeneralError,
 })
+
+

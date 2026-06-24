@@ -28,29 +28,29 @@ import {
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { cn } from '@/lib/utils'
-import { useIsMobile } from '@/hooks/use-mobile'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
+import { cn } from '@shared/lib/utils'
+import { useIsMobile } from '@shared/hooks/use-mobile'
+import { Alert, AlertDescription, AlertTitle } from '@shared/ui/primitives/alert'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
+} from '@shared/ui/primitives/card'
 import {
   Empty,
   EmptyDescription,
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from '@/components/ui/empty'
-import { ConfirmDialog } from '@/components/confirm-dialog'
-import { StaticDataTable } from '@/components/data-table'
-import { Dialog } from '@/components/dialog'
-import { StatusBadge } from '@/components/status-badge'
-import { TableId } from '@/components/table-id'
+} from '@shared/ui/primitives/empty'
+import { ConfirmDialog } from '@shared/ui/composite/confirm-dialog'
+import { StaticDataTable } from '@shared/ui/data-table'
+import { Dialog } from '@shared/ui/composite/dialog'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
+import { TableId } from '@shared/ui/composite/table-id'
 import { deletePrefillGroup, getPrefillGroups } from '../../api'
 import { prefillGroupsQueryKeys } from '../../lib'
 import type { PrefillGroup } from '../../types'
@@ -471,3 +471,4 @@ export function PrefillGroupManagementDialog({
     </>
   )
 }
+

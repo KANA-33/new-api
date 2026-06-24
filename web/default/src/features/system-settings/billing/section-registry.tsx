@@ -16,7 +16,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { parseCurrencyDisplayType } from '@/lib/currency'
+import { parseCurrencyDisplayType } from '@shared/lib/currency'
 import { CheckinSettingsSection } from '../general/checkin-settings-section'
 import { PricingSection } from '../general/pricing-section'
 import { QuotaSettingsSection } from '../general/quota-settings-section'
@@ -218,3 +218,4 @@ export const BILLING_DEFAULT_SECTION = billingRegistry.defaultSection
 export const getBillingSectionNavItems = billingRegistry.getSectionNavItems
 export const getBillingSectionContent = billingRegistry.getSectionContent
 export const getBillingSectionMeta = billingRegistry.getSectionMeta
+

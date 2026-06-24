@@ -22,7 +22,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Code2, Palette } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Form,
   FormControl,
@@ -31,10 +31,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Switch } from '@/components/ui/switch'
-import { Textarea } from '@/components/ui/textarea'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Switch } from '@shared/ui/primitives/switch'
+import { Textarea } from '@shared/ui/primitives/textarea'
 import {
   SettingsForm,
   SettingsSwitchContent,
@@ -159,7 +159,7 @@ export function RateLimitSection({ defaultValues }: RateLimitSectionProps) {
                         step={1}
                         {...field}
                         onChange={(e) =>
-                          field.onChange(parseInt(e.target.value) || 0)
+                          field.onChange(Number.parseInt(e.target.value) || 0)
                         }
                       />
                       <span className='text-muted-foreground text-sm'>
@@ -190,7 +190,7 @@ export function RateLimitSection({ defaultValues }: RateLimitSectionProps) {
                         step={1}
                         {...field}
                         onChange={(e) =>
-                          field.onChange(parseInt(e.target.value) || 0)
+                          field.onChange(Number.parseInt(e.target.value) || 0)
                         }
                       />
                       <span className='text-muted-foreground text-sm'>
@@ -221,7 +221,7 @@ export function RateLimitSection({ defaultValues }: RateLimitSectionProps) {
                         step={1}
                         {...field}
                         onChange={(e) =>
-                          field.onChange(parseInt(e.target.value) || 1)
+                          field.onChange(Number.parseInt(e.target.value) || 1)
                         }
                       />
                       <span className='text-muted-foreground text-sm'>
@@ -315,3 +315,4 @@ export function RateLimitSection({ defaultValues }: RateLimitSectionProps) {
     </SettingsSection>
   )
 }
+

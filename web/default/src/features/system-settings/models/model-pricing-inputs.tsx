@@ -17,12 +17,12 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { useTranslation } from 'react-i18next'
-import { cn } from '@/lib/utils'
+import { cn } from '@shared/lib/utils'
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from '@/components/ui/input-group'
+} from '@shared/ui/primitives/input-group'
 import {
   SettingsControlGroup,
   SettingsSwitchField,
@@ -89,3 +89,4 @@ export function PriceLane(props: {
     </SettingsControlGroup>
   )
 }
+

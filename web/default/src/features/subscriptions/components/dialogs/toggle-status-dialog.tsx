@@ -19,7 +19,7 @@ For commercial licensing, please contact support@quantumnous.com
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { ConfirmDialog } from '@/components/confirm-dialog'
+import { ConfirmDialog } from '@shared/ui/composite/confirm-dialog'
 import { patchPlanStatus } from '../../api'
 import { useSubscriptions } from '../subscriptions-provider'
 
@@ -69,3 +69,4 @@ export function ToggleStatusDialog() {
     />
   )
 }
+

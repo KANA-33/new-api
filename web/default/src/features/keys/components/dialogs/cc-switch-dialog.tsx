@@ -20,12 +20,12 @@ import { useState, useEffect, useMemo } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { getUserModels } from '@/lib/api'
-import { Button } from '@/components/ui/button'
-import { ComboboxInput } from '@/components/ui/combobox-input'
-import { Label } from '@/components/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Dialog } from '@/components/dialog'
+import { getUserModels } from '@shared/api/client'
+import { Button } from '@shared/ui/primitives/button'
+import { ComboboxInput } from '@shared/ui/primitives/combobox-input'
+import { Label } from '@shared/ui/primitives/label'
+import { RadioGroup, RadioGroupItem } from '@shared/ui/primitives/radio-group'
+import { Dialog } from '@shared/ui/composite/dialog'
 
 const APP_CONFIGS = {
   claude: {
@@ -72,7 +72,7 @@ function buildCCSwitchURL(
   apiKey: string
 ): string {
   const serverAddress = getServerAddress()
-  const endpoint = app === 'codex' ? serverAddress + '/v1' : serverAddress
+  const endpoint = app === 'codex' ? `${serverAddress  }/v1` : serverAddress
   const params = new URLSearchParams()
   params.set('resource', 'provider')
   params.set('app', app)
@@ -195,7 +195,7 @@ export function CCSwitchDialog(props: Props) {
             onValueChange={setName}
             placeholder={currentConfig.defaultName}
             emptyText=''
-            allowCustomValue={true}
+            allowCustomValue
           />
         </div>
 
@@ -222,3 +222,6 @@ export function CCSwitchDialog(props: Props) {
     </Dialog>
   )
 }
+
+
+

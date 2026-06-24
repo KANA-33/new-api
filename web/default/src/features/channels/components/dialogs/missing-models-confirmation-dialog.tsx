@@ -26,8 +26,8 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/components/ui/alert-dialog'
-import { Button } from '@/components/ui/button'
+} from '@shared/ui/primitives/alert-dialog'
+import { Button } from '@shared/ui/primitives/button'
 
 export type MissingModelsAction = 'cancel' | 'submit' | 'add'
 
@@ -100,3 +100,4 @@ export function MissingModelsConfirmationDialog({
     </AlertDialog>
   )
 }
+

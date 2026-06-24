@@ -21,14 +21,14 @@ import { useForm } from 'react-hook-form'
 import { Plus, Trash2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@/components/ui/collapsible'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+} from '@shared/ui/primitives/collapsible'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
 import {
   Select,
   SelectContent,
@@ -36,10 +36,10 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Separator } from '@/components/ui/separator'
-import { Textarea } from '@/components/ui/textarea'
-import { Dialog } from '@/components/dialog'
+} from '@shared/ui/primitives/select'
+import { Separator } from '@shared/ui/primitives/separator'
+import { Textarea } from '@shared/ui/primitives/textarea'
+import { Dialog } from '@shared/ui/composite/dialog'
 import { SettingsSwitchField } from '../../components/settings-form-layout'
 import { RULE_TEMPLATES } from './constants'
 import type { AffinityRule, KeySource } from './types'
@@ -467,3 +467,4 @@ export function RuleEditorDialog(props: Props) {
     </Dialog>
   )
 }
+

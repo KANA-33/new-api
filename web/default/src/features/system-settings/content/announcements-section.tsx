@@ -23,7 +23,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Plus, Edit, Trash2, Save } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import dayjs from '@/lib/dayjs'
+import dayjs from '@shared/lib/dayjs'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -33,9 +33,9 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/components/ui/alert-dialog'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
+} from '@shared/ui/primitives/alert-dialog'
+import { Button } from '@shared/ui/primitives/button'
+import { Checkbox } from '@shared/ui/primitives/checkbox'
 import {
   Form,
   FormControl,
@@ -44,8 +44,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
 import {
   Select,
   SelectContent,
@@ -53,12 +53,12 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Textarea } from '@/components/ui/textarea'
-import { StaticDataTable } from '@/components/data-table'
-import { DateTimePicker } from '@/components/datetime-picker'
-import { Dialog } from '@/components/dialog'
-import { StatusBadge } from '@/components/status-badge'
+} from '@shared/ui/primitives/select'
+import { Textarea } from '@shared/ui/primitives/textarea'
+import { StaticDataTable } from '@shared/ui/data-table'
+import { DateTimePicker } from '@shared/ui/composite/datetime-picker'
+import { Dialog } from '@shared/ui/composite/dialog'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 import { SettingsSwitchField } from '../components/settings-form-layout'
 import { SettingsSection } from '../components/settings-section'
 import { useUpdateOption } from '../hooks/use-update-option'
@@ -615,3 +615,4 @@ export function AnnouncementsSection({
     </SettingsSection>
   )
 }
+

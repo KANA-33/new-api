@@ -18,8 +18,8 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
-import { useSystemConfig } from '@/hooks/use-system-config'
-import { Skeleton } from '@/components/ui/skeleton'
+import { useSystemConfig } from '@shared/hooks/use-system-config'
+import { Skeleton } from '@shared/ui/primitives/skeleton'
 
 type AuthLayoutProps = {
   children: React.ReactNode
@@ -60,3 +60,4 @@ export function AuthLayout({ children }: AuthLayoutProps) {
     </div>
   )
 }
+

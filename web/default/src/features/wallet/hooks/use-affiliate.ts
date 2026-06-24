@@ -19,8 +19,8 @@ For commercial licensing, please contact support@quantumnous.com
 import { useState, useEffect, useCallback } from 'react'
 import i18next from 'i18next'
 import { toast } from 'sonner'
-import { getSelf } from '@/lib/api'
-import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
+import { getSelf } from '@shared/api/client'
+import { useCopyToClipboard } from '@shared/hooks/use-copy-to-clipboard'
 import { getAffiliateCode, transferAffiliateQuota } from '../api'
 import { generateAffiliateLink } from '../lib'
 
@@ -73,7 +73,7 @@ export function useAffiliate() {
 
       toast.error(response.message || i18next.t('Transfer failed'))
       return false
-    } catch (_error) {
+    } catch {
       toast.error(i18next.t('Transfer failed'))
       return false
     } finally {
@@ -95,3 +95,6 @@ export function useAffiliate() {
     refetch: fetchAffiliateCode,
   }
 }
+
+
+

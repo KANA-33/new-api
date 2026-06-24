@@ -24,12 +24,12 @@ import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { ChevronDown, Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { Button } from '@/components/ui/button'
+import { Button } from '@shared/ui/primitives/button'
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@/components/ui/collapsible'
+} from '@shared/ui/primitives/collapsible'
 import {
   Form,
   FormControl,
@@ -38,10 +38,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+} from '@shared/ui/primitives/form'
+import { Input } from '@shared/ui/primitives/input'
+import { Label } from '@shared/ui/primitives/label'
+import { RadioGroup, RadioGroupItem } from '@shared/ui/primitives/radio-group'
 import {
   Select,
   SelectContent,
@@ -49,7 +49,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
+} from '@shared/ui/primitives/select'
 import {
   Sheet,
   SheetClose,
@@ -58,9 +58,9 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-} from '@/components/ui/sheet'
-import { Switch } from '@/components/ui/switch'
-import { Textarea } from '@/components/ui/textarea'
+} from '@shared/ui/primitives/sheet'
+import { Switch } from '@shared/ui/primitives/switch'
+import { Textarea } from '@shared/ui/primitives/textarea'
 import {
   SideDrawerSection,
   sideDrawerContentClassName,
@@ -68,9 +68,9 @@ import {
   sideDrawerFormClassName,
   sideDrawerHeaderClassName,
   sideDrawerSwitchItemClassName,
-} from '@/components/drawer-layout'
-import { JsonEditor } from '@/components/json-editor'
-import { TagInput } from '@/components/tag-input'
+} from '@shared/ui/composite/drawer-layout'
+import { JsonEditor } from '@shared/ui/composite/json-editor'
+import { TagInput } from '@shared/ui/composite/tag-input'
 import {
   useSystemOptions,
   getOptionValue,
@@ -1312,3 +1312,4 @@ export function ModelMutateDrawer({
     </Sheet>
   )
 }
+

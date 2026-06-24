@@ -16,8 +16,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { type TFunction } from 'i18next'
-import { formatTimestampToDate } from '@/lib/format'
+import type { TFunction } from 'i18next'
+import { formatTimestampToDate } from '@shared/lib/format'
 import { getNameRuleConfig, getQuotaTypeConfig } from '../constants'
 import type { NameRule, Model } from '../types'
 
@@ -193,3 +193,4 @@ export function isModelEnabled(model: Model): boolean {
 export function isModelSyncOfficial(model: Model): boolean {
   return model.sync_official === 1
 }
+

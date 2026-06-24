@@ -18,9 +18,9 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { z } from 'zod'
 import type { TFunction } from 'i18next'
-import { parseQuotaFromDollars, quotaUnitsToDollars } from '@/lib/format'
+import { parseQuotaFromDollars, quotaUnitsToDollars } from '@shared/lib/format'
 import { DEFAULT_GROUP } from '../constants'
-import { type ApiKeyFormData, type ApiKey } from '../types'
+import type { ApiKeyFormData, ApiKey } from '../types'
 
 // ============================================================================
 // Form Schema
@@ -137,3 +137,4 @@ export function transformApiKeyToFormDefaults(
     tokenCount: 1,
   }
 }
+

@@ -19,7 +19,7 @@ For commercial licensing, please contact support@quantumnous.com
 import { useState, useEffect, useCallback } from 'react'
 import i18next from 'i18next'
 import { toast } from 'sonner'
-import { useIsAdmin } from '@/hooks/use-admin'
+import { useIsAdmin } from '@shared/hooks/use-admin'
 import {
   getUserBillingHistory,
   getAllBillingHistory,
@@ -160,3 +160,4 @@ export function useBillingHistory(options: UseBillingHistoryOptions = {}) {
     refresh: fetchBillingHistory,
   }
 }
+

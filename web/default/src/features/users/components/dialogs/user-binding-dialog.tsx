@@ -31,19 +31,19 @@ import {
 import { useTranslation } from 'react-i18next'
 import { SiGithub, SiDiscord } from 'react-icons/si'
 import { toast } from 'sonner'
-import { api } from '@/lib/api'
-import { Button } from '@/components/ui/button'
-import { ScrollArea } from '@/components/ui/scroll-area'
-import { Separator } from '@/components/ui/separator'
+import { api } from '@shared/api/client'
+import { Button } from '@shared/ui/primitives/button'
+import { ScrollArea } from '@shared/ui/primitives/scroll-area'
+import { Separator } from '@shared/ui/primitives/separator'
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
-import { ConfirmDialog } from '@/components/confirm-dialog'
-import { Dialog } from '@/components/dialog'
-import { StatusBadge } from '@/components/status-badge'
+} from '@shared/ui/primitives/tooltip'
+import { ConfirmDialog } from '@shared/ui/composite/confirm-dialog'
+import { Dialog } from '@shared/ui/composite/dialog'
+import { StatusBadge } from '@shared/ui/composite/status-badge'
 import {
   getUser,
   getUserOAuthBindings,
@@ -450,3 +450,6 @@ export function UserBindingDialog(props: Props) {
     </>
   )
 }
+
+
+
