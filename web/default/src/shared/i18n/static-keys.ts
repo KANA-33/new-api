@@ -509,6 +509,23 @@ export const STATIC_I18N_KEYS = [
   'The model that was requested',
   'The upstream channel that served the requests',
 
+  // User workspace redesign
+  'API keys',
+  'Account identity, security, and preferences.',
+  'Balance, billing, and rewards without friction.',
+  'Compose, test, edit, and regenerate prompts without leaving the refined user workspace.',
+  'Create, rotate, limit, and audit keys from a calmer credential workspace.',
+  'Data Panel',
+  'Experiment with models in a quieter studio.',
+  'Failed to load playground groups',
+  'Failed to load playground models',
+  'Keep your profile current, tune language preferences, and manage authentication settings from a restrained personal surface.',
+  'Live monitor groups',
+  'Platform brief',
+  'Production credentials, kept precise.',
+  'Recharge, subscribe, redeem codes, and review account value in one warm financial workspace.',
+  'Signals, notices, and help',
+
   // Misc
   'Cancel',
   'Status',
